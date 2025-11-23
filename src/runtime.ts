@@ -430,3 +430,69 @@ export class TextApiResponse {
         return await this.raw.text();
     };
 }
+
+// PATCH: SDK helper(s) appended to the generated runtime.ts file.
+// This file is read by sdk-enhancements/patch-runtime.mjs and should only
+// contain the additional helpers we want to append post generation.
+
+const TOKEN_QUERY_KEY = 'token';
+
+const toUrlString = (input: RequestInfo | URL): string => {
+  if (typeof input === 'string') {
+    return input;
+  }
+
+  if (typeof URL !== 'undefined' && input instanceof URL) {
+    return input.toString();
+  }
+
+  if (typeof input === 'object' && input !== null) {
+    const maybeRequest = input as { url?: string };
+    if (typeof maybeRequest.url === 'string') {
+      return maybeRequest.url;
+    }
+
+    const maybeHref = (input as { href?: string }).href;
+    if (typeof maybeHref === 'string') {
+      return maybeHref;
+    }
+  }
+
+  return String(input);
+};
+
+/**
+ * Lightweight helper that creates a Configuration pre-configured to append
+ * the Test Collab API token to every request. All existing configuration
+ * options are preserved via the optional baseConfig parameter.
+ */
+export function createConfiguration(
+  apiKey: string,
+  baseConfig: ConfigurationParameters = {},
+): Configuration {
+  if (!apiKey) {
+    throw new Error('`apiKey` is required when calling createConfiguration.');
+  }
+
+  const globalFetch: FetchAPI | undefined =
+    typeof fetch === 'function' ? fetch.bind(globalThis) : undefined;
+  const resolvedFetch = (baseConfig.fetchApi ?? globalFetch) as FetchAPI | undefined;
+
+  if (!resolvedFetch) {
+    throw new Error(
+      'No fetch implementation available. Provide one via baseConfig.fetchApi or ensure fetch is globally available.',
+    );
+  }
+
+  const fetchWithToken: FetchAPI = (url, init) => {
+    const urlString = toUrlString(url);
+    const separator = urlString.includes('?') ? '&' : '?';
+    const tokenizedUrl = `${urlString}${separator}${TOKEN_QUERY_KEY}=${encodeURIComponent(apiKey)}`;
+    return resolvedFetch(tokenizedUrl, init);
+  };
+
+  return new Configuration({
+    ...baseConfig,
+    fetchApi: fetchWithToken,
+  });
+}

@@ -29,24 +29,20 @@ For the purpose of this documentation, we'll stick to the API key based authoriz
 API Key method:
 
 ```javascript
-import { Configuration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi } from 'testcollab-sdk';
+import { createConfiguration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi } from 'testcollab-sdk';
 
-let apiKey = '123456-abc';
-
-let config = new Configuration({
-        fetchApi: (url, options) => {
-            // append the token to the url if no query string is present
-            if (!url.includes('?')) {
-                url = url + '?token=' + apiKey;
-            }
-            else {
-                url = url + '&token=' + apiKey;
-            }
-            return fetch(url, options)
-        },
-    
-    })
+const apiKey = '123456-abc';
+const config = createConfiguration(apiKey);
 const testPlansApi = new TestPlansApi(config);
+```
+
+If you need to override runtime defaults (basePath, middleware, custom fetch implementation, etc.) you can pass them as the second argument:
+
+```javascript
+const config = createConfiguration(apiKey, {
+    basePath: 'https://api.testcollab.io',
+    fetchApi: myCustomFetch,
+});
 ```
 
 
