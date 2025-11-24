@@ -141,6 +141,16 @@ export class BaseAPI {
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
+        if (context.query && context.query["_filter"] != null) {
+            const parsedFilter = JSON.parse(String(context.query["_filter"])) as Record<string, unknown>;
+            const targetQuery = context.query as HTTPQuery;
+            for (const key in parsedFilter) {
+                if (Object.prototype.hasOwnProperty.call(parsedFilter, key)) {
+                    targetQuery[key] = parsedFilter[key] as any;
+                }
+            }
+            delete targetQuery["_filter"];
+        }
         let url = this.configuration.basePath + context.path;
         if (context.query !== undefined && Object.keys(context.query).length !== 0) {
             // only add the querystring to the URL if there are query parameters.
