@@ -36,12 +36,11 @@ const config = createConfiguration(apiKey);
 const testPlansApi = new TestPlansApi(config);
 ```
 
-If you need to override runtime defaults (basePath, middleware, custom fetch implementation, etc.) you can pass them as the second argument:
+If you need to override URL (for self-hosted setup or EU server residency), you can pass basePath as the second argument:
 
 ```javascript
 const config = createConfiguration(apiKey, {
-    basePath: 'https://api.testcollab.io',
-    fetchApi: myCustomFetch,
+    basePath: 'https://api-eu.testcollab.io'
 });
 ```
 
