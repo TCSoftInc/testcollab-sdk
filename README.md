@@ -29,7 +29,7 @@ For the purpose of this documentation, we'll stick to the API key based authoriz
 API Key method:
 
 ```javascript
-import { createConfiguration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi } from 'testcollab-sdk';
+import { createConfiguration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi, TestCasesApi } from 'testcollab-sdk';
 
 const apiKey = '123456-abc';
 const config = createConfiguration(apiKey);
@@ -42,6 +42,30 @@ If you need to override URL (for self-hosted setup or EU server residency), you 
 const config = createConfiguration(apiKey, {
     basePath: 'https://api-eu.testcollab.io'
 });
+```
+
+### Add Test Case
+
+```javascript
+        const testCasesApi = new TestCasesApi(config);
+
+        const createdTestCase = await testCasesApi.createTestCase({
+            testCasePayload: {
+                project: 1234,
+                title: 'SDK generated test case',
+                suite: 5678,
+                priority: 1, // 0: Low, 1: Normal, 2: High
+                description: '<p>Verify login flow works for valid user</p>',
+                steps: [
+                    { step: 'Open login page', expectedResult: 'Login form is visible' },
+                    { step: 'Submit valid credentials', expectedResult: 'User lands on dashboard' }
+                ],
+                tags: [10, 11],
+                customFields: []
+            }
+        });
+
+        console.log('Test Case ID: ' + createdTestCase.id)
 ```
 
 
