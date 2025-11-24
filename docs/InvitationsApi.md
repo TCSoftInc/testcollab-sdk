@@ -30,11 +30,11 @@ Accept invitation
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { AcceptInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AcceptInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -104,11 +104,11 @@ Invitation to add
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { CreateInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -178,11 +178,11 @@ Deletes a specific invitation
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { DeleteInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -252,11 +252,11 @@ Get details of specific invitation sent
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { GetInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -326,11 +326,11 @@ Get invitation code
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { GetInvitationByCodeRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetInvitationByCodeRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new InvitationsApi();
 
   const body = {
@@ -394,11 +394,11 @@ Get invitations\&#39; count
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { GetInvitationCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetInvitationCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -468,11 +468,11 @@ Get list of invitations sent
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { GetInvitationsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetInvitationsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -551,11 +551,11 @@ Invitation to add
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { ResendInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ResendInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -625,11 +625,11 @@ Invitation to update
 import {
   Configuration,
   InvitationsApi,
-} from 'testcollab-sdk';
-import type { UpdateInvitationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateInvitationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

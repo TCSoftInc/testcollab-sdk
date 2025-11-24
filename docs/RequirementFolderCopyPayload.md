@@ -11,7 +11,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { RequirementFolderCopyPayload } from 'testcollab-sdk'
+import type { RequirementFolderCopyPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

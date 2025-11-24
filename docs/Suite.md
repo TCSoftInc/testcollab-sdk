@@ -20,7 +20,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Suite } from 'testcollab-sdk'
+import type { Suite } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

@@ -43,11 +43,11 @@ Confirm user\&#39;s email with the code
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { ConfirmUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ConfirmUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -111,11 +111,11 @@ This will create a new user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { CreateUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -178,11 +178,11 @@ Deletes a user and his/her associations with all project of company
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { DeleteUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -254,11 +254,11 @@ Downgrades an administrator to user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { DowngradeAdminRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DowngradeAdminRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -335,11 +335,11 @@ If user is admin, he can edit any user\&#39;s profile, otherwise he can only edi
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { EditUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { EditUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -412,11 +412,11 @@ Sends the instructions to reset password via email to id provided with request
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { ForgotPasswordRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ForgotPasswordRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -484,11 +484,11 @@ Get issue managers user can link to
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetMyIssueManagersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetMyIssueManagersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -551,11 +551,11 @@ Get currently logged in user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetMyUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetMyUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -621,11 +621,11 @@ Get details of a specific user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -699,11 +699,11 @@ Get profile of a specific user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetUserProfileRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUserProfileRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -774,11 +774,11 @@ Get list of all users in a company
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetUsersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUsersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -864,11 +864,11 @@ Get users\&#39; count for a specific company
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { GetUsersCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUsersCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -945,11 +945,11 @@ To get JWT for logged  in user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { LoginRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { LoginRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -1012,11 +1012,11 @@ Logout a user
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { LogoutRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { LogoutRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -1079,11 +1079,11 @@ Resend verification email
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { ResendVerficationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ResendVerficationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -1147,11 +1147,11 @@ Reset all passwords due to password policy changes
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { ResetAllPasswordsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ResetAllPasswordsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -1221,11 +1221,11 @@ This will reset user\&#39;s password
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { ResetPasswordRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ResetPasswordRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -1288,11 +1288,11 @@ Send verification email
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { SendVerficationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SendVerficationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -1356,11 +1356,11 @@ Upgrades a user as super administrator
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { SetSuperAdminRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetSuperAdminRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -1434,11 +1434,11 @@ If user is admin, he can edit any user, otherwise he can only edit his own profi
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { SetupProfileRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetupProfileRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {
@@ -1502,11 +1502,11 @@ Upgrades a user to an administrator
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { UpgradeUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpgradeUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -1583,11 +1583,11 @@ Send verification email
 import {
   Configuration,
   UsersApi,
-} from 'testcollab-sdk';
-import type { VerfiyEmailRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { VerfiyEmailRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UsersApi();
 
   const body = {

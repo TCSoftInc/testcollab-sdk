@@ -12,7 +12,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { UserNotifications } from 'testcollab-sdk'
+import type { UserNotifications } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

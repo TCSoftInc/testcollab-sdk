@@ -12,7 +12,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { SaasInstanceUsageDetails } from 'testcollab-sdk'
+import type { SaasInstanceUsageDetails } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

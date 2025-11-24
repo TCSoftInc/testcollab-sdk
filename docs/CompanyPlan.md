@@ -13,7 +13,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CompanyPlan } from 'testcollab-sdk'
+import type { CompanyPlan } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

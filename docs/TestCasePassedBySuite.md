@@ -14,7 +14,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TestCasePassedBySuite } from 'testcollab-sdk'
+import type { TestCasePassedBySuite } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

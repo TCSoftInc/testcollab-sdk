@@ -27,11 +27,11 @@ Clear all notifications
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { ClearAllRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ClearAllRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -100,11 +100,11 @@ Deletes given notification
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { DeleteNotificationRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteNotificationRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -175,11 +175,11 @@ Gets all notifications available in system
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { GetAllNotificationsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAllNotificationsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -248,11 +248,11 @@ Get users notifications
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { GetMyNotificationsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetMyNotificationsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -333,11 +333,11 @@ Get notifications\&#39; count
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { GetNotificationsCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetNotificationsCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -408,11 +408,11 @@ Mark notifications as read
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { MarkAsReadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { MarkAsReadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -479,11 +479,11 @@ Mark notifications as read
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { MarkOneReadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { MarkOneReadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -550,11 +550,11 @@ Enables/Disabled given notifications for current user
 import {
   Configuration,
   NotificationsApi,
-} from 'testcollab-sdk';
-import type { UpdateNotificationsStatusRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateNotificationsStatusRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

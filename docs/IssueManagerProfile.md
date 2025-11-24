@@ -15,7 +15,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { IssueManagerProfile } from 'testcollab-sdk'
+import type { IssueManagerProfile } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

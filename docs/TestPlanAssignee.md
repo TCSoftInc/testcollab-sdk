@@ -14,7 +14,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TestPlanAssignee } from 'testcollab-sdk'
+import type { TestPlanAssignee } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

@@ -21,11 +21,11 @@ Assign all test cases of test plan to user
 import {
   Configuration,
   TestPlansAssignmentApi,
-} from 'testcollab-sdk';
-import type { AssignAllRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AssignAllRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -97,11 +97,11 @@ Assign test plan to users
 import {
   Configuration,
   TestPlansAssignmentApi,
-} from 'testcollab-sdk';
-import type { AssignTestPlanRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AssignTestPlanRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

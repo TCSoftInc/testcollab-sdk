@@ -22,7 +22,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Status } from 'testcollab-sdk'
+import type { Status } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

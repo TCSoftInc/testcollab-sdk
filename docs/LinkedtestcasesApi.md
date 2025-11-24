@@ -24,11 +24,11 @@ Bulk copy of Test Cases
 import {
   Configuration,
   LinkedtestcasesApi,
-} from 'testcollab-sdk';
-import type { BulkLinkTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { BulkLinkTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -98,11 +98,11 @@ Linked test case to add
 import {
   Configuration,
   LinkedtestcasesApi,
-} from 'testcollab-sdk';
-import type { CreateLinkedTestcaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateLinkedTestcaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -172,11 +172,11 @@ Get list of linked test cases
 import {
   Configuration,
   LinkedtestcasesApi,
-} from 'testcollab-sdk';
-import type { GetLinkedTestCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetLinkedTestCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

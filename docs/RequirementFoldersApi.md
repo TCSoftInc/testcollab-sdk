@@ -30,11 +30,11 @@ Duplicates a requirement folder
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { CopyRequirementFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CopyRequirementFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -107,11 +107,11 @@ Requirement Folder to add
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { CreateRequirementFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateRequirementFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -181,11 +181,11 @@ Deletes a specific requirement folder
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { DeleteRequirementFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteRequirementFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -255,11 +255,11 @@ Get details of specific requirement folder
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { GetRequirementFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRequirementFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -329,11 +329,11 @@ Get requirement folders\&#39; count in a specific project
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { GetRequirementFolderCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRequirementFolderCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -403,11 +403,11 @@ Get requirement folder tree for a specific project
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { GetRequirementFolderTreeRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRequirementFolderTreeRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -477,11 +477,11 @@ Get list of requirement folders for a specific project
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { GetRequirementFoldersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRequirementFoldersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -563,11 +563,11 @@ Set sort order for requirement folders
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { SetRequirementsOrderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetRequirementsOrderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -637,11 +637,11 @@ Requirement Folder to update
 import {
   Configuration,
   RequirementFoldersApi,
-} from 'testcollab-sdk';
-import type { UpdateRequirementFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateRequirementFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

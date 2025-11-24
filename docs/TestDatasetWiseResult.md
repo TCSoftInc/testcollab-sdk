@@ -19,7 +19,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TestDatasetWiseResult } from 'testcollab-sdk'
+import type { TestDatasetWiseResult } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

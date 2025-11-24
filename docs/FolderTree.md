@@ -17,7 +17,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { FolderTree } from 'testcollab-sdk'
+import type { FolderTree } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

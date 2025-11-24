@@ -15,7 +15,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CompanyOtherInfoPayload } from 'testcollab-sdk'
+import type { CompanyOtherInfoPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

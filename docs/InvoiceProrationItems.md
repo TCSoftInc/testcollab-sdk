@@ -17,7 +17,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { InvoiceProrationItems } from 'testcollab-sdk'
+import type { InvoiceProrationItems } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

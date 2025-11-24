@@ -28,11 +28,11 @@ Create a new defect
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { CreateDefectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateDefectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -102,11 +102,11 @@ Deletes a specific defect
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { DeleteDefectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteDefectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -176,11 +176,11 @@ Get details of a reported defect
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { GetDefectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetDefectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -253,11 +253,11 @@ Get defects\&#39; count
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { GetDefectCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetDefectCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -330,11 +330,11 @@ Get list of defects
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { GetDefectsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetDefectsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -419,11 +419,11 @@ Link Defect
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { LinkDefectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { LinkDefectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -493,11 +493,11 @@ Defect to update
 import {
   Configuration,
   DefectsApi,
-} from 'testcollab-sdk';
-import type { UpdateDefectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateDefectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

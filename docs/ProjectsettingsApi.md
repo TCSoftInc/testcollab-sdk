@@ -24,11 +24,11 @@ Deletes settings for given project
 import {
   Configuration,
   ProjectsettingsApi,
-} from 'testcollab-sdk';
-import type { DeleteProjectSettingRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteProjectSettingRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -101,11 +101,11 @@ Get details of project specific settings
 import {
   Configuration,
   ProjectsettingsApi,
-} from 'testcollab-sdk';
-import type { GetProjectSettingsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectSettingsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -184,11 +184,11 @@ settings to save
 import {
   Configuration,
   ProjectsettingsApi,
-} from 'testcollab-sdk';
-import type { SetProjectSettingsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetProjectSettingsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

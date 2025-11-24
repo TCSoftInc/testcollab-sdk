@@ -26,11 +26,11 @@ Adds a new custom status, associating it with a project specified in the payload
 import {
   Configuration,
   StatusesApi,
-} from 'testcollab-sdk';
-import type { CreateStatusRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateStatusRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -106,11 +106,11 @@ Deletes a custom status. System statuses cannot be deleted. Project context migh
 import {
   Configuration,
   StatusesApi,
-} from 'testcollab-sdk';
-import type { DeleteStatusByIdRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteStatusByIdRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -187,11 +187,11 @@ Retrieves details of a specific status by its ID. Project context might be requi
 import {
   Configuration,
   StatusesApi,
-} from 'testcollab-sdk';
-import type { GetStatusByIdRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetStatusByIdRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -267,11 +267,11 @@ Retrieves all statuses (system and custom), optionally filtered by project.
 import {
   Configuration,
   StatusesApi,
-} from 'testcollab-sdk';
-import type { GetStatusesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetStatusesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -356,11 +356,11 @@ Updates an existing status. System statuses have restrictions. Project context m
 import {
   Configuration,
   StatusesApi,
-} from 'testcollab-sdk';
-import type { UpdateStatusByIdRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateStatusByIdRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

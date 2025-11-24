@@ -27,11 +27,11 @@ Deletes a set of reusable steps
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { DeleteReusableStepRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteReusableStepRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -108,11 +108,11 @@ Get complete list of reusable steps (with paging)
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { GetAllReusableStepsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAllReusableStepsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -193,11 +193,11 @@ Get details of specific reusable step
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { GetReusableStepRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetReusableStepRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -274,11 +274,11 @@ Get reusable steps\&#39; count
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { GetReusablestepsCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetReusablestepsCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -352,11 +352,11 @@ Adds a new set of reusable steps
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { SaveReusableStepRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SaveReusableStepRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -428,11 +428,11 @@ Updates a set of reusable steps
 import {
   Configuration,
   ReusableStepsApi,
-} from 'testcollab-sdk';
-import type { UpdateReusableStepRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateReusableStepRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

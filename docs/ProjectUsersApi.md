@@ -27,11 +27,11 @@ Project Member to add
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { CreateProjectUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateProjectUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -101,11 +101,11 @@ Deletes a specific project member
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { DeleteProjectUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteProjectUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -175,11 +175,11 @@ Get details of a specific project member
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { GetProjectUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -249,11 +249,11 @@ Get project members\&#39; count
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { GetProjectUserCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectUserCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -323,11 +323,11 @@ Get details of members in a project
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { GetProjectUsersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectUsersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -409,11 +409,11 @@ Project Member to update
 import {
   Configuration,
   ProjectUsersApi,
-} from 'testcollab-sdk';
-import type { UpdateProjectUserRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateProjectUserRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

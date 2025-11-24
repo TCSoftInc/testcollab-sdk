@@ -23,11 +23,11 @@ Get information specific to a company
 import {
   Configuration,
   SaasOnlyApi,
-} from 'testcollab-sdk';
-import type { GetCompanyOldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetCompanyOldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -96,11 +96,11 @@ Updates billing details of specified company
 import {
   Configuration,
   SaasOnlyApi,
-} from 'testcollab-sdk';
-import type { UpdateCompanyBillingDetailsOldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateCompanyBillingDetailsOldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

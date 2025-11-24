@@ -33,11 +33,11 @@ Array of test cases IDs -or- array of filter queries
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { AddTestPlanTestCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddTestPlanTestCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -111,11 +111,11 @@ Array of test cases IDs -or- array of filter queries
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { BulkAddTestPlanTestCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { BulkAddTestPlanTestCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -189,11 +189,11 @@ Update testplan test cases in bulk
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { BulkDeleteTestplanCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { BulkDeleteTestplanCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -267,11 +267,11 @@ Update testplan test cases in bulk
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { BulkUpdateTestplanCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { BulkUpdateTestplanCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -345,11 +345,11 @@ Deletes a specific test case added for a test plan
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { DeleteTestPlanTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestPlanTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -422,11 +422,11 @@ returns suite tree of execution
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanSuiteTreeRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanSuiteTreeRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -496,11 +496,11 @@ Get details of a specific test case added to a test plan
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -573,11 +573,11 @@ Get count of test cases added to a test plan
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanTestCaseCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanTestCaseCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -654,11 +654,11 @@ Get id(s) of test case(s) under a test plan that match the filter criteria
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanTestCaseIdsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanTestCaseIdsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -728,11 +728,11 @@ Get list of test cases for a test plan
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanTestCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanTestCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -821,11 +821,11 @@ Set sort order for test cases on run page
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { SetTestPlanCasesSortOrderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetTestPlanCasesSortOrderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -895,11 +895,11 @@ Test Plan Test Case to update
 import {
   Configuration,
   TestPlanTestCasesApi,
-} from 'testcollab-sdk';
-import type { UpdateTestPlanTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestPlanTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

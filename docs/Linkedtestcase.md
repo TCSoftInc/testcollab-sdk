@@ -16,7 +16,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Linkedtestcase } from 'testcollab-sdk'
+import type { Linkedtestcase } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

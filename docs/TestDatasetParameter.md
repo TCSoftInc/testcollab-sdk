@@ -13,7 +13,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TestDatasetParameter } from 'testcollab-sdk'
+import type { TestDatasetParameter } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

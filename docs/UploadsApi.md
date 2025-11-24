@@ -28,11 +28,11 @@ Creates a new upload
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { CreateUploadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateUploadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -105,11 +105,11 @@ Deletes a specific uploaded file
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { DeleteUploadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteUploadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -179,11 +179,11 @@ Get details of a specific file uploaded as attachment for a company
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { GetAttachmentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAttachmentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new UploadsApi();
 
   const body = {
@@ -255,11 +255,11 @@ Get details of an uploaded file
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { GetUploadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUploadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -329,11 +329,11 @@ Get uploads\&#39; count for a specific project
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { GetUploadCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUploadCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -403,11 +403,11 @@ Get list of files uploaded for a company
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { GetUploadsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetUploadsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -489,11 +489,11 @@ Updates an upload
 import {
   Configuration,
   UploadsApi,
-} from 'testcollab-sdk';
-import type { UpdateUploadRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateUploadRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

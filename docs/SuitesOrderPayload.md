@@ -12,7 +12,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { SuitesOrderPayload } from 'testcollab-sdk'
+import type { SuitesOrderPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

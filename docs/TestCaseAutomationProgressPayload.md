@@ -22,7 +22,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TestCaseAutomationProgressPayload } from 'testcollab-sdk'
+import type { TestCaseAutomationProgressPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

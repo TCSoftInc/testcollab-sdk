@@ -25,7 +25,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CustomField } from 'testcollab-sdk'
+import type { CustomField } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

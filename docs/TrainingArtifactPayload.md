@@ -23,7 +23,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { TrainingArtifactPayload } from 'testcollab-sdk'
+import type { TrainingArtifactPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

@@ -32,11 +32,11 @@ Add a test suite
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { AddSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -110,11 +110,11 @@ Duplicates a specific suite
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { CopySuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CopySuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -187,11 +187,11 @@ Deletes a specific suite
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { DeleteSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -264,11 +264,11 @@ fetch suite data
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { GetAllSuitesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAllSuitesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -339,11 +339,11 @@ Get suite tree for a given project
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { GetProjectSuitesTreeRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectSuitesTreeRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -412,11 +412,11 @@ fetch suite data
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { GetSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -489,11 +489,11 @@ Creates a suite\&#39;s link
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { LinkSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { LinkSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -563,11 +563,11 @@ Set sort order for suites
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { SetSuitesOrderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetSuitesOrderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -637,11 +637,11 @@ Bulk action for suites
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { SuitesBulkActionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SuitesBulkActionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -711,11 +711,11 @@ Unlinks a specific suite
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { UnlinkSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UnlinkSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -785,11 +785,11 @@ Suite to update
 import {
   Configuration,
   SuitesApi,
-} from 'testcollab-sdk';
-import type { UpdateSuiteRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateSuiteRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

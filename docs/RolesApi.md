@@ -28,11 +28,11 @@ Clone Role
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { CloneRoleRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CloneRoleRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -102,11 +102,11 @@ Role to add
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { CreateRoleRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateRoleRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -176,11 +176,11 @@ Deletes a specific role
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { DeleteRoleRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteRoleRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -250,11 +250,11 @@ Get details of a specific role
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { GetRoleRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRoleRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -324,11 +324,11 @@ Get roles\&#39;count for a specific company
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { GetRoleCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRoleCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -398,11 +398,11 @@ Get list of roles
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { GetRolesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRolesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -484,11 +484,11 @@ Role to update
 import {
   Configuration,
   RolesApi,
-} from 'testcollab-sdk';
-import type { UpdateRoleRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateRoleRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

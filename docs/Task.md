@@ -21,7 +21,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Task } from 'testcollab-sdk'
+import type { Task } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

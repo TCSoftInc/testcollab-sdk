@@ -27,11 +27,11 @@ Adds a new regression for a test plan
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { AddTestPlanRegressionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddTestPlanRegressionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -106,11 +106,11 @@ Deletes a specific test plan regression
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { DeleteTestPlanRegressionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestPlanRegressionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -180,11 +180,11 @@ Get details of specific test plan regression
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanRegressionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanRegressionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -254,11 +254,11 @@ Get test plan regressions\&#39; count for a specific project
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanRegressionCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanRegressionCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -328,11 +328,11 @@ Get details of regressions for specific test plan
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanRegressionsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanRegressionsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -424,11 +424,11 @@ Test Plan Regression to update
 import {
   Configuration,
   TestPlanRegressionsApi,
-} from 'testcollab-sdk';
-import type { UpdateTestPlanRegressionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestPlanRegressionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

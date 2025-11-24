@@ -33,11 +33,11 @@ Fetches the recent activities for a Project/Test Plan/User
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetActivitiesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetActivitiesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -135,11 +135,11 @@ Get defects timeline for report purpose
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetDefectTimelineReportRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetDefectTimelineReportRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -209,11 +209,11 @@ Defects timeline data , helps in plotting Defects Opened graph
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetDefectsTimelineRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetDefectsTimelineRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -293,11 +293,11 @@ Fetches the project specific metrics
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetProjectMetricsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetProjectMetricsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -377,11 +377,11 @@ Get report data
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetReportDataRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetReportDataRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -451,11 +451,11 @@ Fetches the data on test case failure distribution based on the threshold select
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTCFailureDistributionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTCFailureDistributionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -535,11 +535,11 @@ Fetches summary of last run status for test cases within project
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseLastRunStatusRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseLastRunStatusRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -619,11 +619,11 @@ Fetches test cases passed percetage by suites to form the heatmap
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTestCasePassedPercentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCasePassedPercentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -703,11 +703,11 @@ Fetches the data for the top 5 (max) test cases that are prone to errors based o
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTestCasesProneToErrorsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCasesProneToErrorsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -802,11 +802,11 @@ Fetches test plan burn down chart data
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanBurnDownDataRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanBurnDownDataRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -883,11 +883,11 @@ Fetches test plan burn down chart data
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanBurnDownDataOldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanBurnDownDataOldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -964,11 +964,11 @@ Time spent on executing each test case
 import {
   Configuration,
   ReportsApi,
-} from 'testcollab-sdk';
-import type { GetTimeSpentPerCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTimeSpentPerCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

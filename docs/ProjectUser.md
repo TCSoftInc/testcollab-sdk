@@ -16,7 +16,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { ProjectUser } from 'testcollab-sdk'
+import type { ProjectUser } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

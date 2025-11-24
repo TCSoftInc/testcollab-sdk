@@ -18,7 +18,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { AppManagerTestPayload } from 'testcollab-sdk'
+import type { AppManagerTestPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

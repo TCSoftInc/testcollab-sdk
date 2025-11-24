@@ -22,11 +22,11 @@ Returns status of the import queue
 import {
   Configuration,
   TestCaseImportApi,
-} from 'testcollab-sdk';
-import type { GetImportQueueStatusRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetImportQueueStatusRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -93,11 +93,11 @@ Returns summary of the import task
 import {
   Configuration,
   TestCaseImportApi,
-} from 'testcollab-sdk';
-import type { GetImportSummaryRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetImportSummaryRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -166,11 +166,11 @@ Adds an import queue
 import {
   Configuration,
   TestCaseImportApi,
-} from 'testcollab-sdk';
-import type { QueueImportRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { QueueImportRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

@@ -27,11 +27,11 @@ Saved Filter to add
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { CreateSavedFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateSavedFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -101,11 +101,11 @@ Deletes a specific saved filter
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { DeleteSavedFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteSavedFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -175,11 +175,11 @@ Get saved filter
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { GetSavedFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetSavedFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -249,11 +249,11 @@ Get saved filters\&#39; count for a specific project
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { GetSavedFilterCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetSavedFilterCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -323,11 +323,11 @@ Get list of saved filters for a specific project
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { GetSavedFiltersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetSavedFiltersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -409,11 +409,11 @@ Saved Filter to update
 import {
   Configuration,
   SavedFiltersApi,
-} from 'testcollab-sdk';
-import type { UpdateSavedFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateSavedFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

@@ -28,11 +28,11 @@ Test Case Revision to add
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { CreateTestCaseRevisionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateTestCaseRevisionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -102,11 +102,11 @@ Deletes a specific test case revision
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { DeleteTestCaseRevisionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestCaseRevisionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -176,11 +176,11 @@ Gets the latest revision for a specific test case
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseLatestRevisionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseLatestRevisionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -260,11 +260,11 @@ Get details of a specific test case revision
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseRevisionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseRevisionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -334,11 +334,11 @@ Get count of test case revisions according to the filter criteria
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseRevisionCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseRevisionCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -415,11 +415,11 @@ Get list of revisions a test case has been through
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseRevisionsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseRevisionsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -504,11 +504,11 @@ Test Case Revision to update
 import {
   Configuration,
   TestCaseRevisionsApi,
-} from 'testcollab-sdk';
-import type { UpdateTestCaseRevisionRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestCaseRevisionRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

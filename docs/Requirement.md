@@ -27,7 +27,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { Requirement } from 'testcollab-sdk'
+import type { Requirement } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

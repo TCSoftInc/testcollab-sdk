@@ -28,11 +28,11 @@ Custom Field to add
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { CreateCustomFieldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateCustomFieldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -102,11 +102,11 @@ Deletes specific custom field
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { DeleteCustomFieldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteCustomFieldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -176,11 +176,11 @@ Get custom fields
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { GetCustomFieldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetCustomFieldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -250,11 +250,11 @@ Get custom fields count
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { GetCustomFieldCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetCustomFieldCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -324,11 +324,11 @@ Get company specific list of custom fields
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { GetCustomFieldsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetCustomFieldsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -410,11 +410,11 @@ Set sort order for custom fields
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { SetCustomFieldsSortOrderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetCustomFieldsSortOrderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -484,11 +484,11 @@ Custom Field to update
 import {
   Configuration,
   CustomFieldsApi,
-} from 'testcollab-sdk';
-import type { UpdateCustomFieldRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateCustomFieldRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

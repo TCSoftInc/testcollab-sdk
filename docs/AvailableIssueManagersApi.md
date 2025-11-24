@@ -23,11 +23,11 @@ Get details of specific issue manager
 import {
   Configuration,
   AvailableIssueManagersApi,
-} from 'testcollab-sdk';
-import type { GetAvailableIssueManagerRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAvailableIssueManagerRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -97,11 +97,11 @@ Get list of available issue managers
 import {
   Configuration,
   AvailableIssueManagersApi,
-} from 'testcollab-sdk';
-import type { GetAvailableIssueManagersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetAvailableIssueManagersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

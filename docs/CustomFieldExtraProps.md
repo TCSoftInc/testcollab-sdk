@@ -12,7 +12,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { CustomFieldExtraProps } from 'testcollab-sdk'
+import type { CustomFieldExtraProps } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

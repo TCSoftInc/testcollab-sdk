@@ -14,7 +14,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { SsoTokenPayload } from 'testcollab-sdk'
+import type { SsoTokenPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

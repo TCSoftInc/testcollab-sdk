@@ -25,11 +25,11 @@ Deletes a tag
 import {
   Configuration,
   TagsApi,
-} from 'testcollab-sdk';
-import type { DeleteTagRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTagRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -103,11 +103,11 @@ Fetches the details of a tag
 import {
   Configuration,
   TagsApi,
-} from 'testcollab-sdk';
-import type { GetTagRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTagRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -181,11 +181,11 @@ Get tags\&#39; count for a project
 import {
   Configuration,
   TagsApi,
-} from 'testcollab-sdk';
-import type { GetTagCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTagCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -258,11 +258,11 @@ Updates a tag
 import {
   Configuration,
   TagsApi,
-} from 'testcollab-sdk';
-import type { UpdateTagRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTagRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

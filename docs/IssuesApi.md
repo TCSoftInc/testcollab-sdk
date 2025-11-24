@@ -22,11 +22,11 @@ Issue to update
 import {
   Configuration,
   IssuesApi,
-} from 'testcollab-sdk';
-import type { UpdateIssueAttachmentsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateIssueAttachmentsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

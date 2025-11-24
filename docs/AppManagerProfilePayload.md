@@ -13,7 +13,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { AppManagerProfilePayload } from 'testcollab-sdk'
+import type { AppManagerProfilePayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

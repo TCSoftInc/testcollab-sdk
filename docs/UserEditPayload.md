@@ -17,7 +17,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { UserEditPayload } from 'testcollab-sdk'
+import type { UserEditPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

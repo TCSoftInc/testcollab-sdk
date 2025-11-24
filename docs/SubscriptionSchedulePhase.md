@@ -13,7 +13,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { SubscriptionSchedulePhase } from 'testcollab-sdk'
+import type { SubscriptionSchedulePhase } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

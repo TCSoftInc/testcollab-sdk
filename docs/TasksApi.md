@@ -27,11 +27,11 @@ Deletes a specific task
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { DeleteTaskRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTaskRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -104,11 +104,11 @@ Get a specific task
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { GetTaskRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTaskRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -181,11 +181,11 @@ Get tasks\&#39; count for a specific company
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { GetTaskCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTaskCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -258,11 +258,11 @@ Get list of tasks specific for a company
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { GetTasksRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTasksRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -350,11 +350,11 @@ Task to update
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { MarkTaskRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { MarkTaskRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -427,11 +427,11 @@ Task to update
 import {
   Configuration,
   TasksApi,
-} from 'testcollab-sdk';
-import type { UpdateTaskRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTaskRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

@@ -16,7 +16,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { IssueManagerFieldMapping } from 'testcollab-sdk'
+import type { IssueManagerFieldMapping } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

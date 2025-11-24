@@ -23,11 +23,11 @@ Payment Profile to add
 import {
   Configuration,
   LinkedprojectsApi,
-} from 'testcollab-sdk';
-import type { CreateLinkedProjectRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateLinkedProjectRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -97,11 +97,11 @@ Get list of linked projects
 import {
   Configuration,
   LinkedprojectsApi,
-} from 'testcollab-sdk';
-import type { GetLinkedProjectsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetLinkedProjectsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

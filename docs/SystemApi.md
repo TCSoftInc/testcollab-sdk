@@ -22,11 +22,11 @@ Get system status
 import {
   Configuration,
   SystemApi,
-} from 'testcollab-sdk';
-import type { GetSystemStatusRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetSystemStatusRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const api = new SystemApi();
 
   const body = {

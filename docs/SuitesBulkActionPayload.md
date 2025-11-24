@@ -13,7 +13,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { SuitesBulkActionPayload } from 'testcollab-sdk'
+import type { SuitesBulkActionPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

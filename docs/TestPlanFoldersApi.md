@@ -30,11 +30,11 @@ Duplicates a test plan folder
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { CopyTestPlanFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CopyTestPlanFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -107,11 +107,11 @@ Test Plan Folder to add
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { CreateTestPlanFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateTestPlanFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -181,11 +181,11 @@ Deletes a specific test plan folder
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { DeleteTestPlanFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestPlanFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -255,11 +255,11 @@ Get details of specific test plan folder
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -329,11 +329,11 @@ Get test plan folders\&#39; count in a specific project
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanFolderCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanFolderCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -403,11 +403,11 @@ Get test plan folder tree for a specific project
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanFolderTreeRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanFolderTreeRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -477,11 +477,11 @@ Get list of test plan folders for a specific project
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanFoldersRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanFoldersRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -563,11 +563,11 @@ Set sort order for testplan folders
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { SetTestplansOrderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SetTestplansOrderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -637,11 +637,11 @@ Test Plan Folder to update
 import {
   Configuration,
   TestPlanFoldersApi,
-} from 'testcollab-sdk';
-import type { UpdateTestPlanFolderRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestPlanFolderRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

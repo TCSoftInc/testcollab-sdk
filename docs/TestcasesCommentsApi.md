@@ -27,11 +27,11 @@ Adds a new test case comment
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { AddTestCaseCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddTestCaseCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -106,11 +106,11 @@ Delete a specific comment added for a test case
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { DeleteTestCaseCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestCaseCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -183,11 +183,11 @@ Get comments added for a specific test case
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -260,11 +260,11 @@ Get comments for a specific test case
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseCommentsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseCommentsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -353,11 +353,11 @@ Get count of comments added for a specific test case
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseCommentsCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseCommentsCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -434,11 +434,11 @@ Test Case to update
 import {
   Configuration,
   TestcasesCommentsApi,
-} from 'testcollab-sdk';
-import type { UpdateTestCaseCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestCaseCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

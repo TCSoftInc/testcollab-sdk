@@ -23,11 +23,11 @@ Get id(s) of test case(s) that match the filter criteria
 import {
   Configuration,
   RequirementsApi,
-} from 'testcollab-sdk';
-import type { GetRequirementIdsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetRequirementIdsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -97,11 +97,11 @@ Get TraceabilityMatrix
 import {
   Configuration,
   RequirementsApi,
-} from 'testcollab-sdk';
-import type { GetTraceabilityMatrixRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTraceabilityMatrixRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

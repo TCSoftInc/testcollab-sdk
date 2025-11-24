@@ -31,7 +31,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { ExecutedTestCase } from 'testcollab-sdk'
+import type { ExecutedTestCase } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

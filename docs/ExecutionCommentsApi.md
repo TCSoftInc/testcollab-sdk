@@ -27,11 +27,11 @@ Adds a new execution comment
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { AddExecutionCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddExecutionCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -106,11 +106,11 @@ Deletes a specific execution comment
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { DeleteExecutionCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteExecutionCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -183,11 +183,11 @@ Get execution comment
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { GetExecutionCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetExecutionCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -260,11 +260,11 @@ Get Execution comments
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { GetExecutionCommentsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetExecutionCommentsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -353,11 +353,11 @@ Get execution comments\&#39; count
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { GetExecutionCommentsCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetExecutionCommentsCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -434,11 +434,11 @@ Execution to update
 import {
   Configuration,
   ExecutionCommentsApi,
-} from 'testcollab-sdk';
-import type { UpdateExecutionCommentRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateExecutionCommentRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

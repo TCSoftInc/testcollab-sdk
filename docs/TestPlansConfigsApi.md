@@ -25,11 +25,11 @@ Add new configuration(s) to a test plan
 import {
   Configuration,
   TestPlansConfigsApi,
-} from 'testcollab-sdk';
-import type { AddTestPlanConfigRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { AddTestPlanConfigRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -104,11 +104,11 @@ Edit test plan configurations(s)
 import {
   Configuration,
   TestPlansConfigsApi,
-} from 'testcollab-sdk';
-import type { EditTestPlanConfigsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { EditTestPlanConfigsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -183,11 +183,11 @@ Get list of configuration(s) added for a test plan
 import {
   Configuration,
   TestPlansConfigsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanConfigRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanConfigRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -261,11 +261,11 @@ Get configurations added for a specific test plan
 import {
   Configuration,
   TestPlansConfigsApi,
-} from 'testcollab-sdk';
-import type { GetTestPlanConfigsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestPlanConfigsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

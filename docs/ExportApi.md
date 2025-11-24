@@ -22,11 +22,11 @@ Custom export the list of test cases (in JSON format)
 import {
   Configuration,
   ExportApi,
-} from 'testcollab-sdk';
-import type { ExportTestCasesRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { ExportTestCasesRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

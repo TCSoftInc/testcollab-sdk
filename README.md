@@ -8,7 +8,7 @@ This SDK allows [Test Collab](https://testcollab.com/) clients to call API easil
 To install the library, use npm:
 
 ```sh
-npm install testcollab-sdk
+npm install @testcollab/sdk
 ```
 
 ## Usage Example
@@ -29,7 +29,7 @@ For the purpose of this documentation, we'll stick to the API key based authoriz
 API Key method:
 
 ```javascript
-import { createConfiguration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi, TestCasesApi } from 'testcollab-sdk';
+import { createConfiguration, TestPlansApi, TestPlanTestCasesApi, TestPlansAssignmentApi, TestCasesApi } from '@testcollab/sdk';
 
 const apiKey = '123456-abc';
 const config = createConfiguration(apiKey);

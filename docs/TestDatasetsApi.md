@@ -30,11 +30,11 @@ Test dataset to add
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { CreateTestDatasetRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { CreateTestDatasetRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -108,11 +108,11 @@ Deletes a specific test dataset
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { DeleteTestDatasetRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteTestDatasetRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -185,11 +185,11 @@ Get test datasets linked to a test cae
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { GetTestCaseDatasetsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestCaseDatasetsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -266,11 +266,11 @@ Get details of a specific test dataset
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { GetTestDatasetRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestDatasetRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -343,11 +343,11 @@ Get count of test datasets for specific project
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { GetTestDatasetCountRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestDatasetCountRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -424,11 +424,11 @@ Get test datasets specific to a project
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { GetTestDatasetsRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetTestDatasetsRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -514,11 +514,11 @@ link a test dataset to a test case
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { LinkTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { LinkTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -588,11 +588,11 @@ Unlink a test dataset from a test case
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { UnlinkTestCaseRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UnlinkTestCaseRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -662,11 +662,11 @@ Test dataset to update
 import {
   Configuration,
   TestDatasetsApi,
-} from 'testcollab-sdk';
-import type { UpdateTestDatasetRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { UpdateTestDatasetRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",

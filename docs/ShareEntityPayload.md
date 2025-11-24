@@ -15,7 +15,7 @@ Name | Type
 ## Example
 
 ```typescript
-import type { ShareEntityPayload } from 'testcollab-sdk'
+import type { ShareEntityPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {

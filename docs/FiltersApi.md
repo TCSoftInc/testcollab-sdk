@@ -25,11 +25,11 @@ Deletes a saved filter
 import {
   Configuration,
   FiltersApi,
-} from 'testcollab-sdk';
-import type { DeleteFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { DeleteFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -106,11 +106,11 @@ Get details of a saved filter
 import {
   Configuration,
   FiltersApi,
-} from 'testcollab-sdk';
-import type { GetFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -187,11 +187,11 @@ Get list of all the saved filters
 import {
   Configuration,
   FiltersApi,
-} from 'testcollab-sdk';
-import type { GetFilterListRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { GetFilterListRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
@@ -277,11 +277,11 @@ Adds a new saved filters
 import {
   Configuration,
   FiltersApi,
-} from 'testcollab-sdk';
-import type { SaveFilterRequest } from 'testcollab-sdk';
+} from '@testcollab/sdk';
+import type { SaveFilterRequest } from '@testcollab/sdk';
 
 async function example() {
-  console.log("🚀 Testing testcollab-sdk SDK...");
+  console.log("🚀 Testing @testcollab/sdk SDK...");
   const config = new Configuration({ 
     // To configure API key authorization: ApiKeyAuth
     apiKey: "YOUR API KEY",
