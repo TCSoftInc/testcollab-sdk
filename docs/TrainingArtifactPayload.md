@@ -15,10 +15,10 @@ Name | Type
 `subStepTxt` | string
 `imgFull` | string
 `imgThumb` | string
-`timestamp` | Date
+`timestamp` | string
 `browserLocation` | string
 `otherInfoJson` | { [key: string]: any; }
-`created` | Date
+`created` | string
 
 ## Example
 

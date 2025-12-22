@@ -136,7 +136,8 @@ export const TrainingSessionStatusEnum = {
     Queued: 'queued',
     Inprogress: 'inprogress',
     Ready: 'ready',
-    Failed: 'failed'
+    Failed: 'failed',
+    Stopped: 'stopped'
 } as const;
 export type TrainingSessionStatusEnum = typeof TrainingSessionStatusEnum[keyof typeof TrainingSessionStatusEnum];
 

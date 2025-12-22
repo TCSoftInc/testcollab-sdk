@@ -32,12 +32,6 @@ export interface SuiteTree {
      */
     title: string;
     /**
-     * 
-     * @type {string}
-     * @memberof SuiteTree
-     */
-    description: string;
-    /**
      * No. of child suites in this suite
      * @type {number}
      * @memberof SuiteTree
@@ -99,7 +93,6 @@ export interface SuiteTree {
 export function instanceOfSuiteTree(value: object): value is SuiteTree {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
-    if (!('description' in value) || value['description'] === undefined) return false;
     if (!('testcasecount' in value) || value['testcasecount'] === undefined) return false;
     if (!('children' in value) || value['children'] === undefined) return false;
     return true;
@@ -117,7 +110,6 @@ export function SuiteTreeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
         'id': json['id'],
         'title': json['title'],
-        'description': json['description'],
         'suitecount': json['suitecount'] == null ? undefined : json['suitecount'],
         'createdBy': json['created_by'] == null ? undefined : json['created_by'],
         'testcasecount': json['testcasecount'],
@@ -143,7 +135,6 @@ export function SuiteTreeToJSONTyped(value?: SuiteTree | null, ignoreDiscriminat
         
         'id': value['id'],
         'title': value['title'],
-        'description': value['description'],
         'suitecount': value['suitecount'],
         'created_by': value['createdBy'],
         'testcasecount': value['testcasecount'],

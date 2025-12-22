@@ -8,7 +8,6 @@ Name | Type
 ------------ | -------------
 `id` | number
 `title` | string
-`description` | string
 `suitecount` | number
 `createdBy` | number
 `testcasecount` | number
@@ -28,7 +27,6 @@ import type { SuiteTree } from '@testcollab/sdk'
 const example = {
   "id": 1,
   "title": Suite 1,
-  "description": Used for abc, def...,
   "suitecount": 23,
   "createdBy": 23,
   "testcasecount": 23,

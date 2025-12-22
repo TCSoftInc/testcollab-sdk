@@ -75,10 +75,10 @@ export interface TrainingArtifactPayload {
     imgThumb?: string;
     /**
      * Timestamp when the action was executed
-     * @type {Date}
+     * @type {string}
      * @memberof TrainingArtifactPayload
      */
-    timestamp?: Date;
+    timestamp?: string;
     /**
      * Browser URL captured for the artifact
      * @type {string}
@@ -93,10 +93,10 @@ export interface TrainingArtifactPayload {
     otherInfoJson?: { [key: string]: any; };
     /**
      * Optional override for the artifact creation timestamp
-     * @type {Date}
+     * @type {string}
      * @memberof TrainingArtifactPayload
      */
-    created?: Date;
+    created?: string;
 }
 
 
@@ -149,10 +149,10 @@ export function TrainingArtifactPayloadFromJSONTyped(json: any, ignoreDiscrimina
         'subStepTxt': json['sub_step_txt'] == null ? undefined : json['sub_step_txt'],
         'imgFull': json['img_full'] == null ? undefined : json['img_full'],
         'imgThumb': json['img_thumb'] == null ? undefined : json['img_thumb'],
-        'timestamp': json['timestamp'] == null ? undefined : (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'] == null ? undefined : json['timestamp'],
         'browserLocation': json['browser_location'] == null ? undefined : json['browser_location'],
         'otherInfoJson': json['other_info_json'] == null ? undefined : json['other_info_json'],
-        'created': json['created'] == null ? undefined : (new Date(json['created'])),
+        'created': json['created'] == null ? undefined : json['created'],
     };
 }
 
@@ -176,10 +176,10 @@ export function TrainingArtifactPayloadToJSONTyped(value?: TrainingArtifactPaylo
         'sub_step_txt': value['subStepTxt'],
         'img_full': value['imgFull'],
         'img_thumb': value['imgThumb'],
-        'timestamp': value['timestamp'] == null ? value['timestamp'] : value['timestamp'].toISOString(),
+        'timestamp': value['timestamp'],
         'browser_location': value['browserLocation'],
         'other_info_json': value['otherInfoJson'],
-        'created': value['created'] == null ? value['created'] : value['created'].toISOString(),
+        'created': value['created'],
     };
 }
 
