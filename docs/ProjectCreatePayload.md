@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`description` | string
 `importUsers` | number
 `issueManagerProfile` | number
 `importIssueManagerSettings` | number
@@ -22,6 +23,7 @@ import type { ProjectCreatePayload } from '@testcollab/sdk'
 const example = {
   "id": 1,
   "name": Crowd Vox,
+  "description": QA workspace for the customer web app,
   "importUsers": 2,
   "issueManagerProfile": null,
   "importIssueManagerSettings": 2,

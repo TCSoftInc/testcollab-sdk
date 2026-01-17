@@ -33,6 +33,12 @@ export interface ProjectPayload {
     name: string;
     /**
      * 
+     * @type {string}
+     * @memberof ProjectPayload
+     */
+    description?: string;
+    /**
+     * 
      * @type {boolean}
      * @memberof ProjectPayload
      */
@@ -66,6 +72,7 @@ export function ProjectPayloadFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'],
+        'description': json['description'] == null ? undefined : json['description'],
         'archived': json['archived'] == null ? undefined : json['archived'],
         'company': json['company'],
     };
@@ -84,6 +91,7 @@ export function ProjectPayloadToJSONTyped(value?: ProjectPayload | null, ignoreD
         
         'id': value['id'],
         'name': value['name'],
+        'description': value['description'],
         'archived': value['archived'],
         'company': value['company'],
     };

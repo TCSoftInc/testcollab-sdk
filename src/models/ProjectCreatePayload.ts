@@ -32,6 +32,12 @@ export interface ProjectCreatePayload {
      */
     name: string;
     /**
+     * 
+     * @type {string}
+     * @memberof ProjectCreatePayload
+     */
+    description?: string;
+    /**
      * Project ID to import users from (only allowed at the time of project create)
      * @type {number}
      * @memberof ProjectCreatePayload
@@ -79,6 +85,7 @@ export function ProjectCreatePayloadFromJSONTyped(json: any, ignoreDiscriminator
         
         'id': json['id'] == null ? undefined : json['id'],
         'name': json['name'],
+        'description': json['description'] == null ? undefined : json['description'],
         'importUsers': json['importUsers'] == null ? undefined : json['importUsers'],
         'issueManagerProfile': json['issueManagerProfile'] == null ? undefined : json['issueManagerProfile'],
         'importIssueManagerSettings': json['importIssueManagerSettings'] == null ? undefined : json['importIssueManagerSettings'],
@@ -99,6 +106,7 @@ export function ProjectCreatePayloadToJSONTyped(value?: ProjectCreatePayload | n
         
         'id': value['id'],
         'name': value['name'],
+        'description': value['description'],
         'importUsers': value['importUsers'],
         'issueManagerProfile': value['issueManagerProfile'],
         'importIssueManagerSettings': value['importIssueManagerSettings'],

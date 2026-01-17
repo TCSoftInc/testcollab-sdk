@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`description` | string
 `archived` | boolean
 `company` | number
 
@@ -20,6 +21,7 @@ import type { ProjectPayload } from '@testcollab/sdk'
 const example = {
   "id": 1,
   "name": Crowd Vox,
+  "description": QA workspace for the customer web app,
   "archived": false,
   "company": 1,
 } satisfies ProjectPayload

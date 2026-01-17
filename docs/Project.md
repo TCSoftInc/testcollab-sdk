@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
+`description` | string
 `archived` | boolean
 `team` | [Array&lt;ProjectUserMinified&gt;](ProjectUserMinified.md)
 `activity` | string
@@ -24,6 +25,7 @@ import type { Project } from '@testcollab/sdk'
 const example = {
   "id": 1,
   "name": Crowd Vox,
+  "description": QA workspace for the customer web app,
   "archived": false,
   "team": null,
   "activity": 2017-06-05,

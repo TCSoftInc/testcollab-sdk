@@ -41,6 +41,12 @@ export interface Project {
     name: string;
     /**
      * 
+     * @type {string}
+     * @memberof Project
+     */
+    description?: string;
+    /**
+     * 
      * @type {boolean}
      * @memberof Project
      */
@@ -101,6 +107,7 @@ export function ProjectFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         
         'id': json['id'],
         'name': json['name'],
+        'description': json['description'] == null ? undefined : json['description'],
         'archived': json['archived'],
         'team': json['team'] == null ? undefined : ((json['team'] as Array<any>).map(ProjectUserMinifiedFromJSON)),
         'activity': json['activity'] == null ? undefined : json['activity'],
@@ -123,6 +130,7 @@ export function ProjectToJSONTyped(value?: Project | null, ignoreDiscriminator: 
         
         'id': value['id'],
         'name': value['name'],
+        'description': value['description'],
         'archived': value['archived'],
         'team': value['team'] == null ? undefined : ((value['team'] as Array<any>).map(ProjectUserMinifiedToJSON)),
         'activity': value['activity'],
