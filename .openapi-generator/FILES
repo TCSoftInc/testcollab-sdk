@@ -162,6 +162,7 @@ docs/PreferencePayload.md
 docs/Project.md
 docs/ProjectActivity.md
 docs/ProjectCreatePayload.md
+docs/ProjectListItem.md
 docs/ProjectMetrics.md
 docs/ProjectMini.md
 docs/ProjectMinified.md
@@ -588,6 +589,7 @@ src/models/PreferencePayload.ts
 src/models/Project.ts
 src/models/ProjectActivity.ts
 src/models/ProjectCreatePayload.ts
+src/models/ProjectListItem.ts
 src/models/ProjectMetrics.ts
 src/models/ProjectMini.ts
 src/models/ProjectMinified.ts

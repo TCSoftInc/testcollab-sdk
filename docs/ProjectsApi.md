@@ -407,7 +407,7 @@ example().catch(console.error);
 
 ## getProjects
 
-> Array&lt;Project&gt; getProjects(company, limit, start, sort, filter)
+> Array&lt;ProjectListItem&gt; getProjects(company, limit, start, sort, filter)
 
 Get list of projects
 
@@ -470,7 +470,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**Array&lt;Project&gt;**](Project.md)
+[**Array&lt;ProjectListItem&gt;**](ProjectListItem.md)
 
 ### Authorization
 

@@ -21,6 +21,7 @@ import type {
   ForbiddenError,
   Project,
   ProjectCreatePayload,
+  ProjectListItem,
   ProjectPayload,
   TCError,
 } from '../models/index';
@@ -37,6 +38,8 @@ import {
     ProjectToJSON,
     ProjectCreatePayloadFromJSON,
     ProjectCreatePayloadToJSON,
+    ProjectListItemFromJSON,
+    ProjectListItemToJSON,
     ProjectPayloadFromJSON,
     ProjectPayloadToJSON,
     TCErrorFromJSON,
@@ -185,13 +188,13 @@ export interface ProjectsApiInterface {
      * @throws {RequiredError}
      * @memberof ProjectsApiInterface
      */
-    getProjectsRaw(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Project>>>;
+    getProjectsRaw(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProjectListItem>>>;
 
     /**
      * Fetches list of projects
      * Get list of projects
      */
-    getProjects(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Project>>;
+    getProjects(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProjectListItem>>;
 
     /**
      * Populate sample data in project
@@ -490,7 +493,7 @@ export class ProjectsApi extends runtime.BaseAPI implements ProjectsApiInterface
      * Fetches list of projects
      * Get list of projects
      */
-    async getProjectsRaw(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Project>>> {
+    async getProjectsRaw(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProjectListItem>>> {
         if (requestParameters['company'] == null) {
             throw new runtime.RequiredError(
                 'company',
@@ -540,14 +543,14 @@ export class ProjectsApi extends runtime.BaseAPI implements ProjectsApiInterface
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProjectFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProjectListItemFromJSON));
     }
 
     /**
      * Fetches list of projects
      * Get list of projects
      */
-    async getProjects(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Project>> {
+    async getProjects(requestParameters: GetProjectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProjectListItem>> {
         const response = await this.getProjectsRaw(requestParameters, initOverrides);
         return await response.value();
     }

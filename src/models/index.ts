@@ -147,6 +147,7 @@ export * from './PreferencePayload';
 export * from './Project';
 export * from './ProjectActivity';
 export * from './ProjectCreatePayload';
+export * from './ProjectListItem';
 export * from './ProjectMetrics';
 export * from './ProjectMini';
 export * from './ProjectMinified';
