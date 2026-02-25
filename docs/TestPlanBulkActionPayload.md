@@ -13,6 +13,7 @@ Name | Type
 `testPlanFolder` | number
 `startDate` | string
 `endDate` | string
+`release` | number
 `customFields` | [Array&lt;CustomFieldInputPayload&gt;](CustomFieldInputPayload.md)
 
 ## Example
@@ -29,6 +30,7 @@ const example = {
   "testPlanFolder": 1,
   "startDate": 2019-09-22T00:00:00.000Z,
   "endDate": 2019-09-28T00:00:00.000Z,
+  "release": 1,
   "customFields": null,
 } satisfies TestPlanBulkActionPayload
 

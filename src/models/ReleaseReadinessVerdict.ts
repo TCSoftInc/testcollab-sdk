@@ -14,78 +14,77 @@
 
 import { mapValues } from '../runtime';
 /**
+ * Computed Go/No-Go verdict based on the release's go_no_go_threshold settings compared against actual metrics.
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseReadinessVerdict
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseReadinessVerdict {
     /**
-     * JSON Stringified
+     * go = all thresholds met; no_go = one or more thresholds violated; at_risk = within 5% of a threshold; not_configured = no thresholds set on the release
+     * 
      * @type {string}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessVerdict
      */
-    filterModel?: string;
+    result: ReleaseReadinessVerdictResultEnum;
     /**
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * List of human-readable reasons for the verdict
+     * @type {Array<string>}
+     * @memberof ReleaseReadinessVerdict
      */
-    project: number;
-    /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
-     */
-    release?: number;
+    reasons: Array<string>;
 }
 
+
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * @export
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export const ReleaseReadinessVerdictResultEnum = {
+    Go: 'go',
+    NoGo: 'no_go',
+    AtRisk: 'at_risk',
+    NotConfigured: 'not_configured'
+} as const;
+export type ReleaseReadinessVerdictResultEnum = typeof ReleaseReadinessVerdictResultEnum[keyof typeof ReleaseReadinessVerdictResultEnum];
+
+
+/**
+ * Check if a given object implements the ReleaseReadinessVerdict interface.
+ */
+export function instanceOfReleaseReadinessVerdict(value: object): value is ReleaseReadinessVerdict {
+    if (!('result' in value) || value['result'] === undefined) return false;
+    if (!('reasons' in value) || value['reasons'] === undefined) return false;
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseReadinessVerdictFromJSON(json: any): ReleaseReadinessVerdict {
+    return ReleaseReadinessVerdictFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseReadinessVerdictFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseReadinessVerdict {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'result': json['result'],
+        'reasons': json['reasons'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseReadinessVerdictToJSON(json: any): ReleaseReadinessVerdict {
+    return ReleaseReadinessVerdictToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseReadinessVerdictToJSONTyped(value?: ReleaseReadinessVerdict | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'result': value['result'],
+        'reasons': value['reasons'],
     };
 }
 

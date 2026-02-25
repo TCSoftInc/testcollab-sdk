@@ -1,6 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './Activity';
+export * from './ActivityAuditInfo';
 export * from './AddNewFolderPayload';
 export * from './AddRequirementPayload';
 export * from './AddRequirementPayloadFolder';
@@ -174,6 +175,26 @@ export * from './QueueStatus';
 export * from './QueueUpdatePayload';
 export * from './RegisteredUser';
 export * from './RegisteredUserUser';
+export * from './Release';
+export * from './ReleaseGoNoGoThreshold';
+export * from './ReleaseMinified';
+export * from './ReleasePayload';
+export * from './ReleaseReadiness';
+export * from './ReleaseReadinessComparison';
+export * from './ReleaseReadinessConfigurationCoverage';
+export * from './ReleaseReadinessCoverageItem';
+export * from './ReleaseReadinessCustomFieldCoverage';
+export * from './ReleaseReadinessCustomFieldGroup';
+export * from './ReleaseReadinessDefectSeverity';
+export * from './ReleaseReadinessDefects';
+export * from './ReleaseReadinessEvidence';
+export * from './ReleaseReadinessRequirementCoverage';
+export * from './ReleaseReadinessRequirementItem';
+export * from './ReleaseReadinessRequirementSummary';
+export * from './ReleaseReadinessSummary';
+export * from './ReleaseReadinessTestPlan';
+export * from './ReleaseReadinessTestPlanRun';
+export * from './ReleaseReadinessVerdict';
 export * from './ReportPayload';
 export * from './ReportResult';
 export * from './Requirement';

@@ -1,28 +1,27 @@
 
-# TraceabilityMatrixPayload
+# ActivityAuditInfo
 
+Additional metadata for the activity (e.g. release name, old/new verdict)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`filterModel` | string
-`project` | number
-`forceRefresh` | boolean
-`release` | number
+`releaseName` | string
+`oldVerdict` | string
+`newVerdict` | string
 
 ## Example
 
 ```typescript
-import type { TraceabilityMatrixPayload } from '@testcollab/sdk'
+import type { ActivityAuditInfo } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "filterModel": null,
-  "project": 1,
-  "forceRefresh": false,
-  "release": 5,
-} satisfies TraceabilityMatrixPayload
+  "releaseName": v1,
+  "oldVerdict": No-Go,
+  "newVerdict": Go,
+} satisfies ActivityAuditInfo
 
 console.log(example)
 
@@ -31,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TraceabilityMatrixPayload
+const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
 console.log(exampleParsed)
 ```
 

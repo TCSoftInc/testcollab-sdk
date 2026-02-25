@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ReleaseMinified } from './ReleaseMinified';
+import {
+    ReleaseMinifiedFromJSON,
+    ReleaseMinifiedFromJSONTyped,
+    ReleaseMinifiedToJSON,
+    ReleaseMinifiedToJSONTyped,
+} from './ReleaseMinified';
 import type { TestPlanFolder } from './TestPlanFolder';
 import {
     TestPlanFolderFromJSON,
@@ -168,6 +175,12 @@ export interface TestPlan {
      * @memberof TestPlan
      */
     isPublic?: number;
+    /**
+     * 
+     * @type {ReleaseMinified}
+     * @memberof TestPlan
+     */
+    release?: ReleaseMinified;
 }
 
 
@@ -240,6 +253,7 @@ export function TestPlanFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'description': json['description'] == null ? undefined : json['description'],
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldCollectionOutputFromJSON)),
         'isPublic': json['is_public'] == null ? undefined : json['is_public'],
+        'release': json['release'] == null ? undefined : json['release'],
     };
 }
 
@@ -274,6 +288,7 @@ export function TestPlanToJSONTyped(value?: TestPlan | null, ignoreDiscriminator
         'description': value['description'],
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldCollectionOutputToJSON)),
         'is_public': value['isPublic'],
+        'release': value['release'],
     };
 }
 

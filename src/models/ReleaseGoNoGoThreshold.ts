@@ -14,78 +14,69 @@
 
 import { mapValues } from '../runtime';
 /**
+ * Configurable thresholds that determine the auto-computed Go/No-Go verdict for a release. All fields are optional — only configured thresholds are evaluated.
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseGoNoGoThreshold
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseGoNoGoThreshold {
     /**
-     * JSON Stringified
-     * @type {string}
-     * @memberof TraceabilityMatrixPayload
-     */
-    filterModel?: string;
-    /**
-     * 
+     * Minimum overall pass rate percentage required for a Go verdict
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseGoNoGoThreshold
      */
-    project: number;
+    minPassRate?: number;
     /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
+     * Maximum number of total open defects allowed across all severities
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseGoNoGoThreshold
      */
-    release?: number;
+    maxOpenDefects?: number;
+    /**
+     * Minimum percentage of failed executions that must have attachments
+     * @type {number}
+     * @memberof ReleaseGoNoGoThreshold
+     */
+    minEvidenceCoverage?: number;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ReleaseGoNoGoThreshold interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfReleaseGoNoGoThreshold(value: object): value is ReleaseGoNoGoThreshold {
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseGoNoGoThresholdFromJSON(json: any): ReleaseGoNoGoThreshold {
+    return ReleaseGoNoGoThresholdFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseGoNoGoThresholdFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseGoNoGoThreshold {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'minPassRate': json['min_pass_rate'] == null ? undefined : json['min_pass_rate'],
+        'maxOpenDefects': json['max_open_defects'] == null ? undefined : json['max_open_defects'],
+        'minEvidenceCoverage': json['min_evidence_coverage'] == null ? undefined : json['min_evidence_coverage'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseGoNoGoThresholdToJSON(json: any): ReleaseGoNoGoThreshold {
+    return ReleaseGoNoGoThresholdToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseGoNoGoThresholdToJSONTyped(value?: ReleaseGoNoGoThreshold | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'min_pass_rate': value['minPassRate'],
+        'max_open_defects': value['maxOpenDefects'],
+        'min_evidence_coverage': value['minEvidenceCoverage'],
     };
 }
 

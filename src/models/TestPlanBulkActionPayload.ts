@@ -70,6 +70,12 @@ export interface TestPlanBulkActionPayload {
      */
     endDate?: string;
     /**
+     * Release ID to associate test plans with (optional)
+     * @type {number}
+     * @memberof TestPlanBulkActionPayload
+     */
+    release?: number;
+    /**
      * Array of custom fields
      * @type {Array<CustomFieldInputPayload>}
      * @memberof TestPlanBulkActionPayload
@@ -118,6 +124,7 @@ export function TestPlanBulkActionPayloadFromJSONTyped(json: any, ignoreDiscrimi
         'testPlanFolder': json['test_plan_folder'] == null ? undefined : json['test_plan_folder'],
         'startDate': json['start_date'] == null ? undefined : json['start_date'],
         'endDate': json['end_date'] == null ? undefined : json['end_date'],
+        'release': json['release'] == null ? undefined : json['release'],
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
     };
 }
@@ -140,6 +147,7 @@ export function TestPlanBulkActionPayloadToJSONTyped(value?: TestPlanBulkActionP
         'test_plan_folder': value['testPlanFolder'],
         'start_date': value['startDate'],
         'end_date': value['endDate'],
+        'release': value['release'],
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
     };
 }

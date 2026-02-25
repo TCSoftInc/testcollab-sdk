@@ -88,6 +88,12 @@ export interface TestPlanPayload {
      */
     project: number;
     /**
+     * Release ID to associate this test plan with (optional)
+     * @type {number}
+     * @memberof TestPlanPayload
+     */
+    release?: number;
+    /**
      * Array of custom fields
      * @type {Array<CustomFieldInputPayload>}
      * @memberof TestPlanPayload
@@ -150,6 +156,7 @@ export function TestPlanPayloadFromJSONTyped(json: any, ignoreDiscriminator: boo
         'startDate': json['start_date'] == null ? undefined : json['start_date'],
         'endDate': json['end_date'] == null ? undefined : json['end_date'],
         'project': json['project'],
+        'release': json['release'] == null ? undefined : json['release'],
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
     };
 }
@@ -175,6 +182,7 @@ export function TestPlanPayloadToJSONTyped(value?: TestPlanPayload | null, ignor
         'start_date': value['startDate'],
         'end_date': value['endDate'],
         'project': value['project'],
+        'release': value['release'],
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
     };
 }

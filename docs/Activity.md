@@ -14,6 +14,7 @@ Name | Type
 `project` | [ProjectMini](ProjectMini.md)
 `activityType` | string
 `user` | [User](User.md)
+`auditInfo` | [ActivityAuditInfo](ActivityAuditInfo.md)
 `createdAt` | string
 `updatedAt` | string
 
@@ -32,6 +33,7 @@ const example = {
   "project": null,
   "activityType": add,
   "user": null,
+  "auditInfo": null,
   "createdAt": 2019-04-30T17:11:24.000Z,
   "updatedAt": 2019-04-30T17:11:24.000Z,
 } satisfies Activity

@@ -14,78 +14,68 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Additional metadata for the activity (e.g. release name, old/new verdict)
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ActivityAuditInfo
  */
-export interface TraceabilityMatrixPayload {
+export interface ActivityAuditInfo {
     /**
-     * JSON Stringified
+     * Name of the release
      * @type {string}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ActivityAuditInfo
      */
-    filterModel?: string;
+    releaseName?: string;
     /**
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * Previous verdict value
+     * @type {string}
+     * @memberof ActivityAuditInfo
      */
-    project: number;
+    oldVerdict?: string;
     /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
+     * New verdict value
+     * @type {string}
+     * @memberof ActivityAuditInfo
      */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
-     */
-    release?: number;
+    newVerdict?: string;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ActivityAuditInfo interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
+    return ActivityAuditInfoFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
+        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
+        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
+    return ActivityAuditInfoToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'release_name': value['releaseName'],
+        'old_verdict': value['oldVerdict'],
+        'new_verdict': value['newVerdict'],
     };
 }
 

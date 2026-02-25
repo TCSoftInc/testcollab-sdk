@@ -1,28 +1,25 @@
 
-# TraceabilityMatrixPayload
+# ReleaseReadinessVerdict
 
+Computed Go/No-Go verdict based on the release\'s go_no_go_threshold settings compared against actual metrics. 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`filterModel` | string
-`project` | number
-`forceRefresh` | boolean
-`release` | number
+`result` | string
+`reasons` | Array&lt;string&gt;
 
 ## Example
 
 ```typescript
-import type { TraceabilityMatrixPayload } from '@testcollab/sdk'
+import type { ReleaseReadinessVerdict } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "filterModel": null,
-  "project": 1,
-  "forceRefresh": false,
-  "release": 5,
-} satisfies TraceabilityMatrixPayload
+  "result": no_go,
+  "reasons": ["Pass rate 89.1% is below threshold of 95%","3 open blockers exceeds maximum of 0"],
+} satisfies ReleaseReadinessVerdict
 
 console.log(example)
 
@@ -31,7 +28,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TraceabilityMatrixPayload
+const exampleParsed = JSON.parse(exampleJSON) as ReleaseReadinessVerdict
 console.log(exampleParsed)
 ```
 

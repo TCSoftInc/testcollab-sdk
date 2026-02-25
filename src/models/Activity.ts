@@ -27,6 +27,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
+import type { ActivityAuditInfo } from './ActivityAuditInfo';
+import {
+    ActivityAuditInfoFromJSON,
+    ActivityAuditInfoFromJSONTyped,
+    ActivityAuditInfoToJSON,
+    ActivityAuditInfoToJSONTyped,
+} from './ActivityAuditInfo';
 
 /**
  * 
@@ -83,6 +90,12 @@ export interface Activity {
      */
     user: User;
     /**
+     * 
+     * @type {ActivityAuditInfo}
+     * @memberof Activity
+     */
+    auditInfo?: ActivityAuditInfo;
+    /**
      * Time when the activity was performed
      * @type {string}
      * @memberof Activity
@@ -112,7 +125,9 @@ export const ActivityActivityTypeEnum = {
     Reopen: 'reopen',
     FinishedRun: 'finished_run',
     AssigneeChange: 'assignee_change',
-    Comment: 'comment'
+    Comment: 'comment',
+    ReleaseVerdictChange: 'release_verdict_change',
+    Link: 'link'
 } as const;
 export type ActivityActivityTypeEnum = typeof ActivityActivityTypeEnum[keyof typeof ActivityActivityTypeEnum];
 
@@ -147,6 +162,7 @@ export function ActivityFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'project': json['project'] == null ? undefined : ProjectMiniFromJSON(json['project']),
         'activityType': json['activity_type'],
         'user': UserFromJSON(json['user']),
+        'auditInfo': json['audit_info'] == null ? undefined : ActivityAuditInfoFromJSON(json['audit_info']),
         'createdAt': json['created_at'] == null ? undefined : json['created_at'],
         'updatedAt': json['updated_at'] == null ? undefined : json['updated_at'],
     };
@@ -171,6 +187,7 @@ export function ActivityToJSONTyped(value?: Activity | null, ignoreDiscriminator
         'project': ProjectMiniToJSON(value['project']),
         'activity_type': value['activityType'],
         'user': UserToJSON(value['user']),
+        'audit_info': ActivityAuditInfoToJSON(value['auditInfo']),
         'created_at': value['createdAt'],
         'updated_at': value['updatedAt'],
     };

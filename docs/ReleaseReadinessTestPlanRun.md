@@ -1,28 +1,29 @@
 
-# TraceabilityMatrixPayload
+# ReleaseReadinessTestPlanRun
 
+Minimal info about the latest run (regression) of a test plan within the release. 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`filterModel` | string
-`project` | number
-`forceRefresh` | boolean
-`release` | number
+`id` | number
+`iteration` | number
+`status` | string
+`createdAt` | string
 
 ## Example
 
 ```typescript
-import type { TraceabilityMatrixPayload } from '@testcollab/sdk'
+import type { ReleaseReadinessTestPlanRun } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "filterModel": null,
-  "project": 1,
-  "forceRefresh": false,
-  "release": 5,
-} satisfies TraceabilityMatrixPayload
+  "id": 23,
+  "iteration": 3,
+  "status": 2,
+  "createdAt": 2025-02-10T14:30:00.000Z,
+} satisfies ReleaseReadinessTestPlanRun
 
 console.log(example)
 
@@ -31,7 +32,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TraceabilityMatrixPayload
+const exampleParsed = JSON.parse(exampleJSON) as ReleaseReadinessTestPlanRun
 console.log(exampleParsed)
 ```
 

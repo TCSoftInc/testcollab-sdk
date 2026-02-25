@@ -26,6 +26,7 @@ Name | Type
 `description` | string
 `customFields` | [Array&lt;CustomFieldCollectionOutput&gt;](CustomFieldCollectionOutput.md)
 `isPublic` | number
+`release` | [ReleaseMinified](.md)
 
 ## Example
 
@@ -54,6 +55,7 @@ const example = {
   "description": test plan description,
   "customFields": null,
   "isPublic": null,
+  "release": null,
 } satisfies TestPlan
 
 console.log(example)

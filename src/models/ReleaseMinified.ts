@@ -16,76 +16,99 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseMinified
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseMinified {
     /**
-     * JSON Stringified
+     * 
+     * @type {number}
+     * @memberof ReleaseMinified
+     */
+    id: number;
+    /**
+     * 
      * @type {string}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseMinified
      */
-    filterModel?: string;
+    name: string;
     /**
      * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @type {string}
+     * @memberof ReleaseMinified
      */
-    project: number;
+    status: ReleaseMinifiedStatusEnum;
     /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
      * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @type {string}
+     * @memberof ReleaseMinified
      */
-    release?: number;
+    targetDate?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReleaseMinified
+     */
+    createdAt?: string;
 }
 
+
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * @export
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export const ReleaseMinifiedStatusEnum = {
+    Planned: 'planned',
+    InProgress: 'in_progress',
+    Ready: 'ready',
+    Shipped: 'shipped',
+    Blocked: 'blocked'
+} as const;
+export type ReleaseMinifiedStatusEnum = typeof ReleaseMinifiedStatusEnum[keyof typeof ReleaseMinifiedStatusEnum];
+
+
+/**
+ * Check if a given object implements the ReleaseMinified interface.
+ */
+export function instanceOfReleaseMinified(value: object): value is ReleaseMinified {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('status' in value) || value['status'] === undefined) return false;
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseMinifiedFromJSON(json: any): ReleaseMinified {
+    return ReleaseMinifiedFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseMinifiedFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseMinified {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'id': json['id'],
+        'name': json['name'],
+        'status': json['status'],
+        'targetDate': json['target_date'] == null ? undefined : json['target_date'],
+        'createdAt': json['created_at'] == null ? undefined : json['created_at'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseMinifiedToJSON(json: any): ReleaseMinified {
+    return ReleaseMinifiedToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseMinifiedToJSONTyped(value?: ReleaseMinified | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'id': value['id'],
+        'name': value['name'],
+        'status': value['status'],
+        'target_date': value['targetDate'],
+        'created_at': value['createdAt'],
     };
 }
 

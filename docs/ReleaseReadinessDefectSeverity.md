@@ -1,28 +1,24 @@
 
-# TraceabilityMatrixPayload
+# ReleaseReadinessDefectSeverity
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`filterModel` | string
-`project` | number
-`forceRefresh` | boolean
-`release` | number
+`severity` | string
+`count` | number
 
 ## Example
 
 ```typescript
-import type { TraceabilityMatrixPayload } from '@testcollab/sdk'
+import type { ReleaseReadinessDefectSeverity } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "filterModel": null,
-  "project": 1,
-  "forceRefresh": false,
-  "release": 5,
-} satisfies TraceabilityMatrixPayload
+  "severity": Blocker,
+  "count": 3,
+} satisfies ReleaseReadinessDefectSeverity
 
 console.log(example)
 
@@ -31,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as TraceabilityMatrixPayload
+const exampleParsed = JSON.parse(exampleJSON) as ReleaseReadinessDefectSeverity
 console.log(exampleParsed)
 ```
 

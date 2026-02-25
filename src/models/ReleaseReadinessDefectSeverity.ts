@@ -16,76 +16,60 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseReadinessDefectSeverity
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseReadinessDefectSeverity {
     /**
-     * JSON Stringified
+     * Severity label from the external issue tracker (e.g. Blocker, Critical, Major, Minor)
      * @type {string}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessDefectSeverity
      */
-    filterModel?: string;
+    severity: string;
     /**
      * 
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessDefectSeverity
      */
-    project: number;
-    /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
-     */
-    release?: number;
+    count: number;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ReleaseReadinessDefectSeverity interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfReleaseReadinessDefectSeverity(value: object): value is ReleaseReadinessDefectSeverity {
+    if (!('severity' in value) || value['severity'] === undefined) return false;
+    if (!('count' in value) || value['count'] === undefined) return false;
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseReadinessDefectSeverityFromJSON(json: any): ReleaseReadinessDefectSeverity {
+    return ReleaseReadinessDefectSeverityFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseReadinessDefectSeverityFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseReadinessDefectSeverity {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'severity': json['severity'],
+        'count': json['count'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseReadinessDefectSeverityToJSON(json: any): ReleaseReadinessDefectSeverity {
+    return ReleaseReadinessDefectSeverityToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseReadinessDefectSeverityToJSONTyped(value?: ReleaseReadinessDefectSeverity | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'severity': value['severity'],
+        'count': value['count'],
     };
 }
 

@@ -11,6 +11,7 @@ Name | Type
 `expectedResult` | string
 `status` | string
 `comment` | string
+`commentBy` | number
 `mentions` | Array&lt;string&gt;
 `attachments` | Array&lt;string&gt;
 
@@ -26,6 +27,7 @@ const example = {
   "expectedResult": Expected result 1,
   "status": unexecuted,
   "comment": My comment,
+  "commentBy": 1,
   "mentions": null,
   "attachments": null,
 } satisfies StepWiseResult

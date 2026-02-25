@@ -13,79 +13,86 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ReleaseMinified } from './ReleaseMinified';
+import {
+    ReleaseMinifiedFromJSON,
+    ReleaseMinifiedFromJSONTyped,
+    ReleaseMinifiedToJSON,
+    ReleaseMinifiedToJSONTyped,
+} from './ReleaseMinified';
+
 /**
+ * Comparison of this release's readiness metrics against the previous release in the same project. Null if no previous release exists.
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseReadinessComparison
  */
-export interface TraceabilityMatrixPayload {
-    /**
-     * JSON Stringified
-     * @type {string}
-     * @memberof TraceabilityMatrixPayload
-     */
-    filterModel?: string;
+export interface ReleaseReadinessComparison {
     /**
      * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @type {ReleaseMinified}
+     * @memberof ReleaseReadinessComparison
      */
-    project: number;
+    previousRelease?: ReleaseMinified;
     /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
+     * Pass rate of the previous release
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessComparison
      */
-    release?: number;
+    previousPassRate?: number;
+    /**
+     * Difference in pass rate (current - previous). Negative means regression.
+     * @type {number}
+     * @memberof ReleaseReadinessComparison
+     */
+    passRateDelta?: number;
+    /**
+     * Number of open defects in the previous release at time of shipping
+     * @type {number}
+     * @memberof ReleaseReadinessComparison
+     */
+    previousOpenDefects?: number;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ReleaseReadinessComparison interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfReleaseReadinessComparison(value: object): value is ReleaseReadinessComparison {
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseReadinessComparisonFromJSON(json: any): ReleaseReadinessComparison {
+    return ReleaseReadinessComparisonFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseReadinessComparisonFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseReadinessComparison {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'previousRelease': json['previous_release'] == null ? undefined : json['previous_release'],
+        'previousPassRate': json['previous_pass_rate'] == null ? undefined : json['previous_pass_rate'],
+        'passRateDelta': json['pass_rate_delta'] == null ? undefined : json['pass_rate_delta'],
+        'previousOpenDefects': json['previous_open_defects'] == null ? undefined : json['previous_open_defects'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseReadinessComparisonToJSON(json: any): ReleaseReadinessComparison {
+    return ReleaseReadinessComparisonToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseReadinessComparisonToJSONTyped(value?: ReleaseReadinessComparison | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'previous_release': value['previousRelease'],
+        'previous_pass_rate': value['previousPassRate'],
+        'pass_rate_delta': value['passRateDelta'],
+        'previous_open_defects': value['previousOpenDefects'],
     };
 }
 

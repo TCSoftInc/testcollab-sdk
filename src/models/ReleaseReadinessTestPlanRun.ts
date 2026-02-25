@@ -14,78 +14,79 @@
 
 import { mapValues } from '../runtime';
 /**
+ * Minimal info about the latest run (regression) of a test plan within the release.
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseReadinessTestPlanRun
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseReadinessTestPlanRun {
     /**
-     * JSON Stringified
+     * 
+     * @type {number}
+     * @memberof ReleaseReadinessTestPlanRun
+     */
+    id: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ReleaseReadinessTestPlanRun
+     */
+    iteration: number;
+    /**
+     * 
      * @type {string}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessTestPlanRun
      */
-    filterModel?: string;
+    status?: string;
     /**
      * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @type {string}
+     * @memberof ReleaseReadinessTestPlanRun
      */
-    project: number;
-    /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
-     * @type {number}
-     * @memberof TraceabilityMatrixPayload
-     */
-    release?: number;
+    createdAt?: string;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ReleaseReadinessTestPlanRun interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfReleaseReadinessTestPlanRun(value: object): value is ReleaseReadinessTestPlanRun {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('iteration' in value) || value['iteration'] === undefined) return false;
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseReadinessTestPlanRunFromJSON(json: any): ReleaseReadinessTestPlanRun {
+    return ReleaseReadinessTestPlanRunFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseReadinessTestPlanRunFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseReadinessTestPlanRun {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'id': json['id'],
+        'iteration': json['iteration'],
+        'status': json['status'] == null ? undefined : json['status'],
+        'createdAt': json['created_at'] == null ? undefined : json['created_at'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseReadinessTestPlanRunToJSON(json: any): ReleaseReadinessTestPlanRun {
+    return ReleaseReadinessTestPlanRunToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseReadinessTestPlanRunToJSONTyped(value?: ReleaseReadinessTestPlanRun | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'id': value['id'],
+        'iteration': value['iteration'],
+        'status': value['status'],
+        'created_at': value['createdAt'],
     };
 }
 

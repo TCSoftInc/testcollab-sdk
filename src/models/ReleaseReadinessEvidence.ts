@@ -14,78 +14,72 @@
 
 import { mapValues } from '../runtime';
 /**
+ * Metrics about test evidence (attachments) on executed test cases, particularly for failed executions.
  * 
  * @export
- * @interface TraceabilityMatrixPayload
+ * @interface ReleaseReadinessEvidence
  */
-export interface TraceabilityMatrixPayload {
+export interface ReleaseReadinessEvidence {
     /**
-     * JSON Stringified
-     * @type {string}
-     * @memberof TraceabilityMatrixPayload
-     */
-    filterModel?: string;
-    /**
-     * 
+     * Total failed executions across the release
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessEvidence
      */
-    project: number;
+    totalFailed: number;
     /**
-     * Force refresh the traceability matrix
-     * @type {boolean}
-     * @memberof TraceabilityMatrixPayload
-     */
-    forceRefresh?: boolean;
-    /**
-     * Optional release ID. When provided, the traceability matrix is filtered to only include test cases that belong to test plans in this release, and only requirements linked to this release.
-     * 
+     * Failed executions that have at least one attachment
      * @type {number}
-     * @memberof TraceabilityMatrixPayload
+     * @memberof ReleaseReadinessEvidence
      */
-    release?: number;
+    failedWithAttachments: number;
+    /**
+     * Percentage of failed executions with attachments
+     * @type {number}
+     * @memberof ReleaseReadinessEvidence
+     */
+    evidenceCoverage: number;
 }
 
 /**
- * Check if a given object implements the TraceabilityMatrixPayload interface.
+ * Check if a given object implements the ReleaseReadinessEvidence interface.
  */
-export function instanceOfTraceabilityMatrixPayload(value: object): value is TraceabilityMatrixPayload {
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfReleaseReadinessEvidence(value: object): value is ReleaseReadinessEvidence {
+    if (!('totalFailed' in value) || value['totalFailed'] === undefined) return false;
+    if (!('failedWithAttachments' in value) || value['failedWithAttachments'] === undefined) return false;
+    if (!('evidenceCoverage' in value) || value['evidenceCoverage'] === undefined) return false;
     return true;
 }
 
-export function TraceabilityMatrixPayloadFromJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadFromJSONTyped(json, false);
+export function ReleaseReadinessEvidenceFromJSON(json: any): ReleaseReadinessEvidence {
+    return ReleaseReadinessEvidenceFromJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): TraceabilityMatrixPayload {
+export function ReleaseReadinessEvidenceFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReleaseReadinessEvidence {
     if (json == null) {
         return json;
     }
     return {
         
-        'filterModel': json['filterModel'] == null ? undefined : json['filterModel'],
-        'project': json['project'],
-        'forceRefresh': json['force_refresh'] == null ? undefined : json['force_refresh'],
-        'release': json['release'] == null ? undefined : json['release'],
+        'totalFailed': json['total_failed'],
+        'failedWithAttachments': json['failed_with_attachments'],
+        'evidenceCoverage': json['evidence_coverage'],
     };
 }
 
-export function TraceabilityMatrixPayloadToJSON(json: any): TraceabilityMatrixPayload {
-    return TraceabilityMatrixPayloadToJSONTyped(json, false);
+export function ReleaseReadinessEvidenceToJSON(json: any): ReleaseReadinessEvidence {
+    return ReleaseReadinessEvidenceToJSONTyped(json, false);
 }
 
-export function TraceabilityMatrixPayloadToJSONTyped(value?: TraceabilityMatrixPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ReleaseReadinessEvidenceToJSONTyped(value?: ReleaseReadinessEvidence | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'filterModel': value['filterModel'],
-        'project': value['project'],
-        'force_refresh': value['forceRefresh'],
-        'release': value['release'],
+        'total_failed': value['totalFailed'],
+        'failed_with_attachments': value['failedWithAttachments'],
+        'evidence_coverage': value['evidenceCoverage'],
     };
 }
 

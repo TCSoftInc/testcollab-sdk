@@ -62,6 +62,12 @@ export interface TestDatasetWiseResult {
      */
     comment: string;
     /**
+     * ID of the user who wrote the comment
+     * @type {number}
+     * @memberof TestDatasetWiseResult
+     */
+    commentBy?: number;
+    /**
      * Array of user IDs
      * @type {Array<string>}
      * @memberof TestDatasetWiseResult
@@ -103,6 +109,7 @@ export function TestDatasetWiseResultFromJSONTyped(json: any, ignoreDiscriminato
         'expectedResult': json['expected_result'] == null ? undefined : json['expected_result'],
         'status': json['status'],
         'comment': json['comment'],
+        'commentBy': json['comment_by'] == null ? undefined : json['comment_by'],
         'mentions': json['mentions'] == null ? undefined : json['mentions'],
         'attachments': json['attachments'] == null ? undefined : json['attachments'],
     };
@@ -126,6 +133,7 @@ export function TestDatasetWiseResultToJSONTyped(value?: TestDatasetWiseResult |
         'expected_result': value['expectedResult'],
         'status': value['status'],
         'comment': value['comment'],
+        'comment_by': value['commentBy'],
         'mentions': value['mentions'],
         'attachments': value['attachments'],
     };
