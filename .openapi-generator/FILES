@@ -22,6 +22,7 @@ docs/BulkCopyPayload.md
 docs/BulkDeletePayload.md
 docs/BulkDeleteTestplanCasesPayload.md
 docs/BulkLinkTestCasesPayload.md
+docs/BulkUnlinkTestCasesPayload.md
 docs/BulkUpdateTestplanCasesPayload.md
 docs/CSVImportSettings.md
 docs/CancelSubscriptionPayload.md
@@ -59,6 +60,10 @@ docs/CustomFieldsApi.md
 docs/CustomFieldsSortOrderPayload.md
 docs/CustomerAccountInfomation.md
 docs/CustomerSubscriptionsInfo.md
+docs/DashboardWidget.md
+docs/DashboardWidgetPayload.md
+docs/DashboardWidgetSortOrderPayload.md
+docs/DashboardWidgetsApi.md
 docs/DefaultResponseError.md
 docs/Defect.md
 docs/DefectPayload.md
@@ -168,6 +173,11 @@ docs/ProjectMetrics.md
 docs/ProjectMini.md
 docs/ProjectMinified.md
 docs/ProjectPayload.md
+docs/ProjectSecret.md
+docs/ProjectSecretPayload.md
+docs/ProjectSecretResolvePayload.md
+docs/ProjectSecretRevealResult.md
+docs/ProjectSecretsApi.md
 docs/ProjectSuiteTree.md
 docs/ProjectUser.md
 docs/ProjectUserMinified.md
@@ -420,6 +430,7 @@ docs/VerifyEmailPayload.md
 package.json
 src/apis/AvailableIssueManagersApi.ts
 src/apis/CustomFieldsApi.ts
+src/apis/DashboardWidgetsApi.ts
 src/apis/DefectsApi.ts
 src/apis/ExecutedTestCasesApi.ts
 src/apis/ExecutionCommentsApi.ts
@@ -431,6 +442,7 @@ src/apis/LinkedprojectsApi.ts
 src/apis/LinkedtestcasesApi.ts
 src/apis/NotificationpreferenecsApi.ts
 src/apis/NotificationsApi.ts
+src/apis/ProjectSecretsApi.ts
 src/apis/ProjectUsersApi.ts
 src/apis/ProjectsApi.ts
 src/apis/ProjectsettingsApi.ts
@@ -484,6 +496,7 @@ src/models/BulkCopyPayload.ts
 src/models/BulkDeletePayload.ts
 src/models/BulkDeleteTestplanCasesPayload.ts
 src/models/BulkLinkTestCasesPayload.ts
+src/models/BulkUnlinkTestCasesPayload.ts
 src/models/BulkUpdateTestplanCasesPayload.ts
 src/models/CSVImportSettings.ts
 src/models/CancelSubscriptionPayload.ts
@@ -520,6 +533,9 @@ src/models/CustomFieldType.ts
 src/models/CustomFieldsSortOrderPayload.ts
 src/models/CustomerAccountInfomation.ts
 src/models/CustomerSubscriptionsInfo.ts
+src/models/DashboardWidget.ts
+src/models/DashboardWidgetPayload.ts
+src/models/DashboardWidgetSortOrderPayload.ts
 src/models/DefaultResponseError.ts
 src/models/Defect.ts
 src/models/DefectPayload.ts
@@ -618,6 +634,10 @@ src/models/ProjectMetrics.ts
 src/models/ProjectMini.ts
 src/models/ProjectMinified.ts
 src/models/ProjectPayload.ts
+src/models/ProjectSecret.ts
+src/models/ProjectSecretPayload.ts
+src/models/ProjectSecretResolvePayload.ts
+src/models/ProjectSecretRevealResult.ts
 src/models/ProjectSuiteTree.ts
 src/models/ProjectUser.ts
 src/models/ProjectUserMinified.ts

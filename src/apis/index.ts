@@ -2,6 +2,7 @@
 /* eslint-disable */
 export * from './AvailableIssueManagersApi';
 export * from './CustomFieldsApi';
+export * from './DashboardWidgetsApi';
 export * from './DefectsApi';
 export * from './ExecutedTestCasesApi';
 export * from './ExecutionCommentsApi';
@@ -13,6 +14,7 @@ export * from './LinkedprojectsApi';
 export * from './LinkedtestcasesApi';
 export * from './NotificationpreferenecsApi';
 export * from './NotificationsApi';
+export * from './ProjectSecretsApi';
 export * from './ProjectUsersApi';
 export * from './ProjectsApi';
 export * from './ProjectsettingsApi';

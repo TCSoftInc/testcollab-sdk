@@ -1,32 +1,32 @@
-# LinkedtestcasesApi
+# DashboardWidgetsApi
 
 All URIs are relative to *https://api.testcollab.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**bulkLinkTestCase**](LinkedtestcasesApi.md#bulklinktestcase) | **POST** /linkedtestcases/bulkLink | Link bulk test cases |
-| [**bulkUnlinkTestCase**](LinkedtestcasesApi.md#bulkunlinktestcase) | **POST** /linkedtestcases/bulkUnlink | Unlink bulk test cases |
-| [**createLinkedTestcase**](LinkedtestcasesApi.md#createlinkedtestcase) | **POST** /linkedtestcases | Create a new linked project |
-| [**getLinkedTestCases**](LinkedtestcasesApi.md#getlinkedtestcases) | **GET** /linkedtestcases | Get list of linked test cases |
+| [**createDashboardWidget**](DashboardWidgetsApi.md#createdashboardwidget) | **POST** /dashboardwidgets | Pin a report template to the dashboard |
+| [**deleteDashboardWidget**](DashboardWidgetsApi.md#deletedashboardwidget) | **DELETE** /dashboardwidgets/{id} | Unpin a dashboard widget |
+| [**getDashboardWidgets**](DashboardWidgetsApi.md#getdashboardwidgets) | **GET** /dashboardwidgets | Get list of pinned dashboard widgets |
+| [**setDashboardWidgetSortOrder**](DashboardWidgetsApi.md#setdashboardwidgetsortorder) | **POST** /dashboardwidgets/setSortOrder | Set display order of dashboard widgets |
 
 
 
-## bulkLinkTestCase
+## createDashboardWidget
 
-> BulkActionResult bulkLinkTestCase(bulkLinkTestCasesPayload)
+> DashboardWidget createDashboardWidget(dashboardWidgetPayload)
 
-Link bulk test cases
+Pin a report template to the dashboard
 
-Bulk copy of Test Cases
+Pin a saved report template as a dashboard widget
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  LinkedtestcasesApi,
+  DashboardWidgetsApi,
 } from '@testcollab/sdk';
-import type { BulkLinkTestCaseRequest } from '@testcollab/sdk';
+import type { CreateDashboardWidgetRequest } from '@testcollab/sdk';
 
 async function example() {
   console.log("🚀 Testing @testcollab/sdk SDK...");
@@ -36,15 +36,15 @@ async function example() {
     // To configure API key authorization: bearerAuth
     apiKey: "YOUR API KEY",
   });
-  const api = new LinkedtestcasesApi(config);
+  const api = new DashboardWidgetsApi(config);
 
   const body = {
-    // BulkLinkTestCasesPayload (optional)
-    bulkLinkTestCasesPayload: ...,
-  } satisfies BulkLinkTestCaseRequest;
+    // DashboardWidgetPayload (optional)
+    dashboardWidgetPayload: ...,
+  } satisfies CreateDashboardWidgetRequest;
 
   try {
-    const data = await api.bulkLinkTestCase(body);
+    const data = await api.createDashboardWidget(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -60,11 +60,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **bulkLinkTestCasesPayload** | [BulkLinkTestCasesPayload](BulkLinkTestCasesPayload.md) |  | [Optional] |
+| **dashboardWidgetPayload** | [DashboardWidgetPayload](DashboardWidgetPayload.md) |  | [Optional] |
 
 ### Return type
 
-[**BulkActionResult**](BulkActionResult.md)
+[**DashboardWidget**](DashboardWidget.md)
 
 ### Authorization
 
@@ -79,28 +79,28 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Test Cases Linked |  -  |
+| **200** | Created dashboard widget |  -  |
 | **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
-## bulkUnlinkTestCase
+## deleteDashboardWidget
 
-> BulkActionResult bulkUnlinkTestCase(bulkUnlinkTestCasesPayload)
+> object deleteDashboardWidget(id)
 
-Unlink bulk test cases
+Unpin a dashboard widget
 
-Bulk unlink of linked test cases
+Remove a pinned report template from the dashboard
 
 ### Example
 
 ```ts
 import {
   Configuration,
-  LinkedtestcasesApi,
+  DashboardWidgetsApi,
 } from '@testcollab/sdk';
-import type { BulkUnlinkTestCaseRequest } from '@testcollab/sdk';
+import type { DeleteDashboardWidgetRequest } from '@testcollab/sdk';
 
 async function example() {
   console.log("🚀 Testing @testcollab/sdk SDK...");
@@ -110,15 +110,15 @@ async function example() {
     // To configure API key authorization: bearerAuth
     apiKey: "YOUR API KEY",
   });
-  const api = new LinkedtestcasesApi(config);
+  const api = new DashboardWidgetsApi(config);
 
   const body = {
-    // BulkUnlinkTestCasesPayload (optional)
-    bulkUnlinkTestCasesPayload: ...,
-  } satisfies BulkUnlinkTestCaseRequest;
+    // number | Dashboard Widget ID
+    id: 8.14,
+  } satisfies DeleteDashboardWidgetRequest;
 
   try {
-    const data = await api.bulkUnlinkTestCase(body);
+    const data = await api.deleteDashboardWidget(body);
     console.log(data);
   } catch (error) {
     console.error(error);
@@ -134,171 +134,11 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **bulkUnlinkTestCasesPayload** | [BulkUnlinkTestCasesPayload](BulkUnlinkTestCasesPayload.md) |  | [Optional] |
+| **id** | `number` | Dashboard Widget ID | [Defaults to `undefined`] |
 
 ### Return type
 
-[**BulkActionResult**](BulkActionResult.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Test Cases Unlinked |  -  |
-| **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## createLinkedTestcase
-
-> LinkedtestcasePayload createLinkedTestcase(linkedtestcasePayload)
-
-Create a new linked project
-
-Linked test case to add
-
-### Example
-
-```ts
-import {
-  Configuration,
-  LinkedtestcasesApi,
-} from '@testcollab/sdk';
-import type { CreateLinkedTestcaseRequest } from '@testcollab/sdk';
-
-async function example() {
-  console.log("🚀 Testing @testcollab/sdk SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKeyAuth
-    apiKey: "YOUR API KEY",
-    // To configure API key authorization: bearerAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new LinkedtestcasesApi(config);
-
-  const body = {
-    // LinkedtestcasePayload (optional)
-    linkedtestcasePayload: ...,
-  } satisfies CreateLinkedTestcaseRequest;
-
-  try {
-    const data = await api.createLinkedTestcase(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **linkedtestcasePayload** | [LinkedtestcasePayload](LinkedtestcasePayload.md) |  | [Optional] |
-
-### Return type
-
-[**LinkedtestcasePayload**](LinkedtestcasePayload.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Created Linked test case |  -  |
-| **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
-
-
-## getLinkedTestCases
-
-> Array&lt;Linkedtestcase&gt; getLinkedTestCases(company, limit, start, sort, filter)
-
-Get list of linked test cases
-
-Get list of linked test cases
-
-### Example
-
-```ts
-import {
-  Configuration,
-  LinkedtestcasesApi,
-} from '@testcollab/sdk';
-import type { GetLinkedTestCasesRequest } from '@testcollab/sdk';
-
-async function example() {
-  console.log("🚀 Testing @testcollab/sdk SDK...");
-  const config = new Configuration({ 
-    // To configure API key authorization: ApiKeyAuth
-    apiKey: "YOUR API KEY",
-    // To configure API key authorization: bearerAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new LinkedtestcasesApi(config);
-
-  const body = {
-    // number | Company ID
-    company: 1,
-    // number | Limit the size of the returned results (optional)
-    limit: 56,
-    // number | Skip a specific number of entries (for pagination) (optional)
-    start: 56,
-    // string | Sort according to a specific field. (optional)
-    sort: sort_example,
-    // string | Stringified filter object  (https://strapi.io/documentation/developer-docs/latest/development/plugins/graphql.html#filters) (optional)
-    filter: filter_example,
-  } satisfies GetLinkedTestCasesRequest;
-
-  try {
-    const data = await api.getLinkedTestCases(body);
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Run the test
-example().catch(console.error);
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **company** | `number` | Company ID | [Defaults to `undefined`] |
-| **limit** | `number` | Limit the size of the returned results | [Optional] [Defaults to `undefined`] |
-| **start** | `number` | Skip a specific number of entries (for pagination) | [Optional] [Defaults to `undefined`] |
-| **sort** | `string` | Sort according to a specific field. | [Optional] [Defaults to `undefined`] |
-| **filter** | `string` | Stringified filter object  (https://strapi.io/documentation/developer-docs/latest/development/plugins/graphql.html#filters) | [Optional] [Defaults to `undefined`] |
-
-### Return type
-
-[**Array&lt;Linkedtestcase&gt;**](Linkedtestcase.md)
+**object**
 
 ### Authorization
 
@@ -313,7 +153,158 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of Linked test cases |  -  |
+| **200** | Dashboard widget removed |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getDashboardWidgets
+
+> Array&lt;DashboardWidget&gt; getDashboardWidgets(project, sort)
+
+Get list of pinned dashboard widgets
+
+Get list of report templates pinned to a project\&#39;s dashboard
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DashboardWidgetsApi,
+} from '@testcollab/sdk';
+import type { GetDashboardWidgetsRequest } from '@testcollab/sdk';
+
+async function example() {
+  console.log("🚀 Testing @testcollab/sdk SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKeyAuth
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: bearerAuth
+    apiKey: "YOUR API KEY",
+  });
+  const api = new DashboardWidgetsApi(config);
+
+  const body = {
+    // number | Project ID
+    project: 1,
+    // string | Sort according to a specific field (optional)
+    sort: sort_example,
+  } satisfies GetDashboardWidgetsRequest;
+
+  try {
+    const data = await api.getDashboardWidgets(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **project** | `number` | Project ID | [Defaults to `undefined`] |
+| **sort** | `string` | Sort according to a specific field | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Array&lt;DashboardWidget&gt;**](DashboardWidget.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of dashboard widgets |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## setDashboardWidgetSortOrder
+
+> object setDashboardWidgetSortOrder(dashboardWidgetSortOrderPayload)
+
+Set display order of dashboard widgets
+
+Reorder pinned dashboard widgets
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DashboardWidgetsApi,
+} from '@testcollab/sdk';
+import type { SetDashboardWidgetSortOrderRequest } from '@testcollab/sdk';
+
+async function example() {
+  console.log("🚀 Testing @testcollab/sdk SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKeyAuth
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: bearerAuth
+    apiKey: "YOUR API KEY",
+  });
+  const api = new DashboardWidgetsApi(config);
+
+  const body = {
+    // DashboardWidgetSortOrderPayload (optional)
+    dashboardWidgetSortOrderPayload: ...,
+  } satisfies SetDashboardWidgetSortOrderRequest;
+
+  try {
+    const data = await api.setDashboardWidgetSortOrder(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dashboardWidgetSortOrderPayload** | [DashboardWidgetSortOrderPayload](DashboardWidgetSortOrderPayload.md) |  | [Optional] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Sort order updated |  -  |
 | **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

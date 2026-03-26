@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 import type {
   BulkActionResult,
   BulkLinkTestCasesPayload,
+  BulkUnlinkTestCasesPayload,
   Linkedtestcase,
   LinkedtestcasePayload,
   TCError,
@@ -26,6 +27,8 @@ import {
     BulkActionResultToJSON,
     BulkLinkTestCasesPayloadFromJSON,
     BulkLinkTestCasesPayloadToJSON,
+    BulkUnlinkTestCasesPayloadFromJSON,
+    BulkUnlinkTestCasesPayloadToJSON,
     LinkedtestcaseFromJSON,
     LinkedtestcaseToJSON,
     LinkedtestcasePayloadFromJSON,
@@ -36,6 +39,10 @@ import {
 
 export interface BulkLinkTestCaseRequest {
     bulkLinkTestCasesPayload?: BulkLinkTestCasesPayload;
+}
+
+export interface BulkUnlinkTestCaseRequest {
+    bulkUnlinkTestCasesPayload?: BulkUnlinkTestCasesPayload;
 }
 
 export interface CreateLinkedTestcaseRequest {
@@ -72,6 +79,22 @@ export interface LinkedtestcasesApiInterface {
      * Link bulk test cases
      */
     bulkLinkTestCase(requestParameters: BulkLinkTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
+
+    /**
+     * Bulk unlink of linked test cases
+     * @summary Unlink bulk test cases
+     * @param {BulkUnlinkTestCasesPayload} [bulkUnlinkTestCasesPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof LinkedtestcasesApiInterface
+     */
+    bulkUnlinkTestCaseRaw(requestParameters: BulkUnlinkTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>>;
+
+    /**
+     * Bulk unlink of linked test cases
+     * Unlink bulk test cases
+     */
+    bulkUnlinkTestCase(requestParameters: BulkUnlinkTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
 
     /**
      * Linked test case to add
@@ -155,6 +178,48 @@ export class LinkedtestcasesApi extends runtime.BaseAPI implements Linkedtestcas
      */
     async bulkLinkTestCase(requestParameters: BulkLinkTestCaseRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult> {
         const response = await this.bulkLinkTestCaseRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Bulk unlink of linked test cases
+     * Unlink bulk test cases
+     */
+    async bulkUnlinkTestCaseRaw(requestParameters: BulkUnlinkTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/linkedtestcases/bulkUnlink`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BulkUnlinkTestCasesPayloadToJSON(requestParameters['bulkUnlinkTestCasesPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BulkActionResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Bulk unlink of linked test cases
+     * Unlink bulk test cases
+     */
+    async bulkUnlinkTestCase(requestParameters: BulkUnlinkTestCaseRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult> {
+        const response = await this.bulkUnlinkTestCaseRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
