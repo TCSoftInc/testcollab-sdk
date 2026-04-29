@@ -1,29 +1,27 @@
 
-# ActivityAuditInfo
+# DeleteAccountResultQueue
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+Queue record for tracking deletion progress
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`id` | number
+`status` | number
+`percentDone` | number
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { DeleteAccountResultQueue } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "id": 1,
+  "status": 0,
+  "percentDone": 0,
+} satisfies DeleteAccountResultQueue
 
 console.log(example)
 
@@ -32,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as DeleteAccountResultQueue
 console.log(exampleParsed)
 ```
 

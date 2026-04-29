@@ -13,85 +13,77 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Throttle state published by the runner when paused due to rate limits
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportThrottle
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportThrottle {
     /**
-     * Name of the release
+     * 
+     * @type {boolean}
+     * @memberof ExternalImportThrottle
+     */
+    active?: boolean;
+    /**
+     * Identifier of the upstream service that is currently throttled
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportThrottle
      */
-    releaseName?: string;
+    service?: string;
     /**
-     * Previous verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportThrottle
      */
-    oldVerdict?: string;
+    message?: string;
     /**
-     * New verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportThrottle
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    resumesAt?: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportThrottle interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportThrottle(value: object): value is ExternalImportThrottle {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportThrottleFromJSON(json: any): ExternalImportThrottle {
+    return ExternalImportThrottleFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportThrottleFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportThrottle {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'active': json['active'] == null ? undefined : json['active'],
+        'service': json['service'] == null ? undefined : json['service'],
+        'message': json['message'] == null ? undefined : json['message'],
+        'resumesAt': json['resumes_at'] == null ? undefined : json['resumes_at'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportThrottleToJSON(json: any): ExternalImportThrottle {
+    return ExternalImportThrottleToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportThrottleToJSONTyped(value?: ExternalImportThrottle | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'active': value['active'],
+        'service': value['service'],
+        'message': value['message'],
+        'resumes_at': value['resumesAt'],
     };
 }
 

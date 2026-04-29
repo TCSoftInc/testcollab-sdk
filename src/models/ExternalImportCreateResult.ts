@@ -13,85 +13,71 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportCreateResult
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportCreateResult {
     /**
-     * Name of the release
+     * ID of the newly created external_imports row
+     * @type {number}
+     * @memberof ExternalImportCreateResult
+     */
+    importId: number;
+    /**
+     * ID of the underlying queue job that will run the import
+     * @type {number}
+     * @memberof ExternalImportCreateResult
+     */
+    queueId?: number;
+    /**
+     * Initial job status
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCreateResult
      */
-    releaseName?: string;
-    /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    status: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportCreateResult interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportCreateResult(value: object): value is ExternalImportCreateResult {
+    if (!('importId' in value) || value['importId'] === undefined) return false;
+    if (!('status' in value) || value['status'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportCreateResultFromJSON(json: any): ExternalImportCreateResult {
+    return ExternalImportCreateResultFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportCreateResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportCreateResult {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'importId': json['import_id'],
+        'queueId': json['queue_id'] == null ? undefined : json['queue_id'],
+        'status': json['status'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportCreateResultToJSON(json: any): ExternalImportCreateResult {
+    return ExternalImportCreateResultToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportCreateResultToJSONTyped(value?: ExternalImportCreateResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'import_id': value['importId'],
+        'queue_id': value['queueId'],
+        'status': value['status'],
     };
 }
 

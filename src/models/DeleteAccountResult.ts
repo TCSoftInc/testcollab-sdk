@@ -13,85 +13,78 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
+import type { DeleteAccountResultQueue } from './DeleteAccountResultQueue';
 import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
+    DeleteAccountResultQueueFromJSON,
+    DeleteAccountResultQueueFromJSONTyped,
+    DeleteAccountResultQueueToJSON,
+    DeleteAccountResultQueueToJSONTyped,
+} from './DeleteAccountResultQueue';
 
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface DeleteAccountResult
  */
-export interface ActivityAuditInfo {
+export interface DeleteAccountResult {
     /**
-     * Name of the release
+     * 
+     * @type {boolean}
+     * @memberof DeleteAccountResult
+     */
+    status: boolean;
+    /**
+     * 
+     * @type {DeleteAccountResultQueue}
+     * @memberof DeleteAccountResult
+     */
+    queue?: DeleteAccountResultQueue | null;
+    /**
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof DeleteAccountResult
      */
-    releaseName?: string;
-    /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    message?: string | null;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the DeleteAccountResult interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfDeleteAccountResult(value: object): value is DeleteAccountResult {
+    if (!('status' in value) || value['status'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function DeleteAccountResultFromJSON(json: any): DeleteAccountResult {
+    return DeleteAccountResultFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function DeleteAccountResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteAccountResult {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'status': json['status'],
+        'queue': json['queue'] == null ? undefined : DeleteAccountResultQueueFromJSON(json['queue']),
+        'message': json['message'] == null ? undefined : json['message'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function DeleteAccountResultToJSON(json: any): DeleteAccountResult {
+    return DeleteAccountResultToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function DeleteAccountResultToJSONTyped(value?: DeleteAccountResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'status': value['status'],
+        'queue': DeleteAccountResultQueueToJSON(value['queue']),
+        'message': value['message'],
     };
 }
 

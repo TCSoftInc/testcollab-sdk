@@ -13,85 +13,85 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * A single field-level change within an activity
  * @export
- * @interface ActivityAuditInfo
+ * @interface ActivityFieldChange
  */
-export interface ActivityAuditInfo {
+export interface ActivityFieldChange {
     /**
-     * Name of the release
+     * Internal field name
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ActivityFieldChange
      */
-    releaseName?: string;
+    field?: string;
     /**
-     * Previous verdict value
+     * Display label for the field
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ActivityFieldChange
      */
-    oldVerdict?: string;
+    label?: string;
     /**
-     * New verdict value
+     * Field type (e.g. user, text, dropdown)
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ActivityFieldChange
      */
-    newVerdict?: string;
+    type?: string;
     /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
+     * Previous value
+     * @type {string}
+     * @memberof ActivityFieldChange
      */
-    changes?: Array<ActivityFieldChange>;
+    oldValue?: string | null;
+    /**
+     * New value
+     * @type {string}
+     * @memberof ActivityFieldChange
+     */
+    newValue?: string | null;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ActivityFieldChange interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfActivityFieldChange(value: object): value is ActivityFieldChange {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ActivityFieldChangeFromJSON(json: any): ActivityFieldChange {
+    return ActivityFieldChangeFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ActivityFieldChangeFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityFieldChange {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'field': json['field'] == null ? undefined : json['field'],
+        'label': json['label'] == null ? undefined : json['label'],
+        'type': json['type'] == null ? undefined : json['type'],
+        'oldValue': json['oldValue'] == null ? undefined : json['oldValue'],
+        'newValue': json['newValue'] == null ? undefined : json['newValue'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ActivityFieldChangeToJSON(json: any): ActivityFieldChange {
+    return ActivityFieldChangeToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ActivityFieldChangeToJSONTyped(value?: ActivityFieldChange | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'field': value['field'],
+        'label': value['label'],
+        'type': value['type'],
+        'oldValue': value['oldValue'],
+        'newValue': value['newValue'],
     };
 }
 

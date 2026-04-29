@@ -17,6 +17,8 @@ import * as runtime from '../runtime';
 import type {
   DefaultResponseError,
   ExportActionResult,
+  ExportDefectsPayload,
+  ExportIssuesPayload,
   ExportTestCasesPayload,
   ForbiddenError,
 } from '../models/index';
@@ -25,11 +27,23 @@ import {
     DefaultResponseErrorToJSON,
     ExportActionResultFromJSON,
     ExportActionResultToJSON,
+    ExportDefectsPayloadFromJSON,
+    ExportDefectsPayloadToJSON,
+    ExportIssuesPayloadFromJSON,
+    ExportIssuesPayloadToJSON,
     ExportTestCasesPayloadFromJSON,
     ExportTestCasesPayloadToJSON,
     ForbiddenErrorFromJSON,
     ForbiddenErrorToJSON,
 } from '../models/index';
+
+export interface ExportDefectsRequest {
+    exportDefectsPayload?: ExportDefectsPayload;
+}
+
+export interface ExportIssuesRequest {
+    exportIssuesPayload?: ExportIssuesPayload;
+}
 
 export interface ExportTestCasesRequest {
     exportTestCasesPayload?: ExportTestCasesPayload;
@@ -42,6 +56,38 @@ export interface ExportTestCasesRequest {
  * @interface ExportApiInterface
  */
 export interface ExportApiInterface {
+    /**
+     * Export the list of defects (in JSON format for CSV generation)
+     * @summary Export defects
+     * @param {ExportDefectsPayload} [exportDefectsPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExportApiInterface
+     */
+    exportDefectsRaw(requestParameters: ExportDefectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>>;
+
+    /**
+     * Export the list of defects (in JSON format for CSV generation)
+     * Export defects
+     */
+    exportDefects(requestParameters: ExportDefectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult>;
+
+    /**
+     * Export the list of issues (in JSON format for CSV generation)
+     * @summary Export issues
+     * @param {ExportIssuesPayload} [exportIssuesPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExportApiInterface
+     */
+    exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>>;
+
+    /**
+     * Export the list of issues (in JSON format for CSV generation)
+     * Export issues
+     */
+    exportIssues(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult>;
+
     /**
      * Custom export the list of test cases (in JSON format)
      * @summary Export test cases
@@ -64,6 +110,90 @@ export interface ExportApiInterface {
  * 
  */
 export class ExportApi extends runtime.BaseAPI implements ExportApiInterface {
+
+    /**
+     * Export the list of defects (in JSON format for CSV generation)
+     * Export defects
+     */
+    async exportDefectsRaw(requestParameters: ExportDefectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/defects/export`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExportDefectsPayloadToJSON(requestParameters['exportDefectsPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExportActionResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Export the list of defects (in JSON format for CSV generation)
+     * Export defects
+     */
+    async exportDefects(requestParameters: ExportDefectsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult> {
+        const response = await this.exportDefectsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Export the list of issues (in JSON format for CSV generation)
+     * Export issues
+     */
+    async exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/issues/export`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExportIssuesPayloadToJSON(requestParameters['exportIssuesPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExportActionResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Export the list of issues (in JSON format for CSV generation)
+     * Export issues
+     */
+    async exportIssues(requestParameters: ExportIssuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult> {
+        const response = await this.exportIssuesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Custom export the list of test cases (in JSON format)

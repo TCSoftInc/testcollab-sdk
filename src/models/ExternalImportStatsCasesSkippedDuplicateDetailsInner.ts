@@ -13,85 +13,77 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportStatsCasesSkippedDuplicateDetailsInner
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportStatsCasesSkippedDuplicateDetailsInner {
     /**
-     * Name of the release
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportStatsCasesSkippedDuplicateDetailsInner
      */
-    releaseName?: string;
+    issueKey?: string;
     /**
-     * Previous verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportStatsCasesSkippedDuplicateDetailsInner
      */
-    oldVerdict?: string;
+    title?: string;
     /**
-     * New verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportStatsCasesSkippedDuplicateDetailsInner
      */
-    newVerdict?: string;
+    duplicatedWithIssueKey?: string;
     /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {string}
+     * @memberof ExternalImportStatsCasesSkippedDuplicateDetailsInner
      */
-    changes?: Array<ActivityFieldChange>;
+    duplicatedWithTitle?: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportStatsCasesSkippedDuplicateDetailsInner interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportStatsCasesSkippedDuplicateDetailsInner(value: object): value is ExternalImportStatsCasesSkippedDuplicateDetailsInner {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportStatsCasesSkippedDuplicateDetailsInnerFromJSON(json: any): ExternalImportStatsCasesSkippedDuplicateDetailsInner {
+    return ExternalImportStatsCasesSkippedDuplicateDetailsInnerFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportStatsCasesSkippedDuplicateDetailsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportStatsCasesSkippedDuplicateDetailsInner {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'issueKey': json['issue_key'] == null ? undefined : json['issue_key'],
+        'title': json['title'] == null ? undefined : json['title'],
+        'duplicatedWithIssueKey': json['duplicated_with_issue_key'] == null ? undefined : json['duplicated_with_issue_key'],
+        'duplicatedWithTitle': json['duplicated_with_title'] == null ? undefined : json['duplicated_with_title'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportStatsCasesSkippedDuplicateDetailsInnerToJSON(json: any): ExternalImportStatsCasesSkippedDuplicateDetailsInner {
+    return ExternalImportStatsCasesSkippedDuplicateDetailsInnerToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportStatsCasesSkippedDuplicateDetailsInnerToJSONTyped(value?: ExternalImportStatsCasesSkippedDuplicateDetailsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'issue_key': value['issueKey'],
+        'title': value['title'],
+        'duplicated_with_issue_key': value['duplicatedWithIssueKey'],
+        'duplicated_with_title': value['duplicatedWithTitle'],
     };
 }
 

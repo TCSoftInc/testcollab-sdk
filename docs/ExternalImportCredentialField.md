@@ -1,29 +1,30 @@
 
-# ActivityAuditInfo
+# ExternalImportCredentialField
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`key` | string
+`label` | string
+`type` | string
+`placeholder` | string
+`supportsProjectSecret` | boolean
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ExternalImportCredentialField } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "key": xray_client_id,
+  "label": Xray Client ID,
+  "type": text,
+  "placeholder": mycompany.atlassian.net,
+  "supportsProjectSecret": true,
+} satisfies ExternalImportCredentialField
 
 console.log(example)
 
@@ -32,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ExternalImportCredentialField
 console.log(exampleParsed)
 ```
 

@@ -13,85 +13,69 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Queue record for tracking deletion progress
  * @export
- * @interface ActivityAuditInfo
+ * @interface DeleteAccountResultQueue
  */
-export interface ActivityAuditInfo {
+export interface DeleteAccountResultQueue {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof DeleteAccountResultQueue
      */
-    releaseName?: string;
+    id?: number;
     /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof DeleteAccountResultQueue
      */
-    oldVerdict?: string;
+    status?: number;
     /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof DeleteAccountResultQueue
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    percentDone?: number;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the DeleteAccountResultQueue interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfDeleteAccountResultQueue(value: object): value is DeleteAccountResultQueue {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function DeleteAccountResultQueueFromJSON(json: any): DeleteAccountResultQueue {
+    return DeleteAccountResultQueueFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function DeleteAccountResultQueueFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteAccountResultQueue {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'id': json['id'] == null ? undefined : json['id'],
+        'status': json['status'] == null ? undefined : json['status'],
+        'percentDone': json['percent_done'] == null ? undefined : json['percent_done'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function DeleteAccountResultQueueToJSON(json: any): DeleteAccountResultQueue {
+    return DeleteAccountResultQueueToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function DeleteAccountResultQueueToJSONTyped(value?: DeleteAccountResultQueue | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'id': value['id'],
+        'status': value['status'],
+        'percent_done': value['percentDone'],
     };
 }
 

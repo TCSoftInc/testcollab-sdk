@@ -1,29 +1,27 @@
 
-# ActivityAuditInfo
+# ExternalImportFailedItem
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+A single source entity that failed to import
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`externalKey` | string
+`entityType` | string
+`reason` | string
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ExternalImportFailedItem } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "externalKey": ABC-123,
+  "entityType": testcase,
+  "reason": TC API rejected payload: title is required,
+} satisfies ExternalImportFailedItem
 
 console.log(example)
 
@@ -32,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ExternalImportFailedItem
 console.log(exampleParsed)
 ```
 

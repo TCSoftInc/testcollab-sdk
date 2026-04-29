@@ -1,29 +1,30 @@
 
-# ActivityAuditInfo
+# ExternalImportAdapter
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`type` | string
+`name` | string
+`icon` | string
+`credentialFields` | [Array&lt;ExternalImportCredentialField&gt;](ExternalImportCredentialField.md)
+`optionsSchema` | [ExternalImportOptions](ExternalImportOptions.md)
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ExternalImportAdapter } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "type": xray,
+  "name": Jira + Xray,
+  "icon": xray.svg,
+  "credentialFields": null,
+  "optionsSchema": null,
+} satisfies ExternalImportAdapter
 
 console.log(example)
 
@@ -32,7 +33,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ExternalImportAdapter
 console.log(exampleParsed)
 ```
 

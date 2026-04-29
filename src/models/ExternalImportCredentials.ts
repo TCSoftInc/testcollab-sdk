@@ -13,85 +13,86 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Free-form credentials object whose keys are determined by the adapter's credential_fields schema. For the xray adapter the expected keys are xray_client_id, xray_client_secret, jira_host, jira_email and jira_token. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import.
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportCredentials
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportCredentials {
     /**
-     * Name of the release
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentials
      */
-    releaseName?: string;
+    xrayClientId?: string;
     /**
-     * Previous verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentials
      */
-    oldVerdict?: string;
+    xrayClientSecret?: string;
     /**
-     * New verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentials
      */
-    newVerdict?: string;
+    jiraHost?: string;
     /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {string}
+     * @memberof ExternalImportCredentials
      */
-    changes?: Array<ActivityFieldChange>;
+    jiraEmail?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalImportCredentials
+     */
+    jiraToken?: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportCredentials interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportCredentials(value: object): value is ExternalImportCredentials {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportCredentialsFromJSON(json: any): ExternalImportCredentials {
+    return ExternalImportCredentialsFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportCredentialsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportCredentials {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'xrayClientId': json['xray_client_id'] == null ? undefined : json['xray_client_id'],
+        'xrayClientSecret': json['xray_client_secret'] == null ? undefined : json['xray_client_secret'],
+        'jiraHost': json['jira_host'] == null ? undefined : json['jira_host'],
+        'jiraEmail': json['jira_email'] == null ? undefined : json['jira_email'],
+        'jiraToken': json['jira_token'] == null ? undefined : json['jira_token'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportCredentialsToJSON(json: any): ExternalImportCredentials {
+    return ExternalImportCredentialsToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportCredentialsToJSONTyped(value?: ExternalImportCredentials | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'xray_client_id': value['xrayClientId'],
+        'xray_client_secret': value['xrayClientSecret'],
+        'jira_host': value['jiraHost'],
+        'jira_email': value['jiraEmail'],
+        'jira_token': value['jiraToken'],
     };
 }
 

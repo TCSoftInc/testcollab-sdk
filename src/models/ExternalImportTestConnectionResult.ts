@@ -13,85 +13,70 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportTestConnectionResult
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportTestConnectionResult {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {boolean}
+     * @memberof ExternalImportTestConnectionResult
      */
-    releaseName?: string;
+    ok: boolean;
     /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * Lifetime of the cached source-system access token in seconds
+     * @type {number}
+     * @memberof ExternalImportTestConnectionResult
      */
-    oldVerdict?: string;
+    tokenTtlSeconds?: number;
     /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * Number of source-system projects visible to the credentials
+     * @type {number}
+     * @memberof ExternalImportTestConnectionResult
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    projectCount?: number;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportTestConnectionResult interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportTestConnectionResult(value: object): value is ExternalImportTestConnectionResult {
+    if (!('ok' in value) || value['ok'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportTestConnectionResultFromJSON(json: any): ExternalImportTestConnectionResult {
+    return ExternalImportTestConnectionResultFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportTestConnectionResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportTestConnectionResult {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'ok': json['ok'],
+        'tokenTtlSeconds': json['token_ttl_seconds'] == null ? undefined : json['token_ttl_seconds'],
+        'projectCount': json['project_count'] == null ? undefined : json['project_count'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportTestConnectionResultToJSON(json: any): ExternalImportTestConnectionResult {
+    return ExternalImportTestConnectionResultToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportTestConnectionResultToJSONTyped(value?: ExternalImportTestConnectionResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'ok': value['ok'],
+        'token_ttl_seconds': value['tokenTtlSeconds'],
+        'project_count': value['projectCount'],
     };
 }
 

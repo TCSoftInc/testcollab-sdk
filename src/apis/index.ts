@@ -1,12 +1,14 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AvailableIssueManagersApi';
+export * from './CompaniesApi';
 export * from './CustomFieldsApi';
 export * from './DashboardWidgetsApi';
 export * from './DefectsApi';
 export * from './ExecutedTestCasesApi';
 export * from './ExecutionCommentsApi';
 export * from './ExportApi';
+export * from './ExternalImportsApi';
 export * from './FiltersApi';
 export * from './InvitationsApi';
 export * from './IssuesApi';

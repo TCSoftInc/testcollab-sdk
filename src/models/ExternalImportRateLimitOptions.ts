@@ -13,85 +13,61 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Optional per-service rate limit overrides for the import job
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportRateLimitOptions
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportRateLimitOptions {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * Maximum Xray GraphQL requests per minute (default 50, max 200)
+     * @type {number}
+     * @memberof ExternalImportRateLimitOptions
      */
-    releaseName?: string;
+    xrayGraphqlPerMin?: number;
     /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * Maximum Jira REST requests per minute (default 30, max 200)
+     * @type {number}
+     * @memberof ExternalImportRateLimitOptions
      */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    jiraRestPerMin?: number;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportRateLimitOptions interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportRateLimitOptions(value: object): value is ExternalImportRateLimitOptions {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportRateLimitOptionsFromJSON(json: any): ExternalImportRateLimitOptions {
+    return ExternalImportRateLimitOptionsFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportRateLimitOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportRateLimitOptions {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'xrayGraphqlPerMin': json['xray_graphql_per_min'] == null ? undefined : json['xray_graphql_per_min'],
+        'jiraRestPerMin': json['jira_rest_per_min'] == null ? undefined : json['jira_rest_per_min'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportRateLimitOptionsToJSON(json: any): ExternalImportRateLimitOptions {
+    return ExternalImportRateLimitOptionsToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportRateLimitOptionsToJSONTyped(value?: ExternalImportRateLimitOptions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'xray_graphql_per_min': value['xrayGraphqlPerMin'],
+        'jira_rest_per_min': value['jiraRestPerMin'],
     };
 }
 

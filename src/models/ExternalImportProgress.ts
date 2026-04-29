@@ -13,85 +13,69 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Progress counters for the current import stage
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportProgress
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportProgress {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportProgress
      */
-    releaseName?: string;
+    current?: number;
     /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportProgress
      */
-    oldVerdict?: string;
+    total?: number;
     /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportProgress
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    percent?: number;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportProgress interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportProgress(value: object): value is ExternalImportProgress {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportProgressFromJSON(json: any): ExternalImportProgress {
+    return ExternalImportProgressFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportProgressFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportProgress {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'current': json['current'] == null ? undefined : json['current'],
+        'total': json['total'] == null ? undefined : json['total'],
+        'percent': json['percent'] == null ? undefined : json['percent'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportProgressToJSON(json: any): ExternalImportProgress {
+    return ExternalImportProgressToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportProgressToJSONTyped(value?: ExternalImportProgress | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'current': value['current'],
+        'total': value['total'],
+        'percent': value['percent'],
     };
 }
 

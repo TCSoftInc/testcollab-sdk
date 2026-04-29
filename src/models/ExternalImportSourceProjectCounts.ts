@@ -13,85 +13,77 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Per-entity counts in a source project (used by the project picker UI). Fields may be omitted when the source adapter cannot provide an exact count cheaply.
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportSourceProjectCounts
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportSourceProjectCounts {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportSourceProjectCounts
      */
-    releaseName?: string;
+    testCases?: number;
     /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportSourceProjectCounts
      */
-    oldVerdict?: string;
+    testSets?: number;
     /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportSourceProjectCounts
      */
-    newVerdict?: string;
+    testPlans?: number;
     /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {number}
+     * @memberof ExternalImportSourceProjectCounts
      */
-    changes?: Array<ActivityFieldChange>;
+    folders?: number;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportSourceProjectCounts interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportSourceProjectCounts(value: object): value is ExternalImportSourceProjectCounts {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportSourceProjectCountsFromJSON(json: any): ExternalImportSourceProjectCounts {
+    return ExternalImportSourceProjectCountsFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportSourceProjectCountsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportSourceProjectCounts {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'testCases': json['test_cases'] == null ? undefined : json['test_cases'],
+        'testSets': json['test_sets'] == null ? undefined : json['test_sets'],
+        'testPlans': json['test_plans'] == null ? undefined : json['test_plans'],
+        'folders': json['folders'] == null ? undefined : json['folders'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportSourceProjectCountsToJSON(json: any): ExternalImportSourceProjectCounts {
+    return ExternalImportSourceProjectCountsToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportSourceProjectCountsToJSONTyped(value?: ExternalImportSourceProjectCounts | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'test_cases': value['testCases'],
+        'test_sets': value['testSets'],
+        'test_plans': value['testPlans'],
+        'folders': value['folders'],
     };
 }
 

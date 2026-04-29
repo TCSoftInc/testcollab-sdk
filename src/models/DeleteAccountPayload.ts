@@ -13,85 +13,72 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Payload for deleting a company account
  * @export
- * @interface ActivityAuditInfo
+ * @interface DeleteAccountPayload
  */
-export interface ActivityAuditInfo {
+export interface DeleteAccountPayload {
     /**
-     * Name of the release
+     * ID of the company to delete
+     * @type {number}
+     * @memberof DeleteAccountPayload
+     */
+    company: number;
+    /**
+     * Must match the company name exactly for confirmation
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof DeleteAccountPayload
      */
-    releaseName?: string;
+    confirmName: string;
     /**
-     * Previous verdict value
+     * Optional reason for account deletion
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof DeleteAccountPayload
      */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    reason: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the DeleteAccountPayload interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfDeleteAccountPayload(value: object): value is DeleteAccountPayload {
+    if (!('company' in value) || value['company'] === undefined) return false;
+    if (!('confirmName' in value) || value['confirmName'] === undefined) return false;
+    if (!('reason' in value) || value['reason'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function DeleteAccountPayloadFromJSON(json: any): DeleteAccountPayload {
+    return DeleteAccountPayloadFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function DeleteAccountPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): DeleteAccountPayload {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'company': json['company'],
+        'confirmName': json['confirm_name'],
+        'reason': json['reason'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function DeleteAccountPayloadToJSON(json: any): DeleteAccountPayload {
+    return DeleteAccountPayloadToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function DeleteAccountPayloadToJSONTyped(value?: DeleteAccountPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'company': value['company'],
+        'confirm_name': value['confirmName'],
+        'reason': value['reason'],
     };
 }
 

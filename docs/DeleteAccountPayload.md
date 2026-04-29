@@ -1,29 +1,27 @@
 
-# ActivityAuditInfo
+# DeleteAccountPayload
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+Payload for deleting a company account
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`company` | number
+`confirmName` | string
+`reason` | string
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { DeleteAccountPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "company": 1,
+  "confirmName": My Company,
+  "reason": No longer needed,
+} satisfies DeleteAccountPayload
 
 console.log(example)
 
@@ -32,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as DeleteAccountPayload
 console.log(exampleParsed)
 ```
 

@@ -13,85 +13,62 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
+import type { ExternalImportAdapter } from './ExternalImportAdapter';
 import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
+    ExternalImportAdapterFromJSON,
+    ExternalImportAdapterFromJSONTyped,
+    ExternalImportAdapterToJSON,
+    ExternalImportAdapterToJSONTyped,
+} from './ExternalImportAdapter';
 
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportAdapterCollection
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportAdapterCollection {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {Array<ExternalImportAdapter>}
+     * @memberof ExternalImportAdapterCollection
      */
-    releaseName?: string;
-    /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    adapters: Array<ExternalImportAdapter>;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportAdapterCollection interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportAdapterCollection(value: object): value is ExternalImportAdapterCollection {
+    if (!('adapters' in value) || value['adapters'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportAdapterCollectionFromJSON(json: any): ExternalImportAdapterCollection {
+    return ExternalImportAdapterCollectionFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportAdapterCollectionFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportAdapterCollection {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'adapters': ((json['adapters'] as Array<any>).map(ExternalImportAdapterFromJSON)),
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportAdapterCollectionToJSON(json: any): ExternalImportAdapterCollection {
+    return ExternalImportAdapterCollectionToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportAdapterCollectionToJSONTyped(value?: ExternalImportAdapterCollection | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'adapters': ((value['adapters'] as Array<any>).map(ExternalImportAdapterToJSON)),
     };
 }
 

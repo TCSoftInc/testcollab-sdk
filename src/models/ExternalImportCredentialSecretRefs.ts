@@ -13,85 +13,70 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * Optional map of credential field keys to project secret names. The external import service resolves these references server-side using the destination TestCollab project's saved secrets when the selected adapter supports it. For xray imports, direct credential input is expected.
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportCredentialSecretRefs
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportCredentialSecretRefs {
     /**
-     * Name of the release
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentialSecretRefs
      */
-    releaseName?: string;
+    xrayClientId?: string;
     /**
-     * Previous verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentialSecretRefs
      */
-    oldVerdict?: string;
+    xrayClientSecret?: string;
     /**
-     * New verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportCredentialSecretRefs
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    jiraToken?: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportCredentialSecretRefs interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportCredentialSecretRefs(value: object): value is ExternalImportCredentialSecretRefs {
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportCredentialSecretRefsFromJSON(json: any): ExternalImportCredentialSecretRefs {
+    return ExternalImportCredentialSecretRefsFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportCredentialSecretRefsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportCredentialSecretRefs {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'xrayClientId': json['xray_client_id'] == null ? undefined : json['xray_client_id'],
+        'xrayClientSecret': json['xray_client_secret'] == null ? undefined : json['xray_client_secret'],
+        'jiraToken': json['jira_token'] == null ? undefined : json['jira_token'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportCredentialSecretRefsToJSON(json: any): ExternalImportCredentialSecretRefs {
+    return ExternalImportCredentialSecretRefsToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportCredentialSecretRefsToJSONTyped(value?: ExternalImportCredentialSecretRefs | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'xray_client_id': value['xrayClientId'],
+        'xray_client_secret': value['xrayClientSecret'],
+        'jira_token': value['jiraToken'],
     };
 }
 

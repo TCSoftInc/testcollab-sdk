@@ -1,29 +1,31 @@
 
-# ActivityAuditInfo
+# ActivityFieldChange
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+A single field-level change within an activity
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`field` | string
+`label` | string
+`type` | string
+`oldValue` | string
+`newValue` | string
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ActivityFieldChange } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "field": assigned_to,
+  "label": Assigned To,
+  "type": user,
+  "oldValue": 42,
+  "newValue": 55,
+} satisfies ActivityFieldChange
 
 console.log(example)
 
@@ -32,7 +34,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ActivityFieldChange
 console.log(exampleParsed)
 ```
 

@@ -1,29 +1,26 @@
 
-# ActivityAuditInfo
+# ExternalImportTestConnectionResult
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`ok` | boolean
+`tokenTtlSeconds` | number
+`projectCount` | number
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ExternalImportTestConnectionResult } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "ok": true,
+  "tokenTtlSeconds": 86400,
+  "projectCount": 23,
+} satisfies ExternalImportTestConnectionResult
 
 console.log(example)
 
@@ -32,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ExternalImportTestConnectionResult
 console.log(exampleParsed)
 ```
 

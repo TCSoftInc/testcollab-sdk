@@ -13,85 +13,71 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
-import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
-
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * A single source entity that failed to import
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportFailedItem
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportFailedItem {
     /**
-     * Name of the release
+     * Source-system identifier of the entity that failed
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportFailedItem
      */
-    releaseName?: string;
+    externalKey: string;
     /**
-     * Previous verdict value
+     * Source entity type (folder, testcase, testset, testplan)
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportFailedItem
      */
-    oldVerdict?: string;
+    entityType?: string;
     /**
-     * New verdict value
+     * 
      * @type {string}
-     * @memberof ActivityAuditInfo
+     * @memberof ExternalImportFailedItem
      */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    reason: string;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportFailedItem interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportFailedItem(value: object): value is ExternalImportFailedItem {
+    if (!('externalKey' in value) || value['externalKey'] === undefined) return false;
+    if (!('reason' in value) || value['reason'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportFailedItemFromJSON(json: any): ExternalImportFailedItem {
+    return ExternalImportFailedItemFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportFailedItemFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportFailedItem {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'externalKey': json['external_key'],
+        'entityType': json['entity_type'] == null ? undefined : json['entity_type'],
+        'reason': json['reason'],
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportFailedItemToJSON(json: any): ExternalImportFailedItem {
+    return ExternalImportFailedItemToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportFailedItemToJSONTyped(value?: ExternalImportFailedItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'external_key': value['externalKey'],
+        'entity_type': value['entityType'],
+        'reason': value['reason'],
     };
 }
 

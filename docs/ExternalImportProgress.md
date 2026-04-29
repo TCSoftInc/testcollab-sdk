@@ -1,29 +1,27 @@
 
-# ActivityAuditInfo
+# ExternalImportProgress
 
-Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+Progress counters for the current import stage
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`releaseName` | string
-`oldVerdict` | string
-`newVerdict` | string
-`changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`current` | number
+`total` | number
+`percent` | number
 
 ## Example
 
 ```typescript
-import type { ActivityAuditInfo } from '@testcollab/sdk'
+import type { ExternalImportProgress } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "releaseName": v1,
-  "oldVerdict": No-Go,
-  "newVerdict": Go,
-  "changes": null,
-} satisfies ActivityAuditInfo
+  "current": 412,
+  "total": 1247,
+  "percent": 33,
+} satisfies ExternalImportProgress
 
 console.log(example)
 
@@ -32,7 +30,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as ActivityAuditInfo
+const exampleParsed = JSON.parse(exampleJSON) as ExternalImportProgress
 console.log(exampleParsed)
 ```
 

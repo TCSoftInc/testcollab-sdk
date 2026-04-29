@@ -13,85 +13,62 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ActivityFieldChange } from './ActivityFieldChange';
+import type { ExternalImportSourceProject } from './ExternalImportSourceProject';
 import {
-    ActivityFieldChangeFromJSON,
-    ActivityFieldChangeFromJSONTyped,
-    ActivityFieldChangeToJSON,
-    ActivityFieldChangeToJSONTyped,
-} from './ActivityFieldChange';
+    ExternalImportSourceProjectFromJSON,
+    ExternalImportSourceProjectFromJSONTyped,
+    ExternalImportSourceProjectToJSON,
+    ExternalImportSourceProjectToJSONTyped,
+} from './ExternalImportSourceProject';
 
 /**
- * Additional metadata for the activity (e.g. release name, old/new verdict, field changes)
+ * 
  * @export
- * @interface ActivityAuditInfo
+ * @interface ExternalImportValidateSourceProjectResult
  */
-export interface ActivityAuditInfo {
+export interface ExternalImportValidateSourceProjectResult {
     /**
-     * Name of the release
-     * @type {string}
-     * @memberof ActivityAuditInfo
+     * 
+     * @type {ExternalImportSourceProject}
+     * @memberof ExternalImportValidateSourceProjectResult
      */
-    releaseName?: string;
-    /**
-     * Previous verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    oldVerdict?: string;
-    /**
-     * New verdict value
-     * @type {string}
-     * @memberof ActivityAuditInfo
-     */
-    newVerdict?: string;
-    /**
-     * List of field-level changes made in this activity
-     * @type {Array<ActivityFieldChange>}
-     * @memberof ActivityAuditInfo
-     */
-    changes?: Array<ActivityFieldChange>;
+    project: ExternalImportSourceProject;
 }
 
 /**
- * Check if a given object implements the ActivityAuditInfo interface.
+ * Check if a given object implements the ExternalImportValidateSourceProjectResult interface.
  */
-export function instanceOfActivityAuditInfo(value: object): value is ActivityAuditInfo {
+export function instanceOfExternalImportValidateSourceProjectResult(value: object): value is ExternalImportValidateSourceProjectResult {
+    if (!('project' in value) || value['project'] === undefined) return false;
     return true;
 }
 
-export function ActivityAuditInfoFromJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoFromJSONTyped(json, false);
+export function ExternalImportValidateSourceProjectResultFromJSON(json: any): ExternalImportValidateSourceProjectResult {
+    return ExternalImportValidateSourceProjectResultFromJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActivityAuditInfo {
+export function ExternalImportValidateSourceProjectResultFromJSONTyped(json: any, ignoreDiscriminator: boolean): ExternalImportValidateSourceProjectResult {
     if (json == null) {
         return json;
     }
     return {
         
-        'releaseName': json['release_name'] == null ? undefined : json['release_name'],
-        'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
-        'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
-        'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'project': ExternalImportSourceProjectFromJSON(json['project']),
     };
 }
 
-export function ActivityAuditInfoToJSON(json: any): ActivityAuditInfo {
-    return ActivityAuditInfoToJSONTyped(json, false);
+export function ExternalImportValidateSourceProjectResultToJSON(json: any): ExternalImportValidateSourceProjectResult {
+    return ExternalImportValidateSourceProjectResultToJSONTyped(json, false);
 }
 
-export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ExternalImportValidateSourceProjectResultToJSONTyped(value?: ExternalImportValidateSourceProjectResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'release_name': value['releaseName'],
-        'old_verdict': value['oldVerdict'],
-        'new_verdict': value['newVerdict'],
-        'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'project': ExternalImportSourceProjectToJSON(value['project']),
     };
 }
 
