@@ -11,6 +11,7 @@ export * from './ExportApi';
 export * from './ExternalImportsApi';
 export * from './FiltersApi';
 export * from './InvitationsApi';
+export * from './IssueCommentsApi';
 export * from './IssuesApi';
 export * from './LinkedprojectsApi';
 export * from './LinkedtestcasesApi';

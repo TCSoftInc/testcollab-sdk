@@ -149,6 +149,9 @@ docs/InvoiceProrationItems.md
 docs/InvoiceProrationItemsPeriod.md
 docs/Issue.md
 docs/IssueBulkActionPayload.md
+docs/IssueComment.md
+docs/IssueCommentPayload.md
+docs/IssueCommentsApi.md
 docs/IssueManagerConfigField.md
 docs/IssueManagerFieldMapping.md
 docs/IssueManagerFieldMappingValuesInner.md
@@ -469,6 +472,7 @@ src/apis/ExportApi.ts
 src/apis/ExternalImportsApi.ts
 src/apis/FiltersApi.ts
 src/apis/InvitationsApi.ts
+src/apis/IssueCommentsApi.ts
 src/apis/IssuesApi.ts
 src/apis/LinkedprojectsApi.ts
 src/apis/LinkedtestcasesApi.ts
@@ -645,6 +649,8 @@ src/models/InvoiceProrationItems.ts
 src/models/InvoiceProrationItemsPeriod.ts
 src/models/Issue.ts
 src/models/IssueBulkActionPayload.ts
+src/models/IssueComment.ts
+src/models/IssueCommentPayload.ts
 src/models/IssueManagerConfigField.ts
 src/models/IssueManagerFieldMapping.ts
 src/models/IssueManagerFieldMappingValuesInner.ts

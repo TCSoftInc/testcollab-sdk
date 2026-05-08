@@ -136,6 +136,8 @@ export * from './InvoiceProrationItems';
 export * from './InvoiceProrationItemsPeriod';
 export * from './Issue';
 export * from './IssueBulkActionPayload';
+export * from './IssueComment';
+export * from './IssueCommentPayload';
 export * from './IssueManagerConfigField';
 export * from './IssueManagerFieldMapping';
 export * from './IssueManagerFieldMappingValuesInner';
