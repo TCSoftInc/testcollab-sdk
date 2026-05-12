@@ -91,7 +91,9 @@ docs/ExecutionTestCaseStatusInner.md
 docs/ExportActionResult.md
 docs/ExportApi.md
 docs/ExportDefectsPayload.md
+docs/ExportEnqueueResult.md
 docs/ExportIssuesPayload.md
+docs/ExportRequirementsPayload.md
 docs/ExportTestCasesPayload.md
 docs/ExtendTrialPayload.md
 docs/ExternalImportAdapter.md
@@ -594,7 +596,9 @@ src/models/ExecutionTestCase.ts
 src/models/ExecutionTestCaseStatusInner.ts
 src/models/ExportActionResult.ts
 src/models/ExportDefectsPayload.ts
+src/models/ExportEnqueueResult.ts
 src/models/ExportIssuesPayload.ts
+src/models/ExportRequirementsPayload.ts
 src/models/ExportTestCasesPayload.ts
 src/models/ExtendTrialPayload.ts
 src/models/ExternalImportAdapter.ts

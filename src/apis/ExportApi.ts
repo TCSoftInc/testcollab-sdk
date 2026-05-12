@@ -18,7 +18,9 @@ import type {
   DefaultResponseError,
   ExportActionResult,
   ExportDefectsPayload,
+  ExportEnqueueResult,
   ExportIssuesPayload,
+  ExportRequirementsPayload,
   ExportTestCasesPayload,
   ForbiddenError,
 } from '../models/index';
@@ -29,8 +31,12 @@ import {
     ExportActionResultToJSON,
     ExportDefectsPayloadFromJSON,
     ExportDefectsPayloadToJSON,
+    ExportEnqueueResultFromJSON,
+    ExportEnqueueResultToJSON,
     ExportIssuesPayloadFromJSON,
     ExportIssuesPayloadToJSON,
+    ExportRequirementsPayloadFromJSON,
+    ExportRequirementsPayloadToJSON,
     ExportTestCasesPayloadFromJSON,
     ExportTestCasesPayloadToJSON,
     ForbiddenErrorFromJSON,
@@ -43,6 +49,10 @@ export interface ExportDefectsRequest {
 
 export interface ExportIssuesRequest {
     exportIssuesPayload?: ExportIssuesPayload;
+}
+
+export interface ExportRequirementsRequest {
+    exportRequirementsPayload?: ExportRequirementsPayload;
 }
 
 export interface ExportTestCasesRequest {
@@ -73,20 +83,36 @@ export interface ExportApiInterface {
     exportDefects(requestParameters: ExportDefectsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult>;
 
     /**
-     * Export the list of issues (in JSON format for CSV generation)
-     * @summary Export issues
+     * Enqueues an asynchronous issue CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file (the file is uploaded via the configured upload provider — S3 in production, local in development).
+     * @summary Enqueue an issue export
      * @param {ExportIssuesPayload} [exportIssuesPayload] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExportApiInterface
      */
-    exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>>;
+    exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportEnqueueResult>>;
 
     /**
-     * Export the list of issues (in JSON format for CSV generation)
-     * Export issues
+     * Enqueues an asynchronous issue CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file (the file is uploaded via the configured upload provider — S3 in production, local in development).
+     * Enqueue an issue export
      */
-    exportIssues(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult>;
+    exportIssues(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportEnqueueResult>;
+
+    /**
+     * Enqueues an asynchronous requirement CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file.
+     * @summary Enqueue a requirement export
+     * @param {ExportRequirementsPayload} [exportRequirementsPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExportApiInterface
+     */
+    exportRequirementsRaw(requestParameters: ExportRequirementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportEnqueueResult>>;
+
+    /**
+     * Enqueues an asynchronous requirement CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file.
+     * Enqueue a requirement export
+     */
+    exportRequirements(requestParameters: ExportRequirementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportEnqueueResult>;
 
     /**
      * Custom export the list of test cases (in JSON format)
@@ -154,10 +180,10 @@ export class ExportApi extends runtime.BaseAPI implements ExportApiInterface {
     }
 
     /**
-     * Export the list of issues (in JSON format for CSV generation)
-     * Export issues
+     * Enqueues an asynchronous issue CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file (the file is uploaded via the configured upload provider — S3 in production, local in development).
+     * Enqueue an issue export
      */
-    async exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActionResult>> {
+    async exportIssuesRaw(requestParameters: ExportIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportEnqueueResult>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -183,15 +209,57 @@ export class ExportApi extends runtime.BaseAPI implements ExportApiInterface {
             body: ExportIssuesPayloadToJSON(requestParameters['exportIssuesPayload']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ExportActionResultFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExportEnqueueResultFromJSON(jsonValue));
     }
 
     /**
-     * Export the list of issues (in JSON format for CSV generation)
-     * Export issues
+     * Enqueues an asynchronous issue CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file (the file is uploaded via the configured upload provider — S3 in production, local in development).
+     * Enqueue an issue export
      */
-    async exportIssues(requestParameters: ExportIssuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportActionResult> {
+    async exportIssues(requestParameters: ExportIssuesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportEnqueueResult> {
         const response = await this.exportIssuesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Enqueues an asynchronous requirement CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file.
+     * Enqueue a requirement export
+     */
+    async exportRequirementsRaw(requestParameters: ExportRequirementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportEnqueueResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/requirements/export`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExportRequirementsPayloadToJSON(requestParameters['exportRequirementsPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExportEnqueueResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Enqueues an asynchronous requirement CSV export. The response returns a queueId that the client should poll via GET /queues/{id}. When the queue row reaches status 2, queue.results contains a `url` field pointing to the generated CSV file.
+     * Enqueue a requirement export
+     */
+    async exportRequirements(requestParameters: ExportRequirementsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportEnqueueResult> {
+        const response = await this.exportRequirementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
