@@ -7,6 +7,7 @@ All URIs are relative to *https://api.testcollab.io*
 | [**createDashboardWidget**](DashboardWidgetsApi.md#createdashboardwidget) | **POST** /dashboardwidgets | Pin a report template to the dashboard |
 | [**deleteDashboardWidget**](DashboardWidgetsApi.md#deletedashboardwidget) | **DELETE** /dashboardwidgets/{id} | Unpin a dashboard widget |
 | [**getDashboardWidgets**](DashboardWidgetsApi.md#getdashboardwidgets) | **GET** /dashboardwidgets | Get list of pinned dashboard widgets |
+| [**setDashboardWidgetLayout**](DashboardWidgetsApi.md#setdashboardwidgetlayout) | **POST** /dashboardwidgets/setLayout | Set layout and display settings of dashboard widgets |
 | [**setDashboardWidgetSortOrder**](DashboardWidgetsApi.md#setdashboardwidgetsortorder) | **POST** /dashboardwidgets/setSortOrder | Set display order of dashboard widgets |
 
 
@@ -231,6 +232,80 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of dashboard widgets |  -  |
+| **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## setDashboardWidgetLayout
+
+> object setDashboardWidgetLayout(dashboardWidgetLayoutPayload)
+
+Set layout and display settings of dashboard widgets
+
+Update placement, size, and visualization type for pinned dashboard report widgets
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DashboardWidgetsApi,
+} from '@testcollab/sdk';
+import type { SetDashboardWidgetLayoutRequest } from '@testcollab/sdk';
+
+async function example() {
+  console.log("🚀 Testing @testcollab/sdk SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKeyAuth
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: bearerAuth
+    apiKey: "YOUR API KEY",
+  });
+  const api = new DashboardWidgetsApi(config);
+
+  const body = {
+    // DashboardWidgetLayoutPayload (optional)
+    dashboardWidgetLayoutPayload: ...,
+  } satisfies SetDashboardWidgetLayoutRequest;
+
+  try {
+    const data = await api.setDashboardWidgetLayout(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dashboardWidgetLayoutPayload** | [DashboardWidgetLayoutPayload](DashboardWidgetLayoutPayload.md) |  | [Optional] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Dashboard widget layout updated |  -  |
 | **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

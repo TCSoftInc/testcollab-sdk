@@ -1,38 +1,24 @@
 
-# DashboardWidgetPayload
+# DashboardWidgetLayoutPayload
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`reportTemplate` | number
 `project` | number
-`sortOrder` | number
-`positionX` | number
-`positionY` | number
-`width` | number
-`height` | number
-`visualizationType` | string
-`dashboardSection` | string
+`widgets` | [Array&lt;DashboardWidgetLayoutItem&gt;](DashboardWidgetLayoutItem.md)
 
 ## Example
 
 ```typescript
-import type { DashboardWidgetPayload } from '@testcollab/sdk'
+import type { DashboardWidgetLayoutPayload } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "reportTemplate": 10,
   "project": 1,
-  "sortOrder": 0,
-  "positionX": 0,
-  "positionY": 0,
-  "width": 6,
-  "height": 4,
-  "visualizationType": column,
-  "dashboardSection": below_static,
-} satisfies DashboardWidgetPayload
+  "widgets": null,
+} satisfies DashboardWidgetLayoutPayload
 
 console.log(example)
 
@@ -41,7 +27,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as DashboardWidgetPayload
+const exampleParsed = JSON.parse(exampleJSON) as DashboardWidgetLayoutPayload
 console.log(exampleParsed)
 ```
 

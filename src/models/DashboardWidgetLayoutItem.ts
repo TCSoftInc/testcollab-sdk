@@ -16,110 +16,95 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface DashboardWidgetPayload
+ * @interface DashboardWidgetLayoutItem
  */
-export interface DashboardWidgetPayload {
+export interface DashboardWidgetLayoutItem {
     /**
-     * ID of the report template to pin
+     * Dashboard widget ID
      * @type {number}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
-    reportTemplate: number;
-    /**
-     * Project ID
-     * @type {number}
-     * @memberof DashboardWidgetPayload
-     */
-    project: number;
-    /**
-     * Display order on the dashboard (optional, appended at end if omitted)
-     * @type {number}
-     * @memberof DashboardWidgetPayload
-     */
-    sortOrder?: number;
+    id: number;
     /**
      * Horizontal grid position for the pinned widget
      * @type {number}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
     positionX?: number;
     /**
      * Vertical grid position for the pinned widget
      * @type {number}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
     positionY?: number;
     /**
      * Widget width in a 12-column dashboard grid
      * @type {number}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
     width?: number;
     /**
      * Widget height in dashboard grid units
      * @type {number}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
     height?: number;
     /**
      * Dashboard-specific visualization type for the pinned report
      * @type {string}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
-    visualizationType?: DashboardWidgetPayloadVisualizationTypeEnum;
+    visualizationType?: DashboardWidgetLayoutItemVisualizationTypeEnum;
     /**
      * Whether the pinned widget appears above or below fixed project dashboard reports
      * @type {string}
-     * @memberof DashboardWidgetPayload
+     * @memberof DashboardWidgetLayoutItem
      */
-    dashboardSection?: DashboardWidgetPayloadDashboardSectionEnum;
+    dashboardSection?: DashboardWidgetLayoutItemDashboardSectionEnum;
 }
 
 
 /**
  * @export
  */
-export const DashboardWidgetPayloadVisualizationTypeEnum = {
+export const DashboardWidgetLayoutItemVisualizationTypeEnum = {
     Column: 'column',
     Bar: 'bar',
     Line: 'line',
     Pie: 'pie',
     Table: 'table'
 } as const;
-export type DashboardWidgetPayloadVisualizationTypeEnum = typeof DashboardWidgetPayloadVisualizationTypeEnum[keyof typeof DashboardWidgetPayloadVisualizationTypeEnum];
+export type DashboardWidgetLayoutItemVisualizationTypeEnum = typeof DashboardWidgetLayoutItemVisualizationTypeEnum[keyof typeof DashboardWidgetLayoutItemVisualizationTypeEnum];
 
 /**
  * @export
  */
-export const DashboardWidgetPayloadDashboardSectionEnum = {
+export const DashboardWidgetLayoutItemDashboardSectionEnum = {
     AboveStatic: 'above_static',
     BelowStatic: 'below_static'
 } as const;
-export type DashboardWidgetPayloadDashboardSectionEnum = typeof DashboardWidgetPayloadDashboardSectionEnum[keyof typeof DashboardWidgetPayloadDashboardSectionEnum];
+export type DashboardWidgetLayoutItemDashboardSectionEnum = typeof DashboardWidgetLayoutItemDashboardSectionEnum[keyof typeof DashboardWidgetLayoutItemDashboardSectionEnum];
 
 
 /**
- * Check if a given object implements the DashboardWidgetPayload interface.
+ * Check if a given object implements the DashboardWidgetLayoutItem interface.
  */
-export function instanceOfDashboardWidgetPayload(value: object): value is DashboardWidgetPayload {
-    if (!('reportTemplate' in value) || value['reportTemplate'] === undefined) return false;
-    if (!('project' in value) || value['project'] === undefined) return false;
+export function instanceOfDashboardWidgetLayoutItem(value: object): value is DashboardWidgetLayoutItem {
+    if (!('id' in value) || value['id'] === undefined) return false;
     return true;
 }
 
-export function DashboardWidgetPayloadFromJSON(json: any): DashboardWidgetPayload {
-    return DashboardWidgetPayloadFromJSONTyped(json, false);
+export function DashboardWidgetLayoutItemFromJSON(json: any): DashboardWidgetLayoutItem {
+    return DashboardWidgetLayoutItemFromJSONTyped(json, false);
 }
 
-export function DashboardWidgetPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): DashboardWidgetPayload {
+export function DashboardWidgetLayoutItemFromJSONTyped(json: any, ignoreDiscriminator: boolean): DashboardWidgetLayoutItem {
     if (json == null) {
         return json;
     }
     return {
         
-        'reportTemplate': json['report_template'],
-        'project': json['project'],
-        'sortOrder': json['sort_order'] == null ? undefined : json['sort_order'],
+        'id': json['id'],
         'positionX': json['position_x'] == null ? undefined : json['position_x'],
         'positionY': json['position_y'] == null ? undefined : json['position_y'],
         'width': json['width'] == null ? undefined : json['width'],
@@ -129,20 +114,18 @@ export function DashboardWidgetPayloadFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-export function DashboardWidgetPayloadToJSON(json: any): DashboardWidgetPayload {
-    return DashboardWidgetPayloadToJSONTyped(json, false);
+export function DashboardWidgetLayoutItemToJSON(json: any): DashboardWidgetLayoutItem {
+    return DashboardWidgetLayoutItemToJSONTyped(json, false);
 }
 
-export function DashboardWidgetPayloadToJSONTyped(value?: DashboardWidgetPayload | null, ignoreDiscriminator: boolean = false): any {
+export function DashboardWidgetLayoutItemToJSONTyped(value?: DashboardWidgetLayoutItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'report_template': value['reportTemplate'],
-        'project': value['project'],
-        'sort_order': value['sortOrder'],
+        'id': value['id'],
         'position_x': value['positionX'],
         'position_y': value['positionY'],
         'width': value['width'],

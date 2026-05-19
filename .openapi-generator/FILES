@@ -63,6 +63,8 @@ docs/CustomFieldsSortOrderPayload.md
 docs/CustomerAccountInfomation.md
 docs/CustomerSubscriptionsInfo.md
 docs/DashboardWidget.md
+docs/DashboardWidgetLayoutItem.md
+docs/DashboardWidgetLayoutPayload.md
 docs/DashboardWidgetPayload.md
 docs/DashboardWidgetSortOrderPayload.md
 docs/DashboardWidgetsApi.md
@@ -573,6 +575,8 @@ src/models/CustomFieldsSortOrderPayload.ts
 src/models/CustomerAccountInfomation.ts
 src/models/CustomerSubscriptionsInfo.ts
 src/models/DashboardWidget.ts
+src/models/DashboardWidgetLayoutItem.ts
+src/models/DashboardWidgetLayoutPayload.ts
 src/models/DashboardWidgetPayload.ts
 src/models/DashboardWidgetSortOrderPayload.ts
 src/models/DefaultResponseError.ts

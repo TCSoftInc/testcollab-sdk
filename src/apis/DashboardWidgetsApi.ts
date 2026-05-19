@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   DashboardWidget,
+  DashboardWidgetLayoutPayload,
   DashboardWidgetPayload,
   DashboardWidgetSortOrderPayload,
   TCError,
@@ -23,6 +24,8 @@ import type {
 import {
     DashboardWidgetFromJSON,
     DashboardWidgetToJSON,
+    DashboardWidgetLayoutPayloadFromJSON,
+    DashboardWidgetLayoutPayloadToJSON,
     DashboardWidgetPayloadFromJSON,
     DashboardWidgetPayloadToJSON,
     DashboardWidgetSortOrderPayloadFromJSON,
@@ -42,6 +45,10 @@ export interface DeleteDashboardWidgetRequest {
 export interface GetDashboardWidgetsRequest {
     project: number;
     sort?: string;
+}
+
+export interface SetDashboardWidgetLayoutRequest {
+    dashboardWidgetLayoutPayload?: DashboardWidgetLayoutPayload;
 }
 
 export interface SetDashboardWidgetSortOrderRequest {
@@ -103,6 +110,22 @@ export interface DashboardWidgetsApiInterface {
      * Get list of pinned dashboard widgets
      */
     getDashboardWidgets(requestParameters: GetDashboardWidgetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DashboardWidget>>;
+
+    /**
+     * Update placement, size, and visualization type for pinned dashboard report widgets
+     * @summary Set layout and display settings of dashboard widgets
+     * @param {DashboardWidgetLayoutPayload} [dashboardWidgetLayoutPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardWidgetsApiInterface
+     */
+    setDashboardWidgetLayoutRaw(requestParameters: SetDashboardWidgetLayoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Update placement, size, and visualization type for pinned dashboard report widgets
+     * Set layout and display settings of dashboard widgets
+     */
+    setDashboardWidgetLayout(requestParameters: SetDashboardWidgetLayoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
 
     /**
      * Reorder pinned dashboard widgets
@@ -267,6 +290,48 @@ export class DashboardWidgetsApi extends runtime.BaseAPI implements DashboardWid
      */
     async getDashboardWidgets(requestParameters: GetDashboardWidgetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DashboardWidget>> {
         const response = await this.getDashboardWidgetsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update placement, size, and visualization type for pinned dashboard report widgets
+     * Set layout and display settings of dashboard widgets
+     */
+    async setDashboardWidgetLayoutRaw(requestParameters: SetDashboardWidgetLayoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/dashboardwidgets/setLayout`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DashboardWidgetLayoutPayloadToJSON(requestParameters['dashboardWidgetLayoutPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Update placement, size, and visualization type for pinned dashboard report widgets
+     * Set layout and display settings of dashboard widgets
+     */
+    async setDashboardWidgetLayout(requestParameters: SetDashboardWidgetLayoutRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.setDashboardWidgetLayoutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -58,6 +58,8 @@ export * from './CustomFieldsSortOrderPayload';
 export * from './CustomerAccountInfomation';
 export * from './CustomerSubscriptionsInfo';
 export * from './DashboardWidget';
+export * from './DashboardWidgetLayoutItem';
+export * from './DashboardWidgetLayoutPayload';
 export * from './DashboardWidgetPayload';
 export * from './DashboardWidgetSortOrderPayload';
 export * from './DefaultResponseError';

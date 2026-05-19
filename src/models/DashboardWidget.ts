@@ -44,6 +44,42 @@ export interface DashboardWidget {
      */
     sortOrder: number;
     /**
+     * Horizontal grid position for the pinned widget
+     * @type {number}
+     * @memberof DashboardWidget
+     */
+    positionX?: number;
+    /**
+     * Vertical grid position for the pinned widget
+     * @type {number}
+     * @memberof DashboardWidget
+     */
+    positionY?: number;
+    /**
+     * Widget width in a 12-column dashboard grid
+     * @type {number}
+     * @memberof DashboardWidget
+     */
+    width?: number;
+    /**
+     * Widget height in dashboard grid units
+     * @type {number}
+     * @memberof DashboardWidget
+     */
+    height?: number;
+    /**
+     * Dashboard-specific visualization type for the pinned report
+     * @type {string}
+     * @memberof DashboardWidget
+     */
+    visualizationType?: DashboardWidgetVisualizationTypeEnum;
+    /**
+     * Whether the pinned widget appears above or below fixed project dashboard reports
+     * @type {string}
+     * @memberof DashboardWidget
+     */
+    dashboardSection?: DashboardWidgetDashboardSectionEnum;
+    /**
      * User ID who pinned this widget
      * @type {number}
      * @memberof DashboardWidget
@@ -62,6 +98,29 @@ export interface DashboardWidget {
      */
     updatedAt?: string;
 }
+
+
+/**
+ * @export
+ */
+export const DashboardWidgetVisualizationTypeEnum = {
+    Column: 'column',
+    Bar: 'bar',
+    Line: 'line',
+    Pie: 'pie',
+    Table: 'table'
+} as const;
+export type DashboardWidgetVisualizationTypeEnum = typeof DashboardWidgetVisualizationTypeEnum[keyof typeof DashboardWidgetVisualizationTypeEnum];
+
+/**
+ * @export
+ */
+export const DashboardWidgetDashboardSectionEnum = {
+    AboveStatic: 'above_static',
+    BelowStatic: 'below_static'
+} as const;
+export type DashboardWidgetDashboardSectionEnum = typeof DashboardWidgetDashboardSectionEnum[keyof typeof DashboardWidgetDashboardSectionEnum];
+
 
 /**
  * Check if a given object implements the DashboardWidget interface.
@@ -88,6 +147,12 @@ export function DashboardWidgetFromJSONTyped(json: any, ignoreDiscriminator: boo
         'reportTemplate': json['report_template'],
         'project': json['project'],
         'sortOrder': json['sort_order'],
+        'positionX': json['position_x'] == null ? undefined : json['position_x'],
+        'positionY': json['position_y'] == null ? undefined : json['position_y'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
+        'visualizationType': json['visualization_type'] == null ? undefined : json['visualization_type'],
+        'dashboardSection': json['dashboard_section'] == null ? undefined : json['dashboard_section'],
         'createdBy': json['created_by'] == null ? undefined : json['created_by'],
         'createdAt': json['created_at'] == null ? undefined : json['created_at'],
         'updatedAt': json['updated_at'] == null ? undefined : json['updated_at'],
@@ -109,6 +174,12 @@ export function DashboardWidgetToJSONTyped(value?: DashboardWidget | null, ignor
         'report_template': value['reportTemplate'],
         'project': value['project'],
         'sort_order': value['sortOrder'],
+        'position_x': value['positionX'],
+        'position_y': value['positionY'],
+        'width': value['width'],
+        'height': value['height'],
+        'visualization_type': value['visualizationType'],
+        'dashboard_section': value['dashboardSection'],
         'created_by': value['createdBy'],
         'created_at': value['createdAt'],
         'updated_at': value['updatedAt'],
