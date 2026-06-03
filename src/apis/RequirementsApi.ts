@@ -63,7 +63,7 @@ export interface GetTraceabilityMatrixRequest {
  */
 export interface RequirementsApiInterface {
     /**
-     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Enqueues a requirements traceability matrix CSV export. The background queue runner generates the CSV, uploads it through the configured upload provider, and stores the file URL in queue.results. 
      * @summary Export traceability matrix as CSV
      * @param {ExportTraceabilityMatrixPayload} [exportTraceabilityMatrixPayload] 
      * @param {*} [options] Override http request option.
@@ -73,7 +73,7 @@ export interface RequirementsApiInterface {
     exportTraceabilityMatrixRaw(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTraceabilityMatrixResult>>;
 
     /**
-     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Enqueues a requirements traceability matrix CSV export. The background queue runner generates the CSV, uploads it through the configured upload provider, and stores the file URL in queue.results. 
      * Export traceability matrix as CSV
      */
     exportTraceabilityMatrix(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportTraceabilityMatrixResult>;
@@ -118,7 +118,7 @@ export interface RequirementsApiInterface {
 export class RequirementsApi extends runtime.BaseAPI implements RequirementsApiInterface {
 
     /**
-     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Enqueues a requirements traceability matrix CSV export. The background queue runner generates the CSV, uploads it through the configured upload provider, and stores the file URL in queue.results. 
      * Export traceability matrix as CSV
      */
     async exportTraceabilityMatrixRaw(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTraceabilityMatrixResult>> {
@@ -151,7 +151,7 @@ export class RequirementsApi extends runtime.BaseAPI implements RequirementsApiI
     }
 
     /**
-     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Enqueues a requirements traceability matrix CSV export. The background queue runner generates the CSV, uploads it through the configured upload provider, and stores the file URL in queue.results. 
      * Export traceability matrix as CSV
      */
     async exportTraceabilityMatrix(requestParameters: ExportTraceabilityMatrixRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportTraceabilityMatrixResult> {

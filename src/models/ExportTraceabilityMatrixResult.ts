@@ -22,28 +22,37 @@ import {
 } from './Queue';
 
 /**
- * Result of a traceability matrix export. Contains either the export data (header_row + rows) for immediate download, or a queue reference for async processing when external requirement sync is needed.
+ * Result of a traceability matrix export enqueue request. The export runs asynchronously on the background queue runner. Clients poll GET /queues/{id} until status is 2 or 3; on success, queue.results contains the generated CSV URL.
  * 
  * @export
  * @interface ExportTraceabilityMatrixResult
  */
 export interface ExportTraceabilityMatrixResult {
     /**
+     * Queue row ID for the asynchronous export job.
+     * @type {number}
+     * @memberof ExportTraceabilityMatrixResult
+     */
+    queueId?: number;
+    /**
      * Stringified JSON array of header objects with key and label fields
      * @type {string}
      * @memberof ExportTraceabilityMatrixResult
+     * @deprecated
      */
     headerRow?: string;
     /**
      * Array of stringified JSON row objects (one per requirement-test case link)
      * @type {Array<string>}
      * @memberof ExportTraceabilityMatrixResult
+     * @deprecated
      */
     rows?: Array<string>;
     /**
      * Total number of data rows in the export
      * @type {number}
      * @memberof ExportTraceabilityMatrixResult
+     * @deprecated
      */
     totalRows?: number;
     /**
@@ -71,6 +80,7 @@ export function ExportTraceabilityMatrixResultFromJSONTyped(json: any, ignoreDis
     }
     return {
         
+        'queueId': json['queueId'] == null ? undefined : json['queueId'],
         'headerRow': json['header_row'] == null ? undefined : json['header_row'],
         'rows': json['rows'] == null ? undefined : json['rows'],
         'totalRows': json['total_rows'] == null ? undefined : json['total_rows'],
@@ -89,6 +99,7 @@ export function ExportTraceabilityMatrixResultToJSONTyped(value?: ExportTraceabi
 
     return {
         
+        'queueId': value['queueId'],
         'header_row': value['headerRow'],
         'rows': value['rows'],
         'total_rows': value['totalRows'],

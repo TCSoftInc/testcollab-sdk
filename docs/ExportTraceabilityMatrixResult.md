@@ -1,12 +1,13 @@
 
 # ExportTraceabilityMatrixResult
 
-Result of a traceability matrix export. Contains either the export data (header_row + rows) for immediate download, or a queue reference for async processing when external requirement sync is needed. 
+Result of a traceability matrix export enqueue request. The export runs asynchronously on the background queue runner. Clients poll GET /queues/{id} until status is 2 or 3; on success, queue.results contains the generated CSV URL. 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`queueId` | number
 `headerRow` | string
 `rows` | Array&lt;string&gt;
 `totalRows` | number
@@ -19,6 +20,7 @@ import type { ExportTraceabilityMatrixResult } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
+  "queueId": null,
   "headerRow": null,
   "rows": null,
   "totalRows": null,

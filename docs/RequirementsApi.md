@@ -16,7 +16,7 @@ All URIs are relative to *https://api.testcollab.io*
 
 Export traceability matrix as CSV
 
-Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+Enqueues a requirements traceability matrix CSV export. The background queue runner generates the CSV, uploads it through the configured upload provider, and stores the file URL in queue.results. 
 
 ### Example
 
@@ -78,7 +78,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Export data or queue reference |  -  |
+| **200** | Export queue reference |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **500** | Internal server error |  -  |
