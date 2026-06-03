@@ -15,21 +15,37 @@
 
 import * as runtime from '../runtime';
 import type {
+  DefaultResponseError,
+  ExportTraceabilityMatrixPayload,
+  ExportTraceabilityMatrixResult,
   FetchIdPayload,
   FetchIdResult,
+  ForbiddenError,
   TraceabilityMatrixPayload,
   TraceabilityMatrixResult,
 } from '../models/index';
 import {
+    DefaultResponseErrorFromJSON,
+    DefaultResponseErrorToJSON,
+    ExportTraceabilityMatrixPayloadFromJSON,
+    ExportTraceabilityMatrixPayloadToJSON,
+    ExportTraceabilityMatrixResultFromJSON,
+    ExportTraceabilityMatrixResultToJSON,
     FetchIdPayloadFromJSON,
     FetchIdPayloadToJSON,
     FetchIdResultFromJSON,
     FetchIdResultToJSON,
+    ForbiddenErrorFromJSON,
+    ForbiddenErrorToJSON,
     TraceabilityMatrixPayloadFromJSON,
     TraceabilityMatrixPayloadToJSON,
     TraceabilityMatrixResultFromJSON,
     TraceabilityMatrixResultToJSON,
 } from '../models/index';
+
+export interface ExportTraceabilityMatrixRequest {
+    exportTraceabilityMatrixPayload?: ExportTraceabilityMatrixPayload;
+}
 
 export interface GetRequirementIdsRequest {
     fetchIdPayload?: FetchIdPayload;
@@ -46,6 +62,22 @@ export interface GetTraceabilityMatrixRequest {
  * @interface RequirementsApiInterface
  */
 export interface RequirementsApiInterface {
+    /**
+     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * @summary Export traceability matrix as CSV
+     * @param {ExportTraceabilityMatrixPayload} [exportTraceabilityMatrixPayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RequirementsApiInterface
+     */
+    exportTraceabilityMatrixRaw(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTraceabilityMatrixResult>>;
+
+    /**
+     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Export traceability matrix as CSV
+     */
+    exportTraceabilityMatrix(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportTraceabilityMatrixResult>;
+
     /**
      * Get id(s) of test case(s) that match the filter criteria
      * @summary Get matching test cases\' id
@@ -84,6 +116,48 @@ export interface RequirementsApiInterface {
  * 
  */
 export class RequirementsApi extends runtime.BaseAPI implements RequirementsApiInterface {
+
+    /**
+     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Export traceability matrix as CSV
+     */
+    async exportTraceabilityMatrixRaw(requestParameters: ExportTraceabilityMatrixRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTraceabilityMatrixResult>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/requirements/traceability_matrix/export`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExportTraceabilityMatrixPayloadToJSON(requestParameters['exportTraceabilityMatrixPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExportTraceabilityMatrixResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+     * Export traceability matrix as CSV
+     */
+    async exportTraceabilityMatrix(requestParameters: ExportTraceabilityMatrixRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportTraceabilityMatrixResult> {
+        const response = await this.exportTraceabilityMatrixRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Get id(s) of test case(s) that match the filter criteria

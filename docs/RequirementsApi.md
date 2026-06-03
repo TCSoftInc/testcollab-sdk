@@ -4,9 +4,87 @@ All URIs are relative to *https://api.testcollab.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**exportTraceabilityMatrix**](RequirementsApi.md#exporttraceabilitymatrix) | **POST** /requirements/traceability_matrix/export | Export traceability matrix as CSV |
 | [**getRequirementIds**](RequirementsApi.md#getrequirementids) | **POST** /requirements/fetchIds | Get matching test cases\&#39; id |
 | [**getTraceabilityMatrix**](RequirementsApi.md#gettraceabilitymatrix) | **POST** /requirements/traceability_matrix | Get Traceability Matrix |
 
+
+
+## exportTraceabilityMatrix
+
+> ExportTraceabilityMatrixResult exportTraceabilityMatrix(exportTraceabilityMatrixPayload)
+
+Export traceability matrix as CSV
+
+Exports the requirements traceability matrix as structured data that the client renders into a CSV file. Returns one row per requirement-test case link. Uncovered requirements (no linked test cases) are optionally included with empty test case columns. When external requirement sync is needed, returns a queue reference instead of data. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RequirementsApi,
+} from '@testcollab/sdk';
+import type { ExportTraceabilityMatrixRequest } from '@testcollab/sdk';
+
+async function example() {
+  console.log("🚀 Testing @testcollab/sdk SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKeyAuth
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: bearerAuth
+    apiKey: "YOUR API KEY",
+  });
+  const api = new RequirementsApi(config);
+
+  const body = {
+    // ExportTraceabilityMatrixPayload (optional)
+    exportTraceabilityMatrixPayload: ...,
+  } satisfies ExportTraceabilityMatrixRequest;
+
+  try {
+    const data = await api.exportTraceabilityMatrix(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **exportTraceabilityMatrixPayload** | [ExportTraceabilityMatrixPayload](ExportTraceabilityMatrixPayload.md) |  | [Optional] |
+
+### Return type
+
+[**ExportTraceabilityMatrixResult**](ExportTraceabilityMatrixResult.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `text/plain`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Export data or queue reference |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **500** | Internal server error |  -  |
+| **0** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## getRequirementIds

@@ -97,6 +97,8 @@ docs/ExportEnqueueResult.md
 docs/ExportIssuesPayload.md
 docs/ExportRequirementsPayload.md
 docs/ExportTestCasesPayload.md
+docs/ExportTraceabilityMatrixPayload.md
+docs/ExportTraceabilityMatrixResult.md
 docs/ExtendTrialPayload.md
 docs/ExternalImportAdapter.md
 docs/ExternalImportAdapterCollection.md
@@ -604,6 +606,8 @@ src/models/ExportEnqueueResult.ts
 src/models/ExportIssuesPayload.ts
 src/models/ExportRequirementsPayload.ts
 src/models/ExportTestCasesPayload.ts
+src/models/ExportTraceabilityMatrixPayload.ts
+src/models/ExportTraceabilityMatrixResult.ts
 src/models/ExtendTrialPayload.ts
 src/models/ExternalImportAdapter.ts
 src/models/ExternalImportAdapterCollection.ts

@@ -87,6 +87,8 @@ export * from './ExportEnqueueResult';
 export * from './ExportIssuesPayload';
 export * from './ExportRequirementsPayload';
 export * from './ExportTestCasesPayload';
+export * from './ExportTraceabilityMatrixPayload';
+export * from './ExportTraceabilityMatrixResult';
 export * from './ExtendTrialPayload';
 export * from './ExternalImportAdapter';
 export * from './ExternalImportAdapterCollection';
