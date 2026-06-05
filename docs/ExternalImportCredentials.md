@@ -1,7 +1,7 @@
 
 # ExternalImportCredentials
 
-Free-form credentials object whose keys are determined by the adapter\'s credential_fields schema. For the xray adapter the expected keys are xray_client_id, xray_client_secret, jira_host, jira_email and jira_token. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import. 
+Free-form credentials object whose keys are determined by the adapter\'s credential_fields schema. For the xray adapter the expected keys are xray_client_id, xray_client_secret, xray_base_url, jira_host, jira_email and jira_token. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import. 
 
 ## Properties
 
@@ -9,6 +9,7 @@ Name | Type
 ------------ | -------------
 `xrayClientId` | string
 `xrayClientSecret` | string
+`xrayBaseUrl` | string
 `jiraHost` | string
 `jiraEmail` | string
 `jiraToken` | string
@@ -22,6 +23,7 @@ import type { ExternalImportCredentials } from '@testcollab/sdk'
 const example = {
   "xrayClientId": ABCDEF1234567890,
   "xrayClientSecret": secret-value,
+  "xrayBaseUrl": https://xray.cloud.getxray.app/api/v2,
   "jiraHost": mycompany.atlassian.net,
   "jiraEmail": user@mycompany.com,
   "jiraToken": jira-api-token,

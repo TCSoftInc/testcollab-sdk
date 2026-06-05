@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Free-form credentials object whose keys are determined by the adapter's credential_fields schema. For the xray adapter the expected keys are xray_client_id, xray_client_secret, jira_host, jira_email and jira_token. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import.
+ * Free-form credentials object whose keys are determined by the adapter's credential_fields schema. For the xray adapter the expected keys are xray_client_id, xray_client_secret, xray_base_url, jira_host, jira_email and jira_token. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import.
  * 
  * @export
  * @interface ExternalImportCredentials
@@ -32,6 +32,12 @@ export interface ExternalImportCredentials {
      * @memberof ExternalImportCredentials
      */
     xrayClientSecret?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalImportCredentials
+     */
+    xrayBaseUrl?: string;
     /**
      * 
      * @type {string}
@@ -71,6 +77,7 @@ export function ExternalImportCredentialsFromJSONTyped(json: any, ignoreDiscrimi
         
         'xrayClientId': json['xray_client_id'] == null ? undefined : json['xray_client_id'],
         'xrayClientSecret': json['xray_client_secret'] == null ? undefined : json['xray_client_secret'],
+        'xrayBaseUrl': json['xray_base_url'] == null ? undefined : json['xray_base_url'],
         'jiraHost': json['jira_host'] == null ? undefined : json['jira_host'],
         'jiraEmail': json['jira_email'] == null ? undefined : json['jira_email'],
         'jiraToken': json['jira_token'] == null ? undefined : json['jira_token'],
@@ -90,6 +97,7 @@ export function ExternalImportCredentialsToJSONTyped(value?: ExternalImportCrede
         
         'xray_client_id': value['xrayClientId'],
         'xray_client_secret': value['xrayClientSecret'],
+        'xray_base_url': value['xrayBaseUrl'],
         'jira_host': value['jiraHost'],
         'jira_email': value['jiraEmail'],
         'jira_token': value['jiraToken'],
