@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`displayNumber` | number
 `title` | string
 `suite` | [Suite](Suite.md)
 `description` | string
@@ -41,6 +42,7 @@ import type { TestCase } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "id": 1,
+  "displayNumber": 204,
   "title": Test case 1,
   "suite": null,
   "description": This is my test case,

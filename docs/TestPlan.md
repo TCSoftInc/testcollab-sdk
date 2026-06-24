@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`displayNumber` | number
 `archived` | boolean
 `title` | string
 `priority` | number
@@ -36,6 +37,7 @@ import type { TestPlan } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "id": 1,
+  "displayNumber": 123,
   "archived": false,
   "title": My first test plan,
   "priority": 1,

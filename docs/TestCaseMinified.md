@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `id` | number
+`displayNumber` | number
 `title` | string
 `suite` | number
 `description` | string
@@ -37,6 +38,7 @@ import type { TestCaseMinified } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "id": 1,
+  "displayNumber": 1,
   "title": Test case 1,
   "suite": null,
   "description": This is my test case,

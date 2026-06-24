@@ -83,6 +83,12 @@ export interface TestCase {
      */
     id: number;
     /**
+     * Per-company human-readable business number (shown as TC-204). Distinct from the internal id.
+     * @type {number}
+     * @memberof TestCase
+     */
+    displayNumber?: number;
+    /**
      * 
      * @type {string}
      * @memberof TestCase
@@ -268,6 +274,7 @@ export function TestCaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'id': json['id'],
+        'displayNumber': json['display_number'] == null ? undefined : json['display_number'],
         'title': json['title'],
         'suite': json['suite'] == null ? undefined : SuiteFromJSON(json['suite']),
         'description': json['description'],
@@ -308,6 +315,7 @@ export function TestCaseToJSONTyped(value?: TestCase | null, ignoreDiscriminator
     return {
         
         'id': value['id'],
+        'display_number': value['displayNumber'],
         'title': value['title'],
         'suite': SuiteToJSON(value['suite']),
         'description': value['description'],

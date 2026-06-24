@@ -62,6 +62,12 @@ export interface TestPlan {
      */
     id: number | null;
     /**
+     * Per-company human-readable business number (shown as TP-123). Distinct from the internal id.
+     * @type {number}
+     * @memberof TestPlan
+     */
+    displayNumber?: number;
+    /**
      * 
      * @type {boolean}
      * @memberof TestPlan
@@ -234,6 +240,7 @@ export function TestPlanFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'id': json['id'],
+        'displayNumber': json['display_number'] == null ? undefined : json['display_number'],
         'archived': json['archived'],
         'title': json['title'],
         'priority': json['priority'],
@@ -269,6 +276,7 @@ export function TestPlanToJSONTyped(value?: TestPlan | null, ignoreDiscriminator
     return {
         
         'id': value['id'],
+        'display_number': value['displayNumber'],
         'archived': value['archived'],
         'title': value['title'],
         'priority': value['priority'],

@@ -48,6 +48,12 @@ export interface TestCaseMinified {
      */
     id: number;
     /**
+     * Per-company sequential business id, surfaced in the UI as TC-<n>
+     * @type {number}
+     * @memberof TestCaseMinified
+     */
+    displayNumber?: number;
+    /**
      * 
      * @type {string}
      * @memberof TestCaseMinified
@@ -209,6 +215,7 @@ export function TestCaseMinifiedFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'id': json['id'],
+        'displayNumber': json['display_number'] == null ? undefined : json['display_number'],
         'title': json['title'],
         'suite': json['suite'] == null ? undefined : json['suite'],
         'description': json['description'],
@@ -245,6 +252,7 @@ export function TestCaseMinifiedToJSONTyped(value?: TestCaseMinified | null, ign
     return {
         
         'id': value['id'],
+        'display_number': value['displayNumber'],
         'title': value['title'],
         'suite': value['suite'],
         'description': value['description'],
