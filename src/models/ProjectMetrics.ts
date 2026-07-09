@@ -58,6 +58,12 @@ export interface ProjectMetrics {
      */
     avgTimePerExec: number;
     /**
+     * The number of test cases that have never been assigned to anyone in a test plan
+     * @type {number}
+     * @memberof ProjectMetrics
+     */
+    neverAssignedCount?: number;
+    /**
      * The number of test executions created in project
      * @type {number}
      * @memberof ProjectMetrics
@@ -93,6 +99,7 @@ export function ProjectMetricsFromJSONTyped(json: any, ignoreDiscriminator: bool
         'totalCasesCreated': json['totalCasesCreated'],
         'casesPassed': CasesPassedFromJSON(json['casesPassed']),
         'avgTimePerExec': json['avgTimePerExec'],
+        'neverAssignedCount': json['neverAssignedCount'] == null ? undefined : json['neverAssignedCount'],
         'executionCount': json['executionCount'],
     };
 }
@@ -113,6 +120,7 @@ export function ProjectMetricsToJSONTyped(value?: ProjectMetrics | null, ignoreD
         'totalCasesCreated': value['totalCasesCreated'],
         'casesPassed': CasesPassedToJSON(value['casesPassed']),
         'avgTimePerExec': value['avgTimePerExec'],
+        'neverAssignedCount': value['neverAssignedCount'],
         'executionCount': value['executionCount'],
     };
 }

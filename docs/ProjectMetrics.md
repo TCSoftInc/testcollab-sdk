@@ -11,6 +11,7 @@ Name | Type
 `totalCasesCreated` | number
 `casesPassed` | [CasesPassed](CasesPassed.md)
 `avgTimePerExec` | number
+`neverAssignedCount` | number
 `executionCount` | number
 
 ## Example
@@ -25,6 +26,7 @@ const example = {
   "totalCasesCreated": 2,
   "casesPassed": null,
   "avgTimePerExec": 2,
+  "neverAssignedCount": 5,
   "executionCount": 2,
 } satisfies ProjectMetrics
 
