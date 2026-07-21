@@ -311,6 +311,9 @@ docs/SaveFilterPayload.md
 docs/SavedFilter.md
 docs/SavedFilterPayload.md
 docs/SavedFiltersApi.md
+docs/ScimCompanyPayload.md
+docs/ScimTokenGenerated.md
+docs/ScimTokenStatus.md
 docs/SendVerificationPayload.md
 docs/SetNotificationPayloadInner.md
 docs/Setting.md
@@ -815,6 +818,9 @@ src/models/SaasInstanceUsageDetails.ts
 src/models/SaveFilterPayload.ts
 src/models/SavedFilter.ts
 src/models/SavedFilterPayload.ts
+src/models/ScimCompanyPayload.ts
+src/models/ScimTokenGenerated.ts
+src/models/ScimTokenStatus.ts
 src/models/SendVerificationPayload.ts
 src/models/SetNotificationPayloadInner.ts
 src/models/Setting.ts

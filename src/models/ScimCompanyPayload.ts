@@ -14,80 +14,46 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Identifies the company whose SCIM provisioning token is being managed (TCV-6663).
  * @export
- * @interface SsoTokenPayload
+ * @interface ScimCompanyPayload
  */
-export interface SsoTokenPayload {
+export interface ScimCompanyPayload {
     /**
-     * Company ID
+     * Company id. The caller must be an administrator of this company.
      * @type {number}
-     * @memberof SsoTokenPayload
+     * @memberof ScimCompanyPayload
      */
     company: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof SsoTokenPayload
-     */
-    email: string;
-    /**
-     * The OIDC token (ID token) issued by the identity provider after the user authenticates with it.
-     * @type {string}
-     * @memberof SsoTokenPayload
-     */
-    token: string;
-    /**
-     * Identity provider that issued the token. Defaults to `okta` when omitted. Tokens are verified generically via the standard OIDC protocol, so each provider is a configured provider rather than special-cased code (TCV-6661).
-     * @type {string}
-     * @memberof SsoTokenPayload
-     */
-    ssoType?: SsoTokenPayloadSsoTypeEnum;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the ScimCompanyPayload interface.
  */
-export const SsoTokenPayloadSsoTypeEnum = {
-    Okta: 'okta',
-    Entra: 'entra'
-} as const;
-export type SsoTokenPayloadSsoTypeEnum = typeof SsoTokenPayloadSsoTypeEnum[keyof typeof SsoTokenPayloadSsoTypeEnum];
-
-
-/**
- * Check if a given object implements the SsoTokenPayload interface.
- */
-export function instanceOfSsoTokenPayload(value: object): value is SsoTokenPayload {
+export function instanceOfScimCompanyPayload(value: object): value is ScimCompanyPayload {
     if (!('company' in value) || value['company'] === undefined) return false;
-    if (!('email' in value) || value['email'] === undefined) return false;
-    if (!('token' in value) || value['token'] === undefined) return false;
     return true;
 }
 
-export function SsoTokenPayloadFromJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadFromJSONTyped(json, false);
+export function ScimCompanyPayloadFromJSON(json: any): ScimCompanyPayload {
+    return ScimCompanyPayloadFromJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): SsoTokenPayload {
+export function ScimCompanyPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): ScimCompanyPayload {
     if (json == null) {
         return json;
     }
     return {
         
         'company': json['company'],
-        'email': json['email'],
-        'token': json['token'],
-        'ssoType': json['sso_type'] == null ? undefined : json['sso_type'],
     };
 }
 
-export function SsoTokenPayloadToJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadToJSONTyped(json, false);
+export function ScimCompanyPayloadToJSON(json: any): ScimCompanyPayload {
+    return ScimCompanyPayloadToJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadToJSONTyped(value?: SsoTokenPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ScimCompanyPayloadToJSONTyped(value?: ScimCompanyPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -95,9 +61,6 @@ export function SsoTokenPayloadToJSONTyped(value?: SsoTokenPayload | null, ignor
     return {
         
         'company': value['company'],
-        'email': value['email'],
-        'token': value['token'],
-        'sso_type': value['ssoType'],
     };
 }
 

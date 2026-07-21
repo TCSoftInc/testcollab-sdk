@@ -14,90 +14,78 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Non-secret status of a company's SCIM provisioning token (TCV-6663). Never contains the token itself.
  * @export
- * @interface SsoTokenPayload
+ * @interface ScimTokenStatus
  */
-export interface SsoTokenPayload {
+export interface ScimTokenStatus {
     /**
-     * Company ID
-     * @type {number}
-     * @memberof SsoTokenPayload
+     * Whether SCIM provisioning is currently active for the company.
+     * @type {boolean}
+     * @memberof ScimTokenStatus
      */
-    company: number;
+    enabled: boolean;
     /**
-     * 
+     * Whether a token has ever been generated (may be disabled).
+     * @type {boolean}
+     * @memberof ScimTokenStatus
+     */
+    configured: boolean;
+    /**
+     * When the token was first created.
      * @type {string}
-     * @memberof SsoTokenPayload
+     * @memberof ScimTokenStatus
      */
-    email: string;
+    createdAt?: string | null;
     /**
-     * The OIDC token (ID token) issued by the identity provider after the user authenticates with it.
+     * When the token was last rotated.
      * @type {string}
-     * @memberof SsoTokenPayload
+     * @memberof ScimTokenStatus
      */
-    token: string;
-    /**
-     * Identity provider that issued the token. Defaults to `okta` when omitted. Tokens are verified generically via the standard OIDC protocol, so each provider is a configured provider rather than special-cased code (TCV-6661).
-     * @type {string}
-     * @memberof SsoTokenPayload
-     */
-    ssoType?: SsoTokenPayloadSsoTypeEnum;
+    lastRotatedAt?: string | null;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the ScimTokenStatus interface.
  */
-export const SsoTokenPayloadSsoTypeEnum = {
-    Okta: 'okta',
-    Entra: 'entra'
-} as const;
-export type SsoTokenPayloadSsoTypeEnum = typeof SsoTokenPayloadSsoTypeEnum[keyof typeof SsoTokenPayloadSsoTypeEnum];
-
-
-/**
- * Check if a given object implements the SsoTokenPayload interface.
- */
-export function instanceOfSsoTokenPayload(value: object): value is SsoTokenPayload {
-    if (!('company' in value) || value['company'] === undefined) return false;
-    if (!('email' in value) || value['email'] === undefined) return false;
-    if (!('token' in value) || value['token'] === undefined) return false;
+export function instanceOfScimTokenStatus(value: object): value is ScimTokenStatus {
+    if (!('enabled' in value) || value['enabled'] === undefined) return false;
+    if (!('configured' in value) || value['configured'] === undefined) return false;
     return true;
 }
 
-export function SsoTokenPayloadFromJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadFromJSONTyped(json, false);
+export function ScimTokenStatusFromJSON(json: any): ScimTokenStatus {
+    return ScimTokenStatusFromJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): SsoTokenPayload {
+export function ScimTokenStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): ScimTokenStatus {
     if (json == null) {
         return json;
     }
     return {
         
-        'company': json['company'],
-        'email': json['email'],
-        'token': json['token'],
-        'ssoType': json['sso_type'] == null ? undefined : json['sso_type'],
+        'enabled': json['enabled'],
+        'configured': json['configured'],
+        'createdAt': json['created_at'] == null ? undefined : json['created_at'],
+        'lastRotatedAt': json['last_rotated_at'] == null ? undefined : json['last_rotated_at'],
     };
 }
 
-export function SsoTokenPayloadToJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadToJSONTyped(json, false);
+export function ScimTokenStatusToJSON(json: any): ScimTokenStatus {
+    return ScimTokenStatusToJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadToJSONTyped(value?: SsoTokenPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ScimTokenStatusToJSONTyped(value?: ScimTokenStatus | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'company': value['company'],
-        'email': value['email'],
-        'token': value['token'],
-        'sso_type': value['ssoType'],
+        'enabled': value['enabled'],
+        'configured': value['configured'],
+        'created_at': value['createdAt'],
+        'last_rotated_at': value['lastRotatedAt'],
     };
 }
 

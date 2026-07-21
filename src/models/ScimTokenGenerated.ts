@@ -14,90 +14,69 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Result of generating/rotating a SCIM provisioning token (TCV-6663). The plaintext token is returned exactly once and only its hash is stored server-side.
  * @export
- * @interface SsoTokenPayload
+ * @interface ScimTokenGenerated
  */
-export interface SsoTokenPayload {
+export interface ScimTokenGenerated {
     /**
-     * Company ID
-     * @type {number}
-     * @memberof SsoTokenPayload
-     */
-    company: number;
-    /**
-     * 
+     * The plaintext SCIM bearer token (Entra "Secret Token"). Shown once — store it securely.
      * @type {string}
-     * @memberof SsoTokenPayload
-     */
-    email: string;
-    /**
-     * The OIDC token (ID token) issued by the identity provider after the user authenticates with it.
-     * @type {string}
-     * @memberof SsoTokenPayload
+     * @memberof ScimTokenGenerated
      */
     token: string;
     /**
-     * Identity provider that issued the token. Defaults to `okta` when omitted. Tokens are verified generically via the standard OIDC protocol, so each provider is a configured provider rather than special-cased code (TCV-6661).
+     * When the token was first created.
      * @type {string}
-     * @memberof SsoTokenPayload
+     * @memberof ScimTokenGenerated
      */
-    ssoType?: SsoTokenPayloadSsoTypeEnum;
+    createdAt?: string;
+    /**
+     * When this token was generated.
+     * @type {string}
+     * @memberof ScimTokenGenerated
+     */
+    lastRotatedAt?: string;
 }
 
-
 /**
- * @export
+ * Check if a given object implements the ScimTokenGenerated interface.
  */
-export const SsoTokenPayloadSsoTypeEnum = {
-    Okta: 'okta',
-    Entra: 'entra'
-} as const;
-export type SsoTokenPayloadSsoTypeEnum = typeof SsoTokenPayloadSsoTypeEnum[keyof typeof SsoTokenPayloadSsoTypeEnum];
-
-
-/**
- * Check if a given object implements the SsoTokenPayload interface.
- */
-export function instanceOfSsoTokenPayload(value: object): value is SsoTokenPayload {
-    if (!('company' in value) || value['company'] === undefined) return false;
-    if (!('email' in value) || value['email'] === undefined) return false;
+export function instanceOfScimTokenGenerated(value: object): value is ScimTokenGenerated {
     if (!('token' in value) || value['token'] === undefined) return false;
     return true;
 }
 
-export function SsoTokenPayloadFromJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadFromJSONTyped(json, false);
+export function ScimTokenGeneratedFromJSON(json: any): ScimTokenGenerated {
+    return ScimTokenGeneratedFromJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadFromJSONTyped(json: any, ignoreDiscriminator: boolean): SsoTokenPayload {
+export function ScimTokenGeneratedFromJSONTyped(json: any, ignoreDiscriminator: boolean): ScimTokenGenerated {
     if (json == null) {
         return json;
     }
     return {
         
-        'company': json['company'],
-        'email': json['email'],
         'token': json['token'],
-        'ssoType': json['sso_type'] == null ? undefined : json['sso_type'],
+        'createdAt': json['created_at'] == null ? undefined : json['created_at'],
+        'lastRotatedAt': json['last_rotated_at'] == null ? undefined : json['last_rotated_at'],
     };
 }
 
-export function SsoTokenPayloadToJSON(json: any): SsoTokenPayload {
-    return SsoTokenPayloadToJSONTyped(json, false);
+export function ScimTokenGeneratedToJSON(json: any): ScimTokenGenerated {
+    return ScimTokenGeneratedToJSONTyped(json, false);
 }
 
-export function SsoTokenPayloadToJSONTyped(value?: SsoTokenPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ScimTokenGeneratedToJSONTyped(value?: ScimTokenGenerated | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
 
     return {
         
-        'company': value['company'],
-        'email': value['email'],
         'token': value['token'],
-        'sso_type': value['ssoType'],
+        'created_at': value['createdAt'],
+        'last_rotated_at': value['lastRotatedAt'],
     };
 }
 
