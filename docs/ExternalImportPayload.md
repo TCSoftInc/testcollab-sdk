@@ -9,7 +9,7 @@ Name | Type
 `importType` | string
 `project` | number
 `sourceProject` | string
-`credentials` | [ExternalImportCredentials](ExternalImportCredentials.md)
+`credentials` | { [key: string]: string; }
 `credentialSecretRefs` | [ExternalImportCredentialSecretRefs](ExternalImportCredentialSecretRefs.md)
 `options` | [ExternalImportOptions](ExternalImportOptions.md)
 

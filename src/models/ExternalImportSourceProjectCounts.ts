@@ -43,6 +43,12 @@ export interface ExternalImportSourceProjectCounts {
      * @memberof ExternalImportSourceProjectCounts
      */
     folders?: number;
+    /**
+     * Test cases in the source project that belong to no test plan. They are skipped unless the include_unlinked_test_cases option is enabled. Omitted when the source adapter cannot determine it
+     * @type {number}
+     * @memberof ExternalImportSourceProjectCounts
+     */
+    testCasesNotInPlan?: number;
 }
 
 /**
@@ -66,6 +72,7 @@ export function ExternalImportSourceProjectCountsFromJSONTyped(json: any, ignore
         'testSets': json['test_sets'] == null ? undefined : json['test_sets'],
         'testPlans': json['test_plans'] == null ? undefined : json['test_plans'],
         'folders': json['folders'] == null ? undefined : json['folders'],
+        'testCasesNotInPlan': json['test_cases_not_in_plan'] == null ? undefined : json['test_cases_not_in_plan'],
     };
 }
 
@@ -84,6 +91,7 @@ export function ExternalImportSourceProjectCountsToJSONTyped(value?: ExternalImp
         'test_sets': value['testSets'],
         'test_plans': value['testPlans'],
         'folders': value['folders'],
+        'test_cases_not_in_plan': value['testCasesNotInPlan'],
     };
 }
 

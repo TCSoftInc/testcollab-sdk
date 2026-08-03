@@ -52,6 +52,12 @@ export interface ExternalImportOptions {
      */
     defaultTestPlanAssignee?: number | null;
     /**
+     * Also import source test cases that do not belong to any test plan. They are imported at the top level of the test case repository and are not added to a test plan. Only used by sources where test cases can exist outside a test plan (Azure Test Plans)
+     * @type {boolean}
+     * @memberof ExternalImportOptions
+     */
+    includeUnlinkedTestCases?: boolean;
+    /**
      * 
      * @type {ExternalImportRateLimitOptions}
      * @memberof ExternalImportOptions
@@ -80,6 +86,7 @@ export function ExternalImportOptionsFromJSONTyped(json: any, ignoreDiscriminato
         'dedupThreshold': json['dedup_threshold'] == null ? undefined : json['dedup_threshold'],
         'dedupSameRepositoryOnly': json['dedup_same_repository_only'] == null ? undefined : json['dedup_same_repository_only'],
         'defaultTestPlanAssignee': json['default_test_plan_assignee'] == null ? undefined : json['default_test_plan_assignee'],
+        'includeUnlinkedTestCases': json['include_unlinked_test_cases'] == null ? undefined : json['include_unlinked_test_cases'],
         'rateLimits': json['rate_limits'] == null ? undefined : ExternalImportRateLimitOptionsFromJSON(json['rate_limits']),
     };
 }
@@ -99,6 +106,7 @@ export function ExternalImportOptionsToJSONTyped(value?: ExternalImportOptions |
         'dedup_threshold': value['dedupThreshold'],
         'dedup_same_repository_only': value['dedupSameRepositoryOnly'],
         'default_test_plan_assignee': value['defaultTestPlanAssignee'],
+        'include_unlinked_test_cases': value['includeUnlinkedTestCases'],
         'rate_limits': ExternalImportRateLimitOptionsToJSON(value['rateLimits']),
     };
 }

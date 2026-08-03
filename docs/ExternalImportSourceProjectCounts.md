@@ -11,6 +11,7 @@ Name | Type
 `testSets` | number
 `testPlans` | number
 `folders` | number
+`testCasesNotInPlan` | number
 
 ## Example
 
@@ -23,6 +24,7 @@ const example = {
   "testSets": 34,
   "testPlans": 12,
   "folders": 89,
+  "testCasesNotInPlan": 27,
 } satisfies ExternalImportSourceProjectCounts
 
 console.log(example)

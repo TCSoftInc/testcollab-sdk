@@ -11,6 +11,7 @@ Name | Type
 `dedupThreshold` | number
 `dedupSameRepositoryOnly` | boolean
 `defaultTestPlanAssignee` | number
+`includeUnlinkedTestCases` | boolean
 `rateLimits` | [ExternalImportRateLimitOptions](ExternalImportRateLimitOptions.md)
 
 ## Example
@@ -24,6 +25,7 @@ const example = {
   "dedupThreshold": 0.55,
   "dedupSameRepositoryOnly": true,
   "defaultTestPlanAssignee": null,
+  "includeUnlinkedTestCases": false,
   "rateLimits": null,
 } satisfies ExternalImportOptions
 

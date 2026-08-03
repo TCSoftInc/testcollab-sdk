@@ -105,7 +105,6 @@ docs/ExternalImportAdapterCollection.md
 docs/ExternalImportCreateResult.md
 docs/ExternalImportCredentialField.md
 docs/ExternalImportCredentialSecretRefs.md
-docs/ExternalImportCredentials.md
 docs/ExternalImportFailedItem.md
 docs/ExternalImportOptions.md
 docs/ExternalImportPayload.md
@@ -633,7 +632,6 @@ src/models/ExternalImportAdapterCollection.ts
 src/models/ExternalImportCreateResult.ts
 src/models/ExternalImportCredentialField.ts
 src/models/ExternalImportCredentialSecretRefs.ts
-src/models/ExternalImportCredentials.ts
 src/models/ExternalImportFailedItem.ts
 src/models/ExternalImportOptions.ts
 src/models/ExternalImportPayload.ts

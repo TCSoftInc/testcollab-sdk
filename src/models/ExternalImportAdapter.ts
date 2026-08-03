@@ -35,7 +35,8 @@ import {
  */
 export interface ExternalImportAdapter {
     /**
-     * Adapter identifier (used as import_type on subsequent calls)
+     * Adapter identifier (used as import_type on subsequent calls). One entry per registered integration, e.g. `xray` (Jira + Xray) or `azure` (Azure Test Plans).
+     * 
      * @type {string}
      * @memberof ExternalImportAdapter
      */

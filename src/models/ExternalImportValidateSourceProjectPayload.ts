@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ExternalImportCredentials } from './ExternalImportCredentials';
-import {
-    ExternalImportCredentialsFromJSON,
-    ExternalImportCredentialsFromJSONTyped,
-    ExternalImportCredentialsToJSON,
-    ExternalImportCredentialsToJSONTyped,
-} from './ExternalImportCredentials';
 import type { ExternalImportCredentialSecretRefs } from './ExternalImportCredentialSecretRefs';
 import {
     ExternalImportCredentialSecretRefsFromJSON,
@@ -53,11 +46,12 @@ export interface ExternalImportValidateSourceProjectPayload {
      */
     sourceProject: string;
     /**
+     * Free-form credentials object whose keys are determined by the adapter's credential_fields schema, so each adapter's own keys are passed through verbatim. Xray keys: xray_client_id, xray_client_secret, xray_base_url, jira_host, jira_email, jira_token. Azure keys: azure_org_url, azure_pat. Sensitive fields can be sent encrypted from the UI using the `tcenc:` prefix. The backend decrypts these values before validation/import.
      * 
-     * @type {ExternalImportCredentials}
+     * @type {{ [key: string]: string; }}
      * @memberof ExternalImportValidateSourceProjectPayload
      */
-    credentials: ExternalImportCredentials;
+    credentials: { [key: string]: string; };
     /**
      * 
      * @type {ExternalImportCredentialSecretRefs}
@@ -90,7 +84,7 @@ export function ExternalImportValidateSourceProjectPayloadFromJSONTyped(json: an
         'importType': json['import_type'],
         'project': json['project'],
         'sourceProject': json['source_project'],
-        'credentials': ExternalImportCredentialsFromJSON(json['credentials']),
+        'credentials': json['credentials'],
         'credentialSecretRefs': json['credential_secret_refs'] == null ? undefined : ExternalImportCredentialSecretRefsFromJSON(json['credential_secret_refs']),
     };
 }
@@ -109,7 +103,7 @@ export function ExternalImportValidateSourceProjectPayloadToJSONTyped(value?: Ex
         'import_type': value['importType'],
         'project': value['project'],
         'source_project': value['sourceProject'],
-        'credentials': ExternalImportCredentialsToJSON(value['credentials']),
+        'credentials': value['credentials'],
         'credential_secret_refs': ExternalImportCredentialSecretRefsToJSON(value['credentialSecretRefs']),
     };
 }

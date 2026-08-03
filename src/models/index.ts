@@ -95,7 +95,6 @@ export * from './ExternalImportAdapterCollection';
 export * from './ExternalImportCreateResult';
 export * from './ExternalImportCredentialField';
 export * from './ExternalImportCredentialSecretRefs';
-export * from './ExternalImportCredentials';
 export * from './ExternalImportFailedItem';
 export * from './ExternalImportOptions';
 export * from './ExternalImportPayload';

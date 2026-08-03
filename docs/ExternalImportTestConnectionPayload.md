@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `importType` | string
 `project` | number
-`credentials` | [ExternalImportCredentials](ExternalImportCredentials.md)
+`credentials` | { [key: string]: string; }
 `credentialSecretRefs` | [ExternalImportCredentialSecretRefs](ExternalImportCredentialSecretRefs.md)
 
 ## Example
