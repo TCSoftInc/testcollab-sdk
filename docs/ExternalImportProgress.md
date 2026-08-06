@@ -10,6 +10,7 @@ Name | Type
 `current` | number
 `total` | number
 `percent` | number
+`detail` | { [key: string]: any; }
 
 ## Example
 
@@ -21,6 +22,7 @@ const example = {
   "current": 412,
   "total": 1247,
   "percent": 33,
+  "detail": {"phase":"test_cases","current_plan_name":"Checkout regression","plans_current":12,"plans_total":2860,"test_cases_current":150,"test_cases_total":420},
 } satisfies ExternalImportProgress
 
 console.log(example)

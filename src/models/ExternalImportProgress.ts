@@ -37,6 +37,12 @@ export interface ExternalImportProgress {
      * @memberof ExternalImportProgress
      */
     percent?: number;
+    /**
+     * Adapter-specific granular progress, such as current plan, suite, testcase, and link counters
+     * @type {{ [key: string]: any; }}
+     * @memberof ExternalImportProgress
+     */
+    detail?: { [key: string]: any; } | null;
 }
 
 /**
@@ -59,6 +65,7 @@ export function ExternalImportProgressFromJSONTyped(json: any, ignoreDiscriminat
         'current': json['current'] == null ? undefined : json['current'],
         'total': json['total'] == null ? undefined : json['total'],
         'percent': json['percent'] == null ? undefined : json['percent'],
+        'detail': json['detail'] == null ? undefined : json['detail'],
     };
 }
 
@@ -76,6 +83,7 @@ export function ExternalImportProgressToJSONTyped(value?: ExternalImportProgress
         'current': value['current'],
         'total': value['total'],
         'percent': value['percent'],
+        'detail': value['detail'],
     };
 }
 
