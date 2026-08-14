@@ -76,6 +76,12 @@ export interface TestPlanBulkActionPayload {
      */
     release?: number;
     /**
+     * Build ID whose software version these test plans' results are traceable to (optional; send null to unlink) (TCV-6722)
+     * @type {number}
+     * @memberof TestPlanBulkActionPayload
+     */
+    build?: number | null;
+    /**
      * Array of custom fields
      * @type {Array<CustomFieldInputPayload>}
      * @memberof TestPlanBulkActionPayload
@@ -125,6 +131,7 @@ export function TestPlanBulkActionPayloadFromJSONTyped(json: any, ignoreDiscrimi
         'startDate': json['start_date'] == null ? undefined : json['start_date'],
         'endDate': json['end_date'] == null ? undefined : json['end_date'],
         'release': json['release'] == null ? undefined : json['release'],
+        'build': json['build'] == null ? undefined : json['build'],
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
     };
 }
@@ -148,6 +155,7 @@ export function TestPlanBulkActionPayloadToJSONTyped(value?: TestPlanBulkActionP
         'start_date': value['startDate'],
         'end_date': value['endDate'],
         'release': value['release'],
+        'build': value['build'],
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
     };
 }

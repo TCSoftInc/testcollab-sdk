@@ -67,6 +67,12 @@ export interface Release {
      */
     description?: string;
     /**
+     * Optional glob pattern matched against build versions to auto-group builds into this release (TCV-6723). A leading `v` is ignored and `*` matches any suffix — e.g. `2.14.*` attaches v2.14.0, 2.14.1 and 2.14.0-rc2 but not 2.15.0.
+     * @type {string}
+     * @memberof Release
+     */
+    versionPattern?: string;
+    /**
      * 
      * @type {string}
      * @memberof Release
@@ -181,6 +187,7 @@ export function ReleaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
         'id': json['id'],
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
+        'versionPattern': json['version_pattern'] == null ? undefined : json['version_pattern'],
         'status': json['status'],
         'targetDate': json['target_date'] == null ? undefined : json['target_date'],
         'releaseDate': json['release_date'] == null ? undefined : json['release_date'],
@@ -210,6 +217,7 @@ export function ReleaseToJSONTyped(value?: Release | null, ignoreDiscriminator: 
         'id': value['id'],
         'name': value['name'],
         'description': value['description'],
+        'version_pattern': value['versionPattern'],
         'status': value['status'],
         'target_date': value['targetDate'],
         'release_date': value['releaseDate'],

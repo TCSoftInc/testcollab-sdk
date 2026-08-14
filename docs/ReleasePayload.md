@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `name` | string
 `description` | string
+`versionPattern` | string
 `status` | string
 `targetDate` | string
 `releaseDate` | string
@@ -26,6 +27,7 @@ import type { ReleasePayload } from '@testcollab/sdk'
 const example = {
   "name": v2.4.0,
   "description": Sprint 23 release with payment module updates,
+  "versionPattern": 2.14.*,
   "status": planned,
   "targetDate": 2025-03-15,
   "releaseDate": 2025-03-14,

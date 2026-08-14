@@ -32,6 +32,9 @@ Name | Type
 `sourceProject` | number
 `underReview` | number
 `isAutomated` | number
+`automationCoverage` | string
+`automationLastRunAt` | string
+`automationDeclaredBy` | [UserMinified](UserMinified.md)
 `qacTimeout` | number
 
 ## Example
@@ -67,6 +70,9 @@ const example = {
   "sourceProject": 1,
   "underReview": null,
   "isAutomated": null,
+  "automationCoverage": observed,
+  "automationLastRunAt": 2026-08-12T00:14:14.000Z,
+  "automationDeclaredBy": null,
   "qacTimeout": null,
 } satisfies TestCase
 

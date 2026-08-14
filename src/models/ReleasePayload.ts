@@ -40,6 +40,12 @@ export interface ReleasePayload {
      */
     description?: string;
     /**
+     * Optional glob pattern matched against build versions to auto-group builds into this release (TCV-6723). Leading `v` ignored; `*` matches any suffix (e.g. `2.14.*`). Send an empty string to clear.
+     * @type {string}
+     * @memberof ReleasePayload
+     */
+    versionPattern?: string;
+    /**
      * 
      * @type {string}
      * @memberof ReleasePayload
@@ -125,6 +131,7 @@ export function ReleasePayloadFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
+        'versionPattern': json['version_pattern'] == null ? undefined : json['version_pattern'],
         'status': json['status'],
         'targetDate': json['target_date'] == null ? undefined : json['target_date'],
         'releaseDate': json['release_date'] == null ? undefined : json['release_date'],
@@ -149,6 +156,7 @@ export function ReleasePayloadToJSONTyped(value?: ReleasePayload | null, ignoreD
         
         'name': value['name'],
         'description': value['description'],
+        'version_pattern': value['versionPattern'],
         'status': value['status'],
         'target_date': value['targetDate'],
         'release_date': value['releaseDate'],

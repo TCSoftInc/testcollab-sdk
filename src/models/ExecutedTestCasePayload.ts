@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ExecutionContext } from './ExecutionContext';
+import {
+    ExecutionContextFromJSON,
+    ExecutionContextFromJSONTyped,
+    ExecutionContextToJSON,
+    ExecutionContextToJSONTyped,
+} from './ExecutionContext';
 import type { TestDatasetWiseResult } from './TestDatasetWiseResult';
 import {
     TestDatasetWiseResultFromJSON,
@@ -118,7 +125,33 @@ export interface ExecutedTestCasePayload {
      * @memberof ExecutedTestCasePayload
      */
     testdatasetWiseResult?: Array<TestDatasetWiseResult>;
+    /**
+     * TCV-6814. How this result was produced: manual (a person in the app), ci (a pipeline), api (a token-authenticated caller that did not say more), agent (QA Copilot or another agent) or import. Null on results recorded before this was tracked — absent rather than guessed.
+     * @type {string}
+     * @memberof ExecutedTestCasePayload
+     */
+    executionSource?: ExecutedTestCasePayloadExecutionSourceEnum | null;
+    /**
+     * 
+     * @type {ExecutionContext}
+     * @memberof ExecutedTestCasePayload
+     */
+    executionContext?: ExecutionContext;
 }
+
+
+/**
+ * @export
+ */
+export const ExecutedTestCasePayloadExecutionSourceEnum = {
+    Manual: 'manual',
+    Ci: 'ci',
+    Api: 'api',
+    Agent: 'agent',
+    Import: 'import'
+} as const;
+export type ExecutedTestCasePayloadExecutionSourceEnum = typeof ExecutedTestCasePayloadExecutionSourceEnum[keyof typeof ExecutedTestCasePayloadExecutionSourceEnum];
+
 
 /**
  * Check if a given object implements the ExecutedTestCasePayload interface.
@@ -154,6 +187,8 @@ export function ExecutedTestCasePayloadFromJSONTyped(json: any, ignoreDiscrimina
         'timeTaken': json['time_taken'] == null ? undefined : json['time_taken'],
         'stepWiseResult': json['step_wise_result'] == null ? undefined : ((json['step_wise_result'] as Array<any>).map(StepWiseResultFromJSON)),
         'testdatasetWiseResult': json['testdataset_wise_result'] == null ? undefined : ((json['testdataset_wise_result'] as Array<any>).map(TestDatasetWiseResultFromJSON)),
+        'executionSource': json['execution_source'] == null ? undefined : json['execution_source'],
+        'executionContext': json['execution_context'] == null ? undefined : ExecutionContextFromJSON(json['execution_context']),
     };
 }
 
@@ -182,6 +217,8 @@ export function ExecutedTestCasePayloadToJSONTyped(value?: ExecutedTestCasePaylo
         'time_taken': value['timeTaken'],
         'step_wise_result': value['stepWiseResult'] == null ? undefined : ((value['stepWiseResult'] as Array<any>).map(StepWiseResultToJSON)),
         'testdataset_wise_result': value['testdatasetWiseResult'] == null ? undefined : ((value['testdatasetWiseResult'] as Array<any>).map(TestDatasetWiseResultToJSON)),
+        'execution_source': value['executionSource'],
+        'execution_context': ExecutionContextToJSON(value['executionContext']),
     };
 }
 

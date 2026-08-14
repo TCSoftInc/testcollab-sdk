@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `overall` | [ResultSummary](.md)
+`bySource` | { [key: string]: number; }
 `configWise` | [Array&lt;TestPlanResultsConfigWiseInner&gt;](TestPlanResultsConfigWiseInner.md)
 
 ## Example
@@ -17,6 +18,7 @@ import type { TestPlanResults } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "overall": null,
+  "bySource": null,
   "configWise": null,
 } satisfies TestPlanResults
 

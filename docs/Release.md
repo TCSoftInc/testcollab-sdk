@@ -9,6 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `description` | string
+`versionPattern` | string
 `status` | string
 `targetDate` | string
 `releaseDate` | string
@@ -32,6 +33,7 @@ const example = {
   "id": 1,
   "name": v2.4.0,
   "description": Sprint 23 release with payment module updates,
+  "versionPattern": 2.14.*,
   "status": in_progress,
   "targetDate": 2025-03-15,
   "releaseDate": 2025-03-14,

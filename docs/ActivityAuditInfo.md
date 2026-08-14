@@ -11,6 +11,9 @@ Name | Type
 `oldVerdict` | string
 `newVerdict` | string
 `changes` | [Array&lt;ActivityFieldChange&gt;](ActivityFieldChange.md)
+`targetType` | string
+`targetId` | number
+`targetTitle` | string
 
 ## Example
 
@@ -23,6 +26,9 @@ const example = {
   "oldVerdict": No-Go,
   "newVerdict": Go,
   "changes": null,
+  "targetType": test_case,
+  "targetId": 42,
+  "targetTitle": Login flow,
 } satisfies ActivityAuditInfo
 
 console.log(example)

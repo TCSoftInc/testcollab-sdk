@@ -10,6 +10,7 @@ Name | Type
 `id` | number
 `title` | string
 `status` | number
+`build` | [BuildMinified](.md)
 `latestRun` | [ReleaseReadinessTestPlanRun](.md)
 `results` | [ResultSummary](.md)
 
@@ -23,6 +24,7 @@ const example = {
   "id": 5,
   "title": Regression - Payment Module,
   "status": 3,
+  "build": null,
   "latestRun": null,
   "results": null,
 } satisfies ReleaseReadinessTestPlan

@@ -27,6 +27,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
+import type { BuildMinified } from './BuildMinified';
+import {
+    BuildMinifiedFromJSON,
+    BuildMinifiedFromJSONTyped,
+    BuildMinifiedToJSON,
+    BuildMinifiedToJSONTyped,
+} from './BuildMinified';
 import type { Upload } from './Upload';
 import {
     UploadFromJSON,
@@ -85,6 +92,18 @@ export interface TestPlanLog {
     attachments?: Array<Upload>;
     /**
      * 
+     * @type {BuildMinified}
+     * @memberof TestPlanLog
+     */
+    build?: BuildMinified;
+    /**
+     * How the result recorded by this entry was produced (TCV-6815). Set only on entries that record a result. Absent on entries written before this was tracked, which is why there is no "unknown" member - a missing value means it was never recorded, not that it was manual.
+     * @type {string}
+     * @memberof TestPlanLog
+     */
+    executionSource?: TestPlanLogExecutionSourceEnum | null;
+    /**
+     * 
      * @type {ProjectMini}
      * @memberof TestPlanLog
      */
@@ -109,6 +128,18 @@ export interface TestPlanLog {
     createdAt?: string;
 }
 
+
+/**
+ * @export
+ */
+export const TestPlanLogExecutionSourceEnum = {
+    Manual: 'manual',
+    Ci: 'ci',
+    Api: 'api',
+    Agent: 'agent',
+    Import: 'import'
+} as const;
+export type TestPlanLogExecutionSourceEnum = typeof TestPlanLogExecutionSourceEnum[keyof typeof TestPlanLogExecutionSourceEnum];
 
 /**
  * @export
@@ -153,6 +184,8 @@ export function TestPlanLogFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'testPlanConfiguration': json['test_plan_configuration'] == null ? undefined : json['test_plan_configuration'],
         'testPlanTestCase': json['test_plan_test_case'] == null ? undefined : json['test_plan_test_case'],
         'attachments': json['attachments'] == null ? undefined : ((json['attachments'] as Array<any>).map(UploadFromJSON)),
+        'build': json['build'] == null ? undefined : json['build'],
+        'executionSource': json['execution_source'] == null ? undefined : json['execution_source'],
         'project': json['project'] == null ? undefined : ProjectMiniFromJSON(json['project']),
         'activityType': json['activity_type'],
         'user': UserFromJSON(json['user']),
@@ -178,6 +211,8 @@ export function TestPlanLogToJSONTyped(value?: TestPlanLog | null, ignoreDiscrim
         'test_plan_configuration': value['testPlanConfiguration'],
         'test_plan_test_case': value['testPlanTestCase'],
         'attachments': value['attachments'] == null ? undefined : ((value['attachments'] as Array<any>).map(UploadToJSON)),
+        'build': value['build'],
+        'execution_source': value['executionSource'],
         'project': ProjectMiniToJSON(value['project']),
         'activity_type': value['activityType'],
         'user': UserToJSON(value['user']),

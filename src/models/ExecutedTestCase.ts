@@ -20,6 +20,13 @@ import {
     ProjectToJSON,
     ProjectToJSONTyped,
 } from './Project';
+import type { ExecutionContext } from './ExecutionContext';
+import {
+    ExecutionContextFromJSON,
+    ExecutionContextFromJSONTyped,
+    ExecutionContextToJSON,
+    ExecutionContextToJSONTyped,
+} from './ExecutionContext';
 import type { User } from './User';
 import {
     UserFromJSON,
@@ -27,6 +34,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
+import type { BuildMinified } from './BuildMinified';
+import {
+    BuildMinifiedFromJSON,
+    BuildMinifiedFromJSONTyped,
+    BuildMinifiedToJSON,
+    BuildMinifiedToJSONTyped,
+} from './BuildMinified';
 import type { TestDatasetWiseResult } from './TestDatasetWiseResult';
 import {
     TestDatasetWiseResultFromJSON,
@@ -118,6 +132,12 @@ export interface ExecutedTestCase {
      */
     testPlan?: number;
     /**
+     * 
+     * @type {BuildMinified}
+     * @memberof ExecutedTestCase
+     */
+    build?: BuildMinified;
+    /**
      * Test Plan's Regression ID
      * @type {number}
      * @memberof ExecutedTestCase
@@ -195,7 +215,33 @@ export interface ExecutedTestCase {
      * @memberof ExecutedTestCase
      */
     runOn?: string;
+    /**
+     * TCV-6814. How this result was produced: manual (a person in the app), ci (a pipeline), api (a token-authenticated caller that did not say more), agent (QA Copilot or another agent) or import. Null on results recorded before this was tracked — absent rather than guessed.
+     * @type {string}
+     * @memberof ExecutedTestCase
+     */
+    executionSource?: ExecutedTestCaseExecutionSourceEnum | null;
+    /**
+     * 
+     * @type {ExecutionContext}
+     * @memberof ExecutedTestCase
+     */
+    executionContext?: ExecutionContext;
 }
+
+
+/**
+ * @export
+ */
+export const ExecutedTestCaseExecutionSourceEnum = {
+    Manual: 'manual',
+    Ci: 'ci',
+    Api: 'api',
+    Agent: 'agent',
+    Import: 'import'
+} as const;
+export type ExecutedTestCaseExecutionSourceEnum = typeof ExecutedTestCaseExecutionSourceEnum[keyof typeof ExecutedTestCaseExecutionSourceEnum];
+
 
 /**
  * Check if a given object implements the ExecutedTestCase interface.
@@ -227,6 +273,7 @@ export function ExecutedTestCaseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'attachments': json['attachments'] == null ? undefined : ((json['attachments'] as Array<any>).map(UploadFromJSON)),
         'testPlanConfig': json['test_plan_config'] == null ? undefined : json['test_plan_config'],
         'testPlan': json['test_plan'] == null ? undefined : json['test_plan'],
+        'build': json['build'] == null ? undefined : json['build'],
         'regression': json['regression'] == null ? undefined : json['regression'],
         'assignedTo': json['assigned_to'] == null ? undefined : json['assigned_to'],
         'status': json['status'],
@@ -240,6 +287,8 @@ export function ExecutedTestCaseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'testdataset': json['testdataset'] == null ? undefined : json['testdataset'],
         'testdatasetWiseResult': json['testdataset_wise_result'] == null ? undefined : ((json['testdataset_wise_result'] as Array<any>).map(TestDatasetWiseResultFromJSON)),
         'runOn': json['run_on'] == null ? undefined : json['run_on'],
+        'executionSource': json['execution_source'] == null ? undefined : json['execution_source'],
+        'executionContext': json['execution_context'] == null ? undefined : ExecutionContextFromJSON(json['execution_context']),
     };
 }
 
@@ -262,6 +311,7 @@ export function ExecutedTestCaseToJSONTyped(value?: ExecutedTestCase | null, ign
         'attachments': value['attachments'] == null ? undefined : ((value['attachments'] as Array<any>).map(UploadToJSON)),
         'test_plan_config': value['testPlanConfig'],
         'test_plan': value['testPlan'],
+        'build': value['build'],
         'regression': value['regression'],
         'assigned_to': value['assignedTo'],
         'status': value['status'],
@@ -275,6 +325,8 @@ export function ExecutedTestCaseToJSONTyped(value?: ExecutedTestCase | null, ign
         'testdataset': value['testdataset'],
         'testdataset_wise_result': value['testdatasetWiseResult'] == null ? undefined : ((value['testdatasetWiseResult'] as Array<any>).map(TestDatasetWiseResultToJSON)),
         'run_on': value['runOn'],
+        'execution_source': value['executionSource'],
+        'execution_context': ExecutionContextToJSON(value['executionContext']),
     };
 }
 

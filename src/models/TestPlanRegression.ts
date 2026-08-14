@@ -20,6 +20,13 @@ import {
     UserMinifiedToJSON,
     UserMinifiedToJSONTyped,
 } from './UserMinified';
+import type { BuildMinified } from './BuildMinified';
+import {
+    BuildMinifiedFromJSON,
+    BuildMinifiedFromJSONTyped,
+    BuildMinifiedToJSON,
+    BuildMinifiedToJSONTyped,
+} from './BuildMinified';
 import type { ResultSummary } from './ResultSummary';
 import {
     ResultSummaryFromJSON,
@@ -89,6 +96,12 @@ export interface TestPlanRegression {
      * @memberof TestPlanRegression
      */
     testplan?: number;
+    /**
+     * 
+     * @type {BuildMinified}
+     * @memberof TestPlanRegression
+     */
+    build?: BuildMinified;
     /**
      * Time spent on execution of this plan (in seconds)
      * @type {number}
@@ -191,6 +204,7 @@ export function TestPlanRegressionFromJSONTyped(json: any, ignoreDiscriminator: 
         'status': json['status'],
         'result': json['result'] == null ? undefined : json['result'],
         'testplan': json['testplan'] == null ? undefined : json['testplan'],
+        'build': json['build'] == null ? undefined : json['build'],
         'timeSpent': json['time_spent'],
         'createdBy': json['created_by'],
         'createdAt': json['created_at'] == null ? undefined : json['created_at'],
@@ -220,6 +234,7 @@ export function TestPlanRegressionToJSONTyped(value?: TestPlanRegression | null,
         'status': value['status'],
         'result': value['result'],
         'testplan': value['testplan'],
+        'build': value['build'],
         'time_spent': value['timeSpent'],
         'created_by': value['createdBy'],
         'created_at': value['createdAt'],

@@ -88,11 +88,17 @@ export interface TestPlanPayload {
      */
     project: number;
     /**
-     * Release ID to associate this test plan with (optional)
+     * Release ID to associate this test plan with (optional). Omit this property entirely and the release of the linked build is filled in automatically; anything sent here stands as sent, including null for "no release", even when the build belongs to another release (TCV-6787)
      * @type {number}
      * @memberof TestPlanPayload
      */
-    release?: number;
+    release?: number | null;
+    /**
+     * Build ID whose software version this test plan's results are traceable to (optional; send null to unlink) (TCV-6722)
+     * @type {number}
+     * @memberof TestPlanPayload
+     */
+    build?: number | null;
     /**
      * Array of custom fields
      * @type {Array<CustomFieldInputPayload>}
@@ -157,6 +163,7 @@ export function TestPlanPayloadFromJSONTyped(json: any, ignoreDiscriminator: boo
         'endDate': json['end_date'] == null ? undefined : json['end_date'],
         'project': json['project'],
         'release': json['release'] == null ? undefined : json['release'],
+        'build': json['build'] == null ? undefined : json['build'],
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
     };
 }
@@ -183,6 +190,7 @@ export function TestPlanPayloadToJSONTyped(value?: TestPlanPayload | null, ignor
         'end_date': value['endDate'],
         'project': value['project'],
         'release': value['release'],
+        'build': value['build'],
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
     };
 }

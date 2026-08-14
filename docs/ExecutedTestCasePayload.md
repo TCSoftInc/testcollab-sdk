@@ -20,6 +20,8 @@ Name | Type
 `timeTaken` | number
 `stepWiseResult` | [Array&lt;StepWiseResult&gt;](StepWiseResult.md)
 `testdatasetWiseResult` | [Array&lt;TestDatasetWiseResult&gt;](TestDatasetWiseResult.md)
+`executionSource` | string
+`executionContext` | [ExecutionContext](ExecutionContext.md)
 
 ## Example
 
@@ -42,6 +44,8 @@ const example = {
   "timeTaken": 1,
   "stepWiseResult": null,
   "testdatasetWiseResult": null,
+  "executionSource": ci,
+  "executionContext": null,
 } satisfies ExecutedTestCasePayload
 
 console.log(example)

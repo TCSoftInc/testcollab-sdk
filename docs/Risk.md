@@ -26,6 +26,7 @@ Name | Type
 `reviewDate` | string
 `tags` | [Array&lt;Tag&gt;](Tag.md)
 `associations` | [Array&lt;RiskAssociation&gt;](RiskAssociation.md)
+`verification` | [RiskVerification](RiskVerification.md)
 `externalId` | string
 `externalUrl` | string
 `issueManager` | string
@@ -60,6 +61,7 @@ const example = {
   "reviewDate": 2026-07-15T17:11:24.000Z,
   "tags": null,
   "associations": null,
+  "verification": null,
   "externalId": AB#3402,
   "externalUrl": null,
   "issueManager": null,

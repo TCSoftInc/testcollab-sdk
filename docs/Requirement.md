@@ -16,6 +16,7 @@ Name | Type
 `status` | number
 `reqInfo` | string
 `testcaseCount` | number
+`linkSync` | [RequirementLinkSync](RequirementLinkSync.md)
 `customFields` | [Array&lt;CustomFieldCollectionOutput&gt;](CustomFieldCollectionOutput.md)
 `requirementFolder` | [GenericFolder](GenericFolder.md)
 `attachments` | [Array&lt;Upload&gt;](Upload.md)
@@ -41,6 +42,7 @@ const example = {
   "status": null,
   "reqInfo": null,
   "testcaseCount": null,
+  "linkSync": null,
   "customFields": null,
   "requirementFolder": null,
   "attachments": null,

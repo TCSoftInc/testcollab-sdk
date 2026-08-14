@@ -14,6 +14,7 @@ Name | Type
 `status` | number
 `result` | [ResultSummary](.md)
 `testplan` | number
+`build` | [BuildMinified](.md)
 `timeSpent` | number
 `createdBy` | [UserMinified](.md)
 `createdAt` | string
@@ -37,6 +38,7 @@ const example = {
   "status": 1,
   "result": null,
   "testplan": 1,
+  "build": null,
   "timeSpent": 1200,
   "createdBy": null,
   "createdAt": 2019-04-30T17:11:24.000Z,

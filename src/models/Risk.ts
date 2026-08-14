@@ -20,6 +20,13 @@ import {
     UserToJSON,
     UserToJSONTyped,
 } from './User';
+import type { RiskVerification } from './RiskVerification';
+import {
+    RiskVerificationFromJSON,
+    RiskVerificationFromJSONTyped,
+    RiskVerificationToJSON,
+    RiskVerificationToJSONTyped,
+} from './RiskVerification';
 import type { Tag } from './Tag';
 import {
     TagFromJSON,
@@ -183,6 +190,12 @@ export interface Risk {
      */
     associations?: Array<RiskAssociation>;
     /**
+     * 
+     * @type {RiskVerification}
+     * @memberof Risk
+     */
+    verification?: RiskVerification;
+    /**
      * Linked Azure DevOps / Jira work item id
      * @type {string}
      * @memberof Risk
@@ -279,6 +292,7 @@ export function RiskFromJSONTyped(json: any, ignoreDiscriminator: boolean): Risk
         'reviewDate': json['review_date'] == null ? undefined : json['review_date'],
         'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(TagFromJSON)),
         'associations': json['associations'] == null ? undefined : ((json['associations'] as Array<any>).map(RiskAssociationFromJSON)),
+        'verification': json['verification'] == null ? undefined : RiskVerificationFromJSON(json['verification']),
         'externalId': json['external_id'] == null ? undefined : json['external_id'],
         'externalUrl': json['external_url'] == null ? undefined : json['external_url'],
         'issueManager': json['issue_manager'] == null ? undefined : json['issue_manager'],
@@ -319,6 +333,7 @@ export function RiskToJSONTyped(value?: Risk | null, ignoreDiscriminator: boolea
         'review_date': value['reviewDate'],
         'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(TagToJSON)),
         'associations': value['associations'] == null ? undefined : ((value['associations'] as Array<any>).map(RiskAssociationToJSON)),
+        'verification': RiskVerificationToJSON(value['verification']),
         'external_id': value['externalId'],
         'external_url': value['externalUrl'],
         'issue_manager': value['issueManager'],

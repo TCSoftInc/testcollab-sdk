@@ -17,6 +17,7 @@ Name | Type
 `endDate` | string
 `project` | number
 `release` | number
+`build` | number
 `customFields` | [Array&lt;CustomFieldInputPayload&gt;](CustomFieldInputPayload.md)
 
 ## Example
@@ -37,6 +38,7 @@ const example = {
   "endDate": 2020-10-28,
   "project": 1,
   "release": 1,
+  "build": 1,
   "customFields": null,
 } satisfies TestPlanPayload
 

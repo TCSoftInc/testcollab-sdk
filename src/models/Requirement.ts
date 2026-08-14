@@ -20,6 +20,13 @@ import {
     UserMinifiedToJSON,
     UserMinifiedToJSONTyped,
 } from './UserMinified';
+import type { RequirementLinkSync } from './RequirementLinkSync';
+import {
+    RequirementLinkSyncFromJSON,
+    RequirementLinkSyncFromJSONTyped,
+    RequirementLinkSyncToJSON,
+    RequirementLinkSyncToJSONTyped,
+} from './RequirementLinkSync';
 import type { Upload } from './Upload';
 import {
     UploadFromJSON,
@@ -109,6 +116,12 @@ export interface Requirement {
      */
     testcaseCount?: number;
     /**
+     * 
+     * @type {RequirementLinkSync}
+     * @memberof Requirement
+     */
+    linkSync?: RequirementLinkSync;
+    /**
      * Array of custom fields - applicable only for inbuilt
      * @type {Array<CustomFieldCollectionOutput>}
      * @memberof Requirement
@@ -182,6 +195,7 @@ export function RequirementFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'status': json['status'] == null ? undefined : json['status'],
         'reqInfo': json['req_info'] == null ? undefined : json['req_info'],
         'testcaseCount': json['testcase_count'] == null ? undefined : json['testcase_count'],
+        'linkSync': json['link_sync'] == null ? undefined : RequirementLinkSyncFromJSON(json['link_sync']),
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldCollectionOutputFromJSON)),
         'requirementFolder': json['requirement_folder'] == null ? undefined : GenericFolderFromJSON(json['requirement_folder']),
         'attachments': json['attachments'] == null ? undefined : ((json['attachments'] as Array<any>).map(UploadFromJSON)),
@@ -213,6 +227,7 @@ export function RequirementToJSONTyped(value?: Requirement | null, ignoreDiscrim
         'status': value['status'],
         'req_info': value['reqInfo'],
         'testcase_count': value['testcaseCount'],
+        'link_sync': RequirementLinkSyncToJSON(value['linkSync']),
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldCollectionOutputToJSON)),
         'requirement_folder': GenericFolderToJSON(value['requirementFolder']),
         'attachments': value['attachments'] == null ? undefined : ((value['attachments'] as Array<any>).map(UploadToJSON)),

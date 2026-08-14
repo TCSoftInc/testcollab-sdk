@@ -1,6 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AvailableIssueManagersApi';
+export * from './BuildsApi';
 export * from './CompaniesApi';
 export * from './CustomFieldsApi';
 export * from './DashboardWidgetsApi';

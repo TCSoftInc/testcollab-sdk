@@ -233,6 +233,24 @@ export interface TestCase {
      */
     isAutomated?: number;
     /**
+     * TCV-6814. Whether automation covers this case. `observed` is set by TestCollab when a CI-sourced result matches the case, so coverage reflects what actually ran rather than what someone remembered to tick. `declared` is set by a person for automation that legitimately never reports in (performance, security, pipelines that are not wired up). Distinct from `is_automated`, which is a QA Copilot flag.
+     * @type {string}
+     * @memberof TestCase
+     */
+    automationCoverage?: TestCaseAutomationCoverageEnum;
+    /**
+     * TCV-6814. When a CI-sourced result last matched this case. Lets coverage age out, so a case stops counting once its automated test stops reporting.
+     * @type {string}
+     * @memberof TestCase
+     */
+    automationLastRunAt?: string | null;
+    /**
+     * 
+     * @type {UserMinified}
+     * @memberof TestCase
+     */
+    automationDeclaredBy?: UserMinified;
+    /**
      * Can be considered for execution by copilot (applicable when test case automation feature is enabled)
      * @type {number}
      * @memberof TestCase
@@ -250,6 +268,16 @@ export const TestCasePriorityEnum = {
     NUMBER_2: 2
 } as const;
 export type TestCasePriorityEnum = typeof TestCasePriorityEnum[keyof typeof TestCasePriorityEnum];
+
+/**
+ * @export
+ */
+export const TestCaseAutomationCoverageEnum = {
+    None: 'none',
+    Observed: 'observed',
+    Declared: 'declared'
+} as const;
+export type TestCaseAutomationCoverageEnum = typeof TestCaseAutomationCoverageEnum[keyof typeof TestCaseAutomationCoverageEnum];
 
 
 /**
@@ -299,6 +327,9 @@ export function TestCaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
         'underReview': json['under_review'] == null ? undefined : json['under_review'],
         'isAutomated': json['is_automated'] == null ? undefined : json['is_automated'],
+        'automationCoverage': json['automation_coverage'] == null ? undefined : json['automation_coverage'],
+        'automationLastRunAt': json['automation_last_run_at'] == null ? undefined : json['automation_last_run_at'],
+        'automationDeclaredBy': json['automation_declared_by'] == null ? undefined : UserMinifiedFromJSON(json['automation_declared_by']),
         'qacTimeout': json['qac_timeout'] == null ? undefined : json['qac_timeout'],
     };
 }
@@ -340,6 +371,9 @@ export function TestCaseToJSONTyped(value?: TestCase | null, ignoreDiscriminator
         'source_project': value['sourceProject'],
         'under_review': value['underReview'],
         'is_automated': value['isAutomated'],
+        'automation_coverage': value['automationCoverage'],
+        'automation_last_run_at': value['automationLastRunAt'],
+        'automation_declared_by': UserMinifiedToJSON(value['automationDeclaredBy']),
         'qac_timeout': value['qacTimeout'],
     };
 }

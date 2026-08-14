@@ -14,6 +14,7 @@ Name | Type
 `attachments` | [Array&lt;Upload&gt;](Upload.md)
 `testPlanConfig` | number
 `testPlan` | number
+`build` | [BuildMinified](.md)
 `regression` | number
 `assignedTo` | number
 `status` | string
@@ -27,6 +28,8 @@ Name | Type
 `testdataset` | string
 `testdatasetWiseResult` | [Array&lt;TestDatasetWiseResult&gt;](TestDatasetWiseResult.md)
 `runOn` | string
+`executionSource` | string
+`executionContext` | [ExecutionContext](ExecutionContext.md)
 
 ## Example
 
@@ -43,6 +46,7 @@ const example = {
   "attachments": null,
   "testPlanConfig": 1,
   "testPlan": 1,
+  "build": null,
   "regression": 1,
   "assignedTo": 1,
   "status": passed,
@@ -56,6 +60,8 @@ const example = {
   "testdataset": null,
   "testdatasetWiseResult": null,
   "runOn": 2019-04-30T17:11:24.000Z,
+  "executionSource": ci,
+  "executionContext": null,
 } satisfies ExecutedTestCase
 
 console.log(example)

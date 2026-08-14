@@ -30,6 +30,20 @@ docs/AppManagerResourceItem.md
 docs/AppManagerTestPayload.md
 docs/AvailableIssueManager.md
 docs/AvailableIssueManagersApi.md
+docs/Build.md
+docs/BuildDefect.md
+docs/BuildMinified.md
+docs/BuildPayload.md
+docs/BuildRiskCoverage.md
+docs/BuildRiskCoverageItem.md
+docs/BuildTestPlanResult.md
+docs/BuildTestPlanResultResults.md
+docs/BuildTraceability.md
+docs/BuildTraceabilityDefectSummary.md
+docs/BuildTraceabilityResults.md
+docs/BuildWorkItem.md
+docs/BuildWorkItemTestcase.md
+docs/BuildsApi.md
 docs/BulkActionResult.md
 docs/BulkActionResultDetail.md
 docs/BulkCopyPayload.md
@@ -101,6 +115,7 @@ docs/Execution.md
 docs/ExecutionComment.md
 docs/ExecutionCommentPayload.md
 docs/ExecutionCommentsApi.md
+docs/ExecutionContext.md
 docs/ExecutionTestCase.md
 docs/ExecutionTestCaseStatusInner.md
 docs/ExportActionResult.md
@@ -175,6 +190,7 @@ docs/IssueManagerFieldMapping.md
 docs/IssueManagerFieldMappingValuesInner.md
 docs/IssueManagerLinkPayload.md
 docs/IssueManagerProfile.md
+docs/IssueManagerProfileCapabilities.md
 docs/IssueManagerProfilePayload.md
 docs/IssueManagerResource.md
 docs/IssueManagerResourceItem.md
@@ -281,6 +297,9 @@ docs/ReportsApi.md
 docs/Requirement.md
 docs/RequirementFolderCopyPayload.md
 docs/RequirementFoldersApi.md
+docs/RequirementLinkSync.md
+docs/RequirementLinkSyncRetryPayload.md
+docs/RequirementLinkSyncRetryResponse.md
 docs/RequirementMinified.md
 docs/RequirementPayload.md
 docs/RequirementProfile.md
@@ -310,6 +329,7 @@ docs/RiskStatus.md
 docs/RiskStatusPayload.md
 docs/RiskType.md
 docs/RiskTypePayload.md
+docs/RiskVerification.md
 docs/Role.md
 docs/RoleMini.md
 docs/RolePayload.md
@@ -499,6 +519,7 @@ docs/ValidatePublicTokenResult.md
 docs/VerifyEmailPayload.md
 package.json
 src/apis/AvailableIssueManagersApi.ts
+src/apis/BuildsApi.ts
 src/apis/CompaniesApi.ts
 src/apis/CustomFieldsApi.ts
 src/apis/DashboardWidgetsApi.ts
@@ -577,6 +598,19 @@ src/models/AppManagerResource.ts
 src/models/AppManagerResourceItem.ts
 src/models/AppManagerTestPayload.ts
 src/models/AvailableIssueManager.ts
+src/models/Build.ts
+src/models/BuildDefect.ts
+src/models/BuildMinified.ts
+src/models/BuildPayload.ts
+src/models/BuildRiskCoverage.ts
+src/models/BuildRiskCoverageItem.ts
+src/models/BuildTestPlanResult.ts
+src/models/BuildTestPlanResultResults.ts
+src/models/BuildTraceability.ts
+src/models/BuildTraceabilityDefectSummary.ts
+src/models/BuildTraceabilityResults.ts
+src/models/BuildWorkItem.ts
+src/models/BuildWorkItemTestcase.ts
 src/models/BulkActionResult.ts
 src/models/BulkActionResultDetail.ts
 src/models/BulkCopyPayload.ts
@@ -642,6 +676,7 @@ src/models/ExecutedTestCaseValidatePayload.ts
 src/models/Execution.ts
 src/models/ExecutionComment.ts
 src/models/ExecutionCommentPayload.ts
+src/models/ExecutionContext.ts
 src/models/ExecutionTestCase.ts
 src/models/ExecutionTestCaseStatusInner.ts
 src/models/ExportActionResult.ts
@@ -711,6 +746,7 @@ src/models/IssueManagerFieldMapping.ts
 src/models/IssueManagerFieldMappingValuesInner.ts
 src/models/IssueManagerLinkPayload.ts
 src/models/IssueManagerProfile.ts
+src/models/IssueManagerProfileCapabilities.ts
 src/models/IssueManagerProfilePayload.ts
 src/models/IssueManagerResource.ts
 src/models/IssueManagerResourceItem.ts
@@ -805,6 +841,9 @@ src/models/ReportPayload.ts
 src/models/ReportResult.ts
 src/models/Requirement.ts
 src/models/RequirementFolderCopyPayload.ts
+src/models/RequirementLinkSync.ts
+src/models/RequirementLinkSyncRetryPayload.ts
+src/models/RequirementLinkSyncRetryResponse.ts
 src/models/RequirementMinified.ts
 src/models/RequirementPayload.ts
 src/models/RequirementProfile.ts
@@ -832,6 +871,7 @@ src/models/RiskStatus.ts
 src/models/RiskStatusPayload.ts
 src/models/RiskType.ts
 src/models/RiskTypePayload.ts
+src/models/RiskVerification.ts
 src/models/Role.ts
 src/models/RoleMini.ts
 src/models/RolePayload.ts

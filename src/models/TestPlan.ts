@@ -34,6 +34,13 @@ import {
     UserMinifiedToJSON,
     UserMinifiedToJSONTyped,
 } from './UserMinified';
+import type { BuildMinified } from './BuildMinified';
+import {
+    BuildMinifiedFromJSON,
+    BuildMinifiedFromJSONTyped,
+    BuildMinifiedToJSON,
+    BuildMinifiedToJSONTyped,
+} from './BuildMinified';
 import type { TestPlanResults } from './TestPlanResults';
 import {
     TestPlanResultsFromJSON,
@@ -187,6 +194,12 @@ export interface TestPlan {
      * @memberof TestPlan
      */
     release?: ReleaseMinified;
+    /**
+     * 
+     * @type {BuildMinified}
+     * @memberof TestPlan
+     */
+    build?: BuildMinified;
 }
 
 
@@ -261,6 +274,7 @@ export function TestPlanFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldCollectionOutputFromJSON)),
         'isPublic': json['is_public'] == null ? undefined : json['is_public'],
         'release': json['release'] == null ? undefined : json['release'],
+        'build': json['build'] == null ? undefined : json['build'],
     };
 }
 
@@ -297,6 +311,7 @@ export function TestPlanToJSONTyped(value?: TestPlan | null, ignoreDiscriminator
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldCollectionOutputToJSON)),
         'is_public': value['isPublic'],
         'release': value['release'],
+        'build': value['build'],
     };
 }
 

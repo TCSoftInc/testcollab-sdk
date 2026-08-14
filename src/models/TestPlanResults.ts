@@ -41,6 +41,12 @@ export interface TestPlanResults {
      */
     overall: ResultSummary;
     /**
+     * TCV-6814. Executed cases keyed by how the result was produced (manual, ci, api, agent, import), plus `not_recorded` for results predating this being tracked. Sits beside `overall` rather than inside it, because `overall` is keyed by status system name and an unknown key there renders as a custom status.
+     * @type {{ [key: string]: number; }}
+     * @memberof TestPlanResults
+     */
+    bySource?: { [key: string]: number; };
+    /**
      * 
      * @type {Array<TestPlanResultsConfigWiseInner>}
      * @memberof TestPlanResults
@@ -68,6 +74,7 @@ export function TestPlanResultsFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'overall': json['overall'],
+        'bySource': json['by_source'] == null ? undefined : json['by_source'],
         'configWise': ((json['configWise'] as Array<any>).map(TestPlanResultsConfigWiseInnerFromJSON)),
     };
 }
@@ -84,6 +91,7 @@ export function TestPlanResultsToJSONTyped(value?: TestPlanResults | null, ignor
     return {
         
         'overall': value['overall'],
+        'by_source': value['bySource'],
         'configWise': ((value['configWise'] as Array<any>).map(TestPlanResultsConfigWiseInnerToJSON)),
     };
 }

@@ -53,7 +53,7 @@ export interface RiskCoverageReport {
      */
     totalRisks: number;
     /**
-     * Risks with at least one passing linked test
+     * Risks with at least one linked test case
      * @type {number}
      * @memberof RiskCoverageReport
      */

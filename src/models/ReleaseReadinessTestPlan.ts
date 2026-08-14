@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BuildMinified } from './BuildMinified';
+import {
+    BuildMinifiedFromJSON,
+    BuildMinifiedFromJSONTyped,
+    BuildMinifiedToJSON,
+    BuildMinifiedToJSONTyped,
+} from './BuildMinified';
 import type { ResultSummary } from './ResultSummary';
 import {
     ResultSummaryFromJSON,
@@ -53,6 +60,12 @@ export interface ReleaseReadinessTestPlan {
      * @memberof ReleaseReadinessTestPlan
      */
     status: ReleaseReadinessTestPlanStatusEnum;
+    /**
+     * 
+     * @type {BuildMinified}
+     * @memberof ReleaseReadinessTestPlan
+     */
+    build?: BuildMinified;
     /**
      * 
      * @type {ReleaseReadinessTestPlanRun}
@@ -105,6 +118,7 @@ export function ReleaseReadinessTestPlanFromJSONTyped(json: any, ignoreDiscrimin
         'id': json['id'],
         'title': json['title'],
         'status': json['status'],
+        'build': json['build'] == null ? undefined : json['build'],
         'latestRun': json['latest_run'],
         'results': json['results'],
     };
@@ -124,6 +138,7 @@ export function ReleaseReadinessTestPlanToJSONTyped(value?: ReleaseReadinessTest
         'id': value['id'],
         'title': value['title'],
         'status': value['status'],
+        'build': value['build'],
         'latest_run': value['latestRun'],
         'results': value['results'],
     };

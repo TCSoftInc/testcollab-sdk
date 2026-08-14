@@ -13,6 +13,8 @@ Name | Type
 `testPlanConfiguration` | number
 `testPlanTestCase` | number
 `attachments` | [Array&lt;Upload&gt;](Upload.md)
+`build` | [BuildMinified](.md)
+`executionSource` | string
 `project` | [ProjectMini](ProjectMini.md)
 `activityType` | string
 `user` | [User](User.md)
@@ -32,6 +34,8 @@ const example = {
   "testPlanConfiguration": 1,
   "testPlanTestCase": 1,
   "attachments": null,
+  "build": null,
+  "executionSource": ci,
   "project": null,
   "activityType": add,
   "user": null,

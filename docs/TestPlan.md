@@ -28,6 +28,7 @@ Name | Type
 `customFields` | [Array&lt;CustomFieldCollectionOutput&gt;](CustomFieldCollectionOutput.md)
 `isPublic` | number
 `release` | [ReleaseMinified](.md)
+`build` | [BuildMinified](.md)
 
 ## Example
 
@@ -58,6 +59,7 @@ const example = {
   "customFields": null,
   "isPublic": null,
   "release": null,
+  "build": null,
 } satisfies TestPlan
 
 console.log(example)

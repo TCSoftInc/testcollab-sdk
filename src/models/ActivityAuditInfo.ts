@@ -51,7 +51,37 @@ export interface ActivityAuditInfo {
      * @memberof ActivityAuditInfo
      */
     changes?: Array<ActivityFieldChange>;
+    /**
+     * Type of the linked item (for risk link/unlink activities)
+     * @type {string}
+     * @memberof ActivityAuditInfo
+     */
+    targetType?: ActivityAuditInfoTargetTypeEnum;
+    /**
+     * Id of the linked item (for risk link/unlink activities)
+     * @type {number}
+     * @memberof ActivityAuditInfo
+     */
+    targetId?: number;
+    /**
+     * Title of the linked item (for risk link/unlink activities)
+     * @type {string}
+     * @memberof ActivityAuditInfo
+     */
+    targetTitle?: string;
 }
+
+
+/**
+ * @export
+ */
+export const ActivityAuditInfoTargetTypeEnum = {
+    TestCase: 'test_case',
+    Requirement: 'requirement',
+    Defect: 'defect'
+} as const;
+export type ActivityAuditInfoTargetTypeEnum = typeof ActivityAuditInfoTargetTypeEnum[keyof typeof ActivityAuditInfoTargetTypeEnum];
+
 
 /**
  * Check if a given object implements the ActivityAuditInfo interface.
@@ -74,6 +104,9 @@ export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'oldVerdict': json['old_verdict'] == null ? undefined : json['old_verdict'],
         'newVerdict': json['new_verdict'] == null ? undefined : json['new_verdict'],
         'changes': json['changes'] == null ? undefined : ((json['changes'] as Array<any>).map(ActivityFieldChangeFromJSON)),
+        'targetType': json['target_type'] == null ? undefined : json['target_type'],
+        'targetId': json['target_id'] == null ? undefined : json['target_id'],
+        'targetTitle': json['target_title'] == null ? undefined : json['target_title'],
     };
 }
 
@@ -92,6 +125,9 @@ export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, i
         'old_verdict': value['oldVerdict'],
         'new_verdict': value['newVerdict'],
         'changes': value['changes'] == null ? undefined : ((value['changes'] as Array<any>).map(ActivityFieldChangeToJSON)),
+        'target_type': value['targetType'],
+        'target_id': value['targetId'],
+        'target_title': value['targetTitle'],
     };
 }
 
