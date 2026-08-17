@@ -291,8 +291,12 @@ docs/ReleaseReadinessTestPlan.md
 docs/ReleaseReadinessTestPlanRun.md
 docs/ReleaseReadinessVerdict.md
 docs/ReleasesApi.md
+docs/ReportDimension.md
+docs/ReportMetric.md
 docs/ReportPayload.md
 docs/ReportResult.md
+docs/ReportTemplateResults.md
+docs/ReportTemplatesApi.md
 docs/ReportsApi.md
 docs/Requirement.md
 docs/RequirementFolderCopyPayload.md
@@ -423,6 +427,8 @@ docs/TestCaseQacTimeoutPayload.md
 docs/TestCaseQuickUpdate.md
 docs/TestCaseQuickUpdatePayload.md
 docs/TestCaseRefCollection.md
+docs/TestCaseRequirementLinkPayload.md
+docs/TestCaseRequirementLinkResponse.md
 docs/TestCaseRevertPayload.md
 docs/TestCaseReviewPayload.md
 docs/TestCaseRevision.md
@@ -541,6 +547,7 @@ src/apis/ProjectUsersApi.ts
 src/apis/ProjectsApi.ts
 src/apis/ProjectsettingsApi.ts
 src/apis/ReleasesApi.ts
+src/apis/ReportTemplatesApi.ts
 src/apis/ReportsApi.ts
 src/apis/RequirementFoldersApi.ts
 src/apis/RequirementsApi.ts
@@ -837,8 +844,11 @@ src/models/ReleaseReadinessSummary.ts
 src/models/ReleaseReadinessTestPlan.ts
 src/models/ReleaseReadinessTestPlanRun.ts
 src/models/ReleaseReadinessVerdict.ts
+src/models/ReportDimension.ts
+src/models/ReportMetric.ts
 src/models/ReportPayload.ts
 src/models/ReportResult.ts
+src/models/ReportTemplateResults.ts
 src/models/Requirement.ts
 src/models/RequirementFolderCopyPayload.ts
 src/models/RequirementLinkSync.ts
@@ -955,6 +965,8 @@ src/models/TestCaseQacTimeoutPayload.ts
 src/models/TestCaseQuickUpdate.ts
 src/models/TestCaseQuickUpdatePayload.ts
 src/models/TestCaseRefCollection.ts
+src/models/TestCaseRequirementLinkPayload.ts
+src/models/TestCaseRequirementLinkResponse.ts
 src/models/TestCaseRevertPayload.ts
 src/models/TestCaseReviewPayload.ts
 src/models/TestCaseRevision.ts

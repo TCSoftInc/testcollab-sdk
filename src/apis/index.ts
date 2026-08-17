@@ -23,6 +23,7 @@ export * from './ProjectUsersApi';
 export * from './ProjectsApi';
 export * from './ProjectsettingsApi';
 export * from './ReleasesApi';
+export * from './ReportTemplatesApi';
 export * from './ReportsApi';
 export * from './RequirementFoldersApi';
 export * from './RequirementsApi';
