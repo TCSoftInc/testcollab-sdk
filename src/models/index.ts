@@ -276,6 +276,7 @@ export * from './RequirementFolderCopyPayload';
 export * from './RequirementLinkSync';
 export * from './RequirementLinkSyncRetryPayload';
 export * from './RequirementLinkSyncRetryResponse';
+export * from './RequirementManagerCapabilities';
 export * from './RequirementMinified';
 export * from './RequirementPayload';
 export * from './RequirementProfile';

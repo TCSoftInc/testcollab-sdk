@@ -34,6 +34,12 @@ export interface BuildWorkItem {
      */
     provider: string;
     /**
+     * TestCollab requirement database ID used for internal requirement links.
+     * @type {number}
+     * @memberof BuildWorkItem
+     */
+    localRequirementId: number;
+    /**
      * Deprecated for requirement-derived work items; returned as null.
      * @type {number}
      * @memberof BuildWorkItem
@@ -100,6 +106,7 @@ export interface BuildWorkItem {
  */
 export function instanceOfBuildWorkItem(value: object): value is BuildWorkItem {
     if (!('provider' in value) || value['provider'] === undefined) return false;
+    if (!('localRequirementId' in value) || value['localRequirementId'] === undefined) return false;
     if (!('issueKey' in value) || value['issueKey'] === undefined) return false;
     if (!('testcaseCount' in value) || value['testcaseCount'] === undefined) return false;
     if (!('testcases' in value) || value['testcases'] === undefined) return false;
@@ -117,6 +124,7 @@ export function BuildWorkItemFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'provider': json['provider'],
+        'localRequirementId': json['local_requirement_id'],
         'profileId': json['profile_id'] == null ? undefined : json['profile_id'],
         'issueKey': json['issue_key'],
         'issueId': json['issue_id'] == null ? undefined : json['issue_id'],
@@ -142,6 +150,7 @@ export function BuildWorkItemToJSONTyped(value?: BuildWorkItem | null, ignoreDis
     return {
         
         'provider': value['provider'],
+        'local_requirement_id': value['localRequirementId'],
         'profile_id': value['profileId'],
         'issue_key': value['issueKey'],
         'issue_id': value['issueId'],

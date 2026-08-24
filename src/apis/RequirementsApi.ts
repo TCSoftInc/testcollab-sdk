@@ -21,6 +21,7 @@ import type {
   FetchIdPayload,
   FetchIdResult,
   ForbiddenError,
+  TCError,
   TraceabilityMatrixPayload,
   TraceabilityMatrixResult,
 } from '../models/index';
@@ -37,6 +38,8 @@ import {
     FetchIdResultToJSON,
     ForbiddenErrorFromJSON,
     ForbiddenErrorToJSON,
+    TCErrorFromJSON,
+    TCErrorToJSON,
     TraceabilityMatrixPayloadFromJSON,
     TraceabilityMatrixPayloadToJSON,
     TraceabilityMatrixResultFromJSON,

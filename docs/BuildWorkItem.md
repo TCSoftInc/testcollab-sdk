@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `provider` | string
+`localRequirementId` | number
 `profileId` | number
 `issueKey` | string
 `issueId` | number
@@ -26,6 +27,7 @@ import type { BuildWorkItem } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "provider": azuredevops,
+  "localRequirementId": 987,
   "profileId": null,
   "issueKey": 1842,
   "issueId": 1842,

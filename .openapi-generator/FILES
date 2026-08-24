@@ -304,6 +304,7 @@ docs/RequirementFoldersApi.md
 docs/RequirementLinkSync.md
 docs/RequirementLinkSyncRetryPayload.md
 docs/RequirementLinkSyncRetryResponse.md
+docs/RequirementManagerCapabilities.md
 docs/RequirementMinified.md
 docs/RequirementPayload.md
 docs/RequirementProfile.md
@@ -854,6 +855,7 @@ src/models/RequirementFolderCopyPayload.ts
 src/models/RequirementLinkSync.ts
 src/models/RequirementLinkSyncRetryPayload.ts
 src/models/RequirementLinkSyncRetryResponse.ts
+src/models/RequirementManagerCapabilities.ts
 src/models/RequirementMinified.ts
 src/models/RequirementPayload.ts
 src/models/RequirementProfile.ts
