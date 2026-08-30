@@ -14,6 +14,7 @@ Name | Type
 `customFields` | [Array&lt;CustomFieldInputPayload&gt;](CustomFieldInputPayload.md)
 `requirements` | Array&lt;number&gt;
 `overwriteRequirements` | boolean
+`defaultAssignee` | number
 
 ## Example
 
@@ -30,6 +31,7 @@ const example = {
   "customFields": null,
   "requirements": [1,2,4],
   "overwriteRequirements": false,
+  "defaultAssignee": 1,
 } satisfies TestCaseQuickUpdatePayload
 
 console.log(example)

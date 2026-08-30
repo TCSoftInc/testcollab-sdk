@@ -18,6 +18,10 @@ import type {
   Count,
   ProjectUser,
   ProjectUserPayload,
+  ProjectUserRemovalConflict,
+  ProjectUserRemovalImpact,
+  ProjectUserRemovePayload,
+  ProjectUserRemoveResult,
   TCError,
 } from '../models/index';
 import {
@@ -27,6 +31,14 @@ import {
     ProjectUserToJSON,
     ProjectUserPayloadFromJSON,
     ProjectUserPayloadToJSON,
+    ProjectUserRemovalConflictFromJSON,
+    ProjectUserRemovalConflictToJSON,
+    ProjectUserRemovalImpactFromJSON,
+    ProjectUserRemovalImpactToJSON,
+    ProjectUserRemovePayloadFromJSON,
+    ProjectUserRemovePayloadToJSON,
+    ProjectUserRemoveResultFromJSON,
+    ProjectUserRemoveResultToJSON,
     TCErrorFromJSON,
     TCErrorToJSON,
 } from '../models/index';
@@ -47,12 +59,22 @@ export interface GetProjectUserCountRequest {
     project: number;
 }
 
+export interface GetProjectUserRemovalImpactRequest {
+    id: number;
+}
+
 export interface GetProjectUsersRequest {
     project: number;
     limit?: number;
     start?: number;
     sort?: string;
     filter?: string;
+}
+
+export interface RemoveProjectUserRequest {
+    id: number;
+    project: number;
+    projectUserRemovePayload?: ProjectUserRemovePayload;
 }
 
 export interface UpdateProjectUserRequest {
@@ -84,7 +106,7 @@ export interface ProjectUsersApiInterface {
     createProjectUser(requestParameters: CreateProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectUser>;
 
     /**
-     * Deletes a specific project member
+     * Deletes a specific project member. Only valid when the member holds no actionable assignments - use GET /projectusers/{id}/removal-impact to check, and POST /projectusers/{id}/remove to remove a member who does.
      * @summary Delete project member
      * @param {number} id Project Member ID
      * @param {*} [options] Override http request option.
@@ -94,7 +116,7 @@ export interface ProjectUsersApiInterface {
     deleteProjectUserRaw(requestParameters: DeleteProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
 
     /**
-     * Deletes a specific project member
+     * Deletes a specific project member. Only valid when the member holds no actionable assignments - use GET /projectusers/{id}/removal-impact to check, and POST /projectusers/{id}/remove to remove a member who does.
      * Delete project member
      */
     deleteProjectUser(requestParameters: DeleteProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
@@ -132,6 +154,22 @@ export interface ProjectUsersApiInterface {
     getProjectUserCount(requestParameters: GetProjectUserCountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Count>;
 
     /**
+     * Counts the actionable assignments held by a project member so the removal flow can decide whether the member can simply be removed or whether the assignments have to be resolved first. When total is 0 the member can be removed with DELETE /projectusers/{id}.
+     * @summary Get assignment impact of removing a project member
+     * @param {number} id Project Member ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectUsersApiInterface
+     */
+    getProjectUserRemovalImpactRaw(requestParameters: GetProjectUserRemovalImpactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectUserRemovalImpact>>;
+
+    /**
+     * Counts the actionable assignments held by a project member so the removal flow can decide whether the member can simply be removed or whether the assignments have to be resolved first. When total is 0 the member can be removed with DELETE /projectusers/{id}.
+     * Get assignment impact of removing a project member
+     */
+    getProjectUserRemovalImpact(requestParameters: GetProjectUserRemovalImpactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectUserRemovalImpact>;
+
+    /**
      * Get details of members in a project
      * @summary Get project users\' list
      * @param {number} project Project ID
@@ -150,6 +188,24 @@ export interface ProjectUsersApiInterface {
      * Get project users\' list
      */
     getProjectUsers(requestParameters: GetProjectUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProjectUser>>;
+
+    /**
+     * Removes a project member whose actionable assignments have to be resolved first. The durable queue record is created before the membership is deleted, so a queue failure leaves the member in place. The membership is removed immediately once the job is queued; the assignments are transferred by a background job and the initiating user is notified with the result counts. Completed executions and historical records are never rewritten.
+     * @summary Remove a project member and resolve their assignments
+     * @param {number} id Project Member ID
+     * @param {number} project Project ID - used to scope the manageProjectMembers permission check
+     * @param {ProjectUserRemovePayload} [projectUserRemovePayload] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProjectUsersApiInterface
+     */
+    removeProjectUserRaw(requestParameters: RemoveProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectUserRemoveResult>>;
+
+    /**
+     * Removes a project member whose actionable assignments have to be resolved first. The durable queue record is created before the membership is deleted, so a queue failure leaves the member in place. The membership is removed immediately once the job is queued; the assignments are transferred by a background job and the initiating user is notified with the result counts. Completed executions and historical records are never rewritten.
+     * Remove a project member and resolve their assignments
+     */
+    removeProjectUser(requestParameters: RemoveProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectUserRemoveResult>;
 
     /**
      * Project Member to update
@@ -218,7 +274,7 @@ export class ProjectUsersApi extends runtime.BaseAPI implements ProjectUsersApiI
     }
 
     /**
-     * Deletes a specific project member
+     * Deletes a specific project member. Only valid when the member holds no actionable assignments - use GET /projectusers/{id}/removal-impact to check, and POST /projectusers/{id}/remove to remove a member who does.
      * Delete project member
      */
     async deleteProjectUserRaw(requestParameters: DeleteProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
@@ -256,7 +312,7 @@ export class ProjectUsersApi extends runtime.BaseAPI implements ProjectUsersApiI
     }
 
     /**
-     * Deletes a specific project member
+     * Deletes a specific project member. Only valid when the member holds no actionable assignments - use GET /projectusers/{id}/removal-impact to check, and POST /projectusers/{id}/remove to remove a member who does.
      * Delete project member
      */
     async deleteProjectUser(requestParameters: DeleteProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
@@ -362,6 +418,53 @@ export class ProjectUsersApi extends runtime.BaseAPI implements ProjectUsersApiI
     }
 
     /**
+     * Counts the actionable assignments held by a project member so the removal flow can decide whether the member can simply be removed or whether the assignments have to be resolved first. When total is 0 the member can be removed with DELETE /projectusers/{id}.
+     * Get assignment impact of removing a project member
+     */
+    async getProjectUserRemovalImpactRaw(requestParameters: GetProjectUserRemovalImpactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectUserRemovalImpact>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling getProjectUserRemovalImpact().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/projectusers/{id}/removal-impact`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProjectUserRemovalImpactFromJSON(jsonValue));
+    }
+
+    /**
+     * Counts the actionable assignments held by a project member so the removal flow can decide whether the member can simply be removed or whether the assignments have to be resolved first. When total is 0 the member can be removed with DELETE /projectusers/{id}.
+     * Get assignment impact of removing a project member
+     */
+    async getProjectUserRemovalImpact(requestParameters: GetProjectUserRemovalImpactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectUserRemovalImpact> {
+        const response = await this.getProjectUserRemovalImpactRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get details of members in a project
      * Get project users\' list
      */
@@ -424,6 +527,67 @@ export class ProjectUsersApi extends runtime.BaseAPI implements ProjectUsersApiI
      */
     async getProjectUsers(requestParameters: GetProjectUsersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProjectUser>> {
         const response = await this.getProjectUsersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Removes a project member whose actionable assignments have to be resolved first. The durable queue record is created before the membership is deleted, so a queue failure leaves the member in place. The membership is removed immediately once the job is queued; the assignments are transferred by a background job and the initiating user is notified with the result counts. Completed executions and historical records are never rewritten.
+     * Remove a project member and resolve their assignments
+     */
+    async removeProjectUserRaw(requestParameters: RemoveProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProjectUserRemoveResult>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling removeProjectUser().'
+            );
+        }
+
+        if (requestParameters['project'] == null) {
+            throw new runtime.RequiredError(
+                'project',
+                'Required parameter "project" was null or undefined when calling removeProjectUser().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['project'] != null) {
+            queryParameters['project'] = requestParameters['project'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/projectusers/{id}/remove`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProjectUserRemovePayloadToJSON(requestParameters['projectUserRemovePayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProjectUserRemoveResultFromJSON(jsonValue));
+    }
+
+    /**
+     * Removes a project member whose actionable assignments have to be resolved first. The durable queue record is created before the membership is deleted, so a queue failure leaves the member in place. The membership is removed immediately once the job is queued; the assignments are transferred by a background job and the initiating user is notified with the result counts. Completed executions and historical records are never rewritten.
+     * Remove a project member and resolve their assignments
+     */
+    async removeProjectUser(requestParameters: RemoveProjectUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProjectUserRemoveResult> {
+        const response = await this.removeProjectUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

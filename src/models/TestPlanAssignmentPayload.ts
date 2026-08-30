@@ -63,6 +63,12 @@ export interface TestPlanAssignmentPayload {
      * @memberof TestPlanAssignmentPayload
      */
     testplan: number;
+    /**
+     * When false (default) the assignment rules are applied only to test cases that are still unassigned, preserving assignees inherited from the test case default and assignees already picked inside the test plan. When true the rules are applied to every test case, replacing existing assignments.
+     * @type {boolean}
+     * @memberof TestPlanAssignmentPayload
+     */
+    overrideExistingAssignees?: boolean;
 }
 
 
@@ -120,6 +126,7 @@ export function TestPlanAssignmentPayloadFromJSONTyped(json: any, ignoreDiscrimi
         'assignment': json['assignment'] == null ? undefined : TestPlanAssignmentPayloadAssignmentFromJSON(json['assignment']),
         'project': json['project'],
         'testplan': json['testplan'],
+        'overrideExistingAssignees': json['override_existing_assignees'] == null ? undefined : json['override_existing_assignees'],
     };
 }
 
@@ -140,6 +147,7 @@ export function TestPlanAssignmentPayloadToJSONTyped(value?: TestPlanAssignmentP
         'assignment': TestPlanAssignmentPayloadAssignmentToJSON(value['assignment']),
         'project': value['project'],
         'testplan': value['testplan'],
+        'override_existing_assignees': value['overrideExistingAssignees'],
     };
 }
 

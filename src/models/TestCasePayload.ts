@@ -142,6 +142,12 @@ export interface TestCasePayload {
      * @memberof TestCasePayload
      */
     autoInfo?: string;
+    /**
+     * Default assignee user ID. Automatically assigned when this test case is added to a test plan. Must be an active project member who can execute test cases. Send null to clear.
+     * @type {number}
+     * @memberof TestCasePayload
+     */
+    defaultAssignee?: number | null;
 }
 
 
@@ -193,6 +199,7 @@ export function TestCasePayloadFromJSONTyped(json: any, ignoreDiscriminator: boo
         'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
         'reviewStatus': json['review_status'] == null ? undefined : json['review_status'],
         'autoInfo': json['auto_info'] == null ? undefined : json['auto_info'],
+        'defaultAssignee': json['default_assignee'] == null ? undefined : json['default_assignee'],
     };
 }
 
@@ -225,6 +232,7 @@ export function TestCasePayloadToJSONTyped(value?: TestCasePayload | null, ignor
         'reviewer': value['reviewer'],
         'review_status': value['reviewStatus'],
         'auto_info': value['autoInfo'],
+        'default_assignee': value['defaultAssignee'],
     };
 }
 

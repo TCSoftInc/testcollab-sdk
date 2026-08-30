@@ -75,6 +75,12 @@ export interface TestCaseQuickUpdatePayload {
      * @memberof TestCaseQuickUpdatePayload
      */
     overwriteRequirements?: boolean;
+    /**
+     * Default assignee user ID applied to every selected test case. Must be an active project member who can execute test cases. Send 0 to clear the default assignee, omit to leave it unchanged.
+     * @type {number}
+     * @memberof TestCaseQuickUpdatePayload
+     */
+    defaultAssignee?: number | null;
 }
 
 
@@ -115,6 +121,7 @@ export function TestCaseQuickUpdatePayloadFromJSONTyped(json: any, ignoreDiscrim
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
         'requirements': json['requirements'] == null ? undefined : json['requirements'],
         'overwriteRequirements': json['overwrite_requirements'] == null ? undefined : json['overwrite_requirements'],
+        'defaultAssignee': json['default_assignee'] == null ? undefined : json['default_assignee'],
     };
 }
 
@@ -137,6 +144,7 @@ export function TestCaseQuickUpdatePayloadToJSONTyped(value?: TestCaseQuickUpdat
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
         'requirements': value['requirements'],
         'overwrite_requirements': value['overwriteRequirements'],
+        'default_assignee': value['defaultAssignee'],
     };
 }
 

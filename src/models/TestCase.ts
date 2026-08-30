@@ -256,6 +256,12 @@ export interface TestCase {
      * @memberof TestCase
      */
     qacTimeout?: number;
+    /**
+     * 
+     * @type {UserMinified}
+     * @memberof TestCase
+     */
+    defaultAssignee?: UserMinified;
 }
 
 
@@ -331,6 +337,7 @@ export function TestCaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'automationLastRunAt': json['automation_last_run_at'] == null ? undefined : json['automation_last_run_at'],
         'automationDeclaredBy': json['automation_declared_by'] == null ? undefined : UserMinifiedFromJSON(json['automation_declared_by']),
         'qacTimeout': json['qac_timeout'] == null ? undefined : json['qac_timeout'],
+        'defaultAssignee': json['default_assignee'] == null ? undefined : UserMinifiedFromJSON(json['default_assignee']),
     };
 }
 
@@ -375,6 +382,7 @@ export function TestCaseToJSONTyped(value?: TestCase | null, ignoreDiscriminator
         'automation_last_run_at': value['automationLastRunAt'],
         'automation_declared_by': UserMinifiedToJSON(value['automationDeclaredBy']),
         'qac_timeout': value['qacTimeout'],
+        'default_assignee': UserMinifiedToJSON(value['defaultAssignee']),
     };
 }
 

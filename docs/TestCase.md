@@ -36,6 +36,7 @@ Name | Type
 `automationLastRunAt` | string
 `automationDeclaredBy` | [UserMinified](UserMinified.md)
 `qacTimeout` | number
+`defaultAssignee` | [UserMinified](UserMinified.md)
 
 ## Example
 
@@ -74,6 +75,7 @@ const example = {
   "automationLastRunAt": 2026-08-12T00:14:14.000Z,
   "automationDeclaredBy": null,
   "qacTimeout": null,
+  "defaultAssignee": null,
 } satisfies TestCase
 
 console.log(example)

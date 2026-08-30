@@ -12,6 +12,7 @@ Name | Type
 `assignment` | [TestPlanAssignmentPayloadAssignment](TestPlanAssignmentPayloadAssignment.md)
 `project` | number
 `testplan` | number
+`overrideExistingAssignees` | boolean
 
 ## Example
 
@@ -26,6 +27,7 @@ const example = {
   "assignment": null,
   "project": 1,
   "testplan": 1,
+  "overrideExistingAssignees": false,
 } satisfies TestPlanAssignmentPayload
 
 console.log(example)

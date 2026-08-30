@@ -24,6 +24,7 @@ Name | Type
 `reviewer` | number
 `reviewStatus` | number
 `autoInfo` | string
+`defaultAssignee` | number
 
 ## Example
 
@@ -50,6 +51,7 @@ const example = {
   "reviewer": null,
   "reviewStatus": null,
   "autoInfo": null,
+  "defaultAssignee": 1,
 } satisfies TestCasePayload
 
 console.log(example)

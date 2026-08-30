@@ -249,6 +249,10 @@ docs/ProjectSuiteTree.md
 docs/ProjectUser.md
 docs/ProjectUserMinified.md
 docs/ProjectUserPayload.md
+docs/ProjectUserRemovalConflict.md
+docs/ProjectUserRemovalImpact.md
+docs/ProjectUserRemovePayload.md
+docs/ProjectUserRemoveResult.md
 docs/ProjectUsersApi.md
 docs/ProjectsApi.md
 docs/Projectsetting.md
@@ -807,6 +811,10 @@ src/models/ProjectSuiteTree.ts
 src/models/ProjectUser.ts
 src/models/ProjectUserMinified.ts
 src/models/ProjectUserPayload.ts
+src/models/ProjectUserRemovalConflict.ts
+src/models/ProjectUserRemovalImpact.ts
+src/models/ProjectUserRemovePayload.ts
+src/models/ProjectUserRemoveResult.ts
 src/models/Projectsetting.ts
 src/models/ProjectsettingMini.ts
 src/models/ProjectsettingPayload.ts
