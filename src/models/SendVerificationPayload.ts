@@ -25,6 +25,18 @@ export interface SendVerificationPayload {
      * @memberof SendVerificationPayload
      */
     email: string;
+    /**
+     * The page on the marketing site the person signed up from.
+     * @type {string}
+     * @memberof SendVerificationPayload
+     */
+    entry?: string;
+    /**
+     * The paid campaign the person arrived on.
+     * @type {string}
+     * @memberof SendVerificationPayload
+     */
+    utmCampaign?: string;
 }
 
 /**
@@ -46,6 +58,8 @@ export function SendVerificationPayloadFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'email': json['email'],
+        'entry': json['entry'] == null ? undefined : json['entry'],
+        'utmCampaign': json['utm_campaign'] == null ? undefined : json['utm_campaign'],
     };
 }
 
@@ -61,6 +75,8 @@ export function SendVerificationPayloadToJSONTyped(value?: SendVerificationPaylo
     return {
         
         'email': value['email'],
+        'entry': value['entry'],
+        'utm_campaign': value['utmCampaign'],
     };
 }
 

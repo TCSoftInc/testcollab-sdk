@@ -181,6 +181,12 @@ export interface Company {
      * @memberof Company
      */
     onboardingInfo?: string;
+    /**
+     * Which onboarding journey this account was given. Assigned once, when the account is created, and never changed afterwards.
+     * @type {string}
+     * @memberof Company
+     */
+    onboardingVariant?: string;
 }
 
 
@@ -253,6 +259,7 @@ export function CompanyFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
         'stats': json['stats'] == null ? undefined : json['stats'],
         'isOnboarded': json['is_onboarded'] == null ? undefined : json['is_onboarded'],
         'onboardingInfo': json['onboarding_info'] == null ? undefined : json['onboarding_info'],
+        'onboardingVariant': json['onboarding_variant'] == null ? undefined : json['onboarding_variant'],
     };
 }
 
@@ -288,6 +295,7 @@ export function CompanyToJSONTyped(value?: Company | null, ignoreDiscriminator: 
         'stats': value['stats'],
         'is_onboarded': value['isOnboarded'],
         'onboarding_info': value['onboardingInfo'],
+        'onboarding_variant': value['onboardingVariant'],
     };
 }
 

@@ -7,6 +7,8 @@
 Name | Type
 ------------ | -------------
 `email` | string
+`entry` | string
+`utmCampaign` | string
 
 ## Example
 
@@ -16,6 +18,8 @@ import type { SendVerificationPayload } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "email": dnyanesh@gigapromoters.com,
+  "entry": ai-test-case-generation,
+  "utmCampaign": spring-ppc,
 } satisfies SendVerificationPayload
 
 console.log(example)

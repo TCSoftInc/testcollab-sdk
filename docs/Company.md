@@ -27,6 +27,7 @@ Name | Type
 `stats` | string
 `isOnboarded` | boolean
 `onboardingInfo` | string
+`onboardingVariant` | string
 
 ## Example
 
@@ -56,6 +57,7 @@ const example = {
   "stats": null,
   "isOnboarded": false,
   "onboardingInfo": null,
+  "onboardingVariant": default,
 } satisfies Company
 
 console.log(example)
