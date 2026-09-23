@@ -36,7 +36,7 @@ export interface IssueCommentPayload {
      * @type {number}
      * @memberof IssueCommentPayload
      */
-    project?: number;
+    project: number;
     /**
      * Array of user IDs
      * @type {Array<string>}
@@ -51,6 +51,7 @@ export interface IssueCommentPayload {
 export function instanceOfIssueCommentPayload(value: object): value is IssueCommentPayload {
     if (!('comment' in value) || value['comment'] === undefined) return false;
     if (!('issue' in value) || value['issue'] === undefined) return false;
+    if (!('project' in value) || value['project'] === undefined) return false;
     return true;
 }
 
@@ -66,7 +67,7 @@ export function IssueCommentPayloadFromJSONTyped(json: any, ignoreDiscriminator:
         
         'comment': json['comment'],
         'issue': json['issue'],
-        'project': json['project'] == null ? undefined : json['project'],
+        'project': json['project'],
         'mentions': json['mentions'] == null ? undefined : json['mentions'],
     };
 }

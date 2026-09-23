@@ -235,7 +235,7 @@ example().catch(console.error);
 
 ## getLinkedTestCases
 
-> Array&lt;Linkedtestcase&gt; getLinkedTestCases(company, limit, start, sort, filter)
+> Array&lt;Linkedtestcase&gt; getLinkedTestCases(project, limit, start, sort, filter)
 
 Get list of linked test cases
 
@@ -261,8 +261,8 @@ async function example() {
   const api = new LinkedtestcasesApi(config);
 
   const body = {
-    // number | Company ID
-    company: 1,
+    // number | Project ID. The caller must belong to the project\'s company (TCV-6984).
+    project: 1,
     // number | Limit the size of the returned results (optional)
     limit: 56,
     // number | Skip a specific number of entries (for pagination) (optional)
@@ -290,7 +290,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **company** | `number` | Company ID | [Defaults to `undefined`] |
+| **project** | `number` | Project ID. The caller must belong to the project\&#39;s company (TCV-6984). | [Defaults to `undefined`] |
 | **limit** | `number` | Limit the size of the returned results | [Optional] [Defaults to `undefined`] |
 | **start** | `number` | Skip a specific number of entries (for pagination) | [Optional] [Defaults to `undefined`] |
 | **sort** | `string` | Sort according to a specific field. | [Optional] [Defaults to `undefined`] |

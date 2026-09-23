@@ -50,7 +50,7 @@ export interface CreateLinkedTestcaseRequest {
 }
 
 export interface GetLinkedTestCasesRequest {
-    company: number;
+    project: number;
     limit?: number;
     start?: number;
     sort?: string;
@@ -115,7 +115,7 @@ export interface LinkedtestcasesApiInterface {
     /**
      * Get list of linked test cases
      * @summary Get list of linked test cases
-     * @param {number} company Company ID
+     * @param {number} project Project ID. The caller must belong to the project\&#39;s company (TCV-6984).
      * @param {number} [limit] Limit the size of the returned results
      * @param {number} [start] Skip a specific number of entries (for pagination)
      * @param {string} [sort] Sort according to a specific field.
@@ -270,17 +270,17 @@ export class LinkedtestcasesApi extends runtime.BaseAPI implements Linkedtestcas
      * Get list of linked test cases
      */
     async getLinkedTestCasesRaw(requestParameters: GetLinkedTestCasesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Linkedtestcase>>> {
-        if (requestParameters['company'] == null) {
+        if (requestParameters['project'] == null) {
             throw new runtime.RequiredError(
-                'company',
-                'Required parameter "company" was null or undefined when calling getLinkedTestCases().'
+                'project',
+                'Required parameter "project" was null or undefined when calling getLinkedTestCases().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['company'] != null) {
-            queryParameters['company'] = requestParameters['company'];
+        if (requestParameters['project'] != null) {
+            queryParameters['project'] = requestParameters['project'];
         }
 
         if (requestParameters['limit'] != null) {
