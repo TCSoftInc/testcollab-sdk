@@ -144,6 +144,12 @@ export interface TestCaseMinified {
      */
     failureRate?: number;
     /**
+     * True when the test case is managed by BDD sync from a scenario in a feature file in Git.
+     * @type {boolean}
+     * @memberof TestCaseMinified
+     */
+    readonly isBddManaged?: boolean;
+    /**
      * Will be true only for links
      * @type {boolean}
      * @memberof TestCaseMinified
@@ -231,6 +237,7 @@ export function TestCaseMinifiedFromJSONTyped(json: any, ignoreDiscriminator: bo
         'avgExecutionTime': json['avg_execution_time'] == null ? undefined : json['avg_execution_time'],
         'lastRunOn': json['last_run_on'] == null ? undefined : json['last_run_on'],
         'failureRate': json['failure_rate'] == null ? undefined : json['failure_rate'],
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
@@ -244,7 +251,7 @@ export function TestCaseMinifiedToJSON(json: any): TestCaseMinified {
     return TestCaseMinifiedToJSONTyped(json, false);
 }
 
-export function TestCaseMinifiedToJSONTyped(value?: TestCaseMinified | null, ignoreDiscriminator: boolean = false): any {
+export function TestCaseMinifiedToJSONTyped(value?: Omit<TestCaseMinified, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

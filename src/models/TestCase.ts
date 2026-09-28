@@ -203,6 +203,18 @@ export interface TestCase {
      */
     failureRate?: number;
     /**
+     * TCV-7033. True when the test case is archived. An archived case is left out of the default test case lists and cannot be added to a test plan, while its revisions, executions and results are kept. Archive and restore it with the `archive` and `unarchive` actions of `POST /testcases/bulkAction`.
+     * @type {boolean}
+     * @memberof TestCase
+     */
+    archived?: boolean;
+    /**
+     * True when a BDD sync (`tc sync`) created the test case from a scenario of a `.feature` file in Git. The repository owns the case, so it cannot be edited, archived, restored or deleted by hand. TCV-7034: when its scenario is removed from the repository, the sync archives the case; when the scenario comes back with the same steps, the sync restores it. So a case with both `is_bdd_managed` and `archived` true was removed from the repository.
+     * @type {boolean}
+     * @memberof TestCase
+     */
+    readonly isBddManaged?: boolean;
+    /**
      * Will be true only for links
      * @type {boolean}
      * @memberof TestCase
@@ -328,6 +340,8 @@ export function TestCaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'avgExecutionTime': json['avg_execution_time'] == null ? undefined : json['avg_execution_time'],
         'lastRunOn': json['last_run_on'] == null ? undefined : json['last_run_on'],
         'failureRate': json['failure_rate'] == null ? undefined : json['failure_rate'],
+        'archived': json['archived'] == null ? undefined : json['archived'],
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
@@ -345,7 +359,7 @@ export function TestCaseToJSON(json: any): TestCase {
     return TestCaseToJSONTyped(json, false);
 }
 
-export function TestCaseToJSONTyped(value?: TestCase | null, ignoreDiscriminator: boolean = false): any {
+export function TestCaseToJSONTyped(value?: Omit<TestCase, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -373,6 +387,7 @@ export function TestCaseToJSONTyped(value?: TestCase | null, ignoreDiscriminator
         'avg_execution_time': value['avgExecutionTime'],
         'last_run_on': value['lastRunOn'],
         'failure_rate': value['failureRate'],
+        'archived': value['archived'],
         'is_reference': value['isReference'],
         'source_id': value['sourceId'],
         'source_project': value['sourceProject'],

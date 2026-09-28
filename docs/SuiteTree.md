@@ -13,6 +13,7 @@ Name | Type
 `testcasecount` | number
 `alltestcasecount` | number
 `children` | [Array&lt;SuiteTree&gt;](SuiteTree.md)
+`isBddManaged` | boolean
 `isReference` | boolean
 `sourceId` | number
 `sourceProject` | number
@@ -32,6 +33,7 @@ const example = {
   "testcasecount": 23,
   "alltestcasecount": 23,
   "children": null,
+  "isBddManaged": false,
   "isReference": false,
   "sourceId": 1,
   "sourceProject": 1,

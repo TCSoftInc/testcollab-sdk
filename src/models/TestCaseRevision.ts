@@ -252,6 +252,12 @@ export interface TestCaseRevision {
      */
     failureRate?: number;
     /**
+     * True when the test case is managed by BDD sync from a scenario in a feature file in Git.
+     * @type {boolean}
+     * @memberof TestCaseRevision
+     */
+    readonly isBddManaged?: boolean;
+    /**
      * Will be true only for links
      * @type {boolean}
      * @memberof TestCaseRevision
@@ -368,6 +374,7 @@ export function TestCaseRevisionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'avgExecutionTime': json['avg_execution_time'] == null ? undefined : json['avg_execution_time'],
         'lastRunOn': json['last_run_on'] == null ? undefined : json['last_run_on'],
         'failureRate': json['failure_rate'] == null ? undefined : json['failure_rate'],
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
@@ -384,7 +391,7 @@ export function TestCaseRevisionToJSON(json: any): TestCaseRevision {
     return TestCaseRevisionToJSONTyped(json, false);
 }
 
-export function TestCaseRevisionToJSONTyped(value?: TestCaseRevision | null, ignoreDiscriminator: boolean = false): any {
+export function TestCaseRevisionToJSONTyped(value?: Omit<TestCaseRevision, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

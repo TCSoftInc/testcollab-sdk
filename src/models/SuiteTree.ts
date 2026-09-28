@@ -62,6 +62,12 @@ export interface SuiteTree {
      */
     children: Array<SuiteTree>;
     /**
+     * True when the suite is managed by BDD sync from a feature file in Git.
+     * @type {boolean}
+     * @memberof SuiteTree
+     */
+    readonly isBddManaged?: boolean;
+    /**
      * Will be true only for links
      * @type {boolean}
      * @memberof SuiteTree
@@ -115,6 +121,7 @@ export function SuiteTreeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'testcasecount': json['testcasecount'],
         'alltestcasecount': json['alltestcasecount'] == null ? undefined : json['alltestcasecount'],
         'children': ((json['children'] as Array<any>).map(SuiteTreeFromJSON)),
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
@@ -126,7 +133,7 @@ export function SuiteTreeToJSON(json: any): SuiteTree {
     return SuiteTreeToJSONTyped(json, false);
 }
 
-export function SuiteTreeToJSONTyped(value?: SuiteTree | null, ignoreDiscriminator: boolean = false): any {
+export function SuiteTreeToJSONTyped(value?: Omit<SuiteTree, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

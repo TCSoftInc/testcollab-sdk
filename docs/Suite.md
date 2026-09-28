@@ -12,6 +12,7 @@ Name | Type
 `parentId` | number
 `order` | number
 `createdBy` | number
+`isBddManaged` | boolean
 `isReference` | boolean
 `sourceId` | number
 `sourceProject` | number
@@ -30,6 +31,7 @@ const example = {
   "parentId": null,
   "order": 1,
   "createdBy": 1,
+  "isBddManaged": false,
   "isReference": false,
   "sourceId": 1,
   "sourceProject": 1,

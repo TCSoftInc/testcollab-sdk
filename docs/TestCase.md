@@ -27,6 +27,8 @@ Name | Type
 `avgExecutionTime` | number
 `lastRunOn` | string
 `failureRate` | number
+`archived` | boolean
+`isBddManaged` | boolean
 `isReference` | boolean
 `sourceId` | number
 `sourceProject` | number
@@ -66,6 +68,8 @@ const example = {
   "avgExecutionTime": 10,
   "lastRunOn": 2019-10-21T14:50:55.000Z,
   "failureRate": 0,
+  "archived": false,
+  "isBddManaged": false,
   "isReference": false,
   "sourceId": 1,
   "sourceProject": 1,

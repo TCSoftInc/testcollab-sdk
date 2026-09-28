@@ -56,6 +56,12 @@ export interface Suite {
      */
     createdBy?: number;
     /**
+     * True when the suite is managed by BDD sync from a feature file in Git.
+     * @type {boolean}
+     * @memberof Suite
+     */
+    readonly isBddManaged?: boolean;
+    /**
      * Will be true only for links
      * @type {boolean}
      * @memberof Suite
@@ -106,6 +112,7 @@ export function SuiteFromJSONTyped(json: any, ignoreDiscriminator: boolean): Sui
         'parentId': json['parent_id'] == null ? undefined : json['parent_id'],
         'order': json['order'] == null ? undefined : json['order'],
         'createdBy': json['created_by'] == null ? undefined : json['created_by'],
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
@@ -117,7 +124,7 @@ export function SuiteToJSON(json: any): Suite {
     return SuiteToJSONTyped(json, false);
 }
 
-export function SuiteToJSONTyped(value?: Suite | null, ignoreDiscriminator: boolean = false): any {
+export function SuiteToJSONTyped(value?: Omit<Suite, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

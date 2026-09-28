@@ -28,7 +28,7 @@ import {
  */
 export interface TestCaseBulkActionPayload {
     /**
-     * Bulk actions like automation
+     * Bulk actions like automation. `archive` archives the given test cases and `unarchive` restores them (TCV-7033). Both need the right to delete the cases: the test case bulk update permission, or the delete permission (with its "only mine" variant, only for cases the caller created).
      * @type {string}
      * @memberof TestCaseBulkActionPayload
      */
