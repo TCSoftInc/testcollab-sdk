@@ -88,6 +88,12 @@ export interface TestDataset {
      * @memberof TestDataset
      */
     archived?: number;
+    /**
+     * True when a BDD sync (`tc sync`) made the dataset from the `Examples:` tables of a Scenario Outline in a `.feature` file in Git. The repository owns it, so it cannot be changed or deleted by hand (`PUT` and `DELETE` answer 422); only `tc sync` changes it. Each of its data rows also holds `bdd_example_index`, the Examples row as Cucumber numbers it in a report (`<table>.<row>`, for example "2.1"), and `bdd_example_name`, the name of its Examples table. They are not parameters.
+     * @type {boolean}
+     * @memberof TestDataset
+     */
+    readonly isBddManaged?: boolean;
 }
 
 /**
@@ -120,6 +126,7 @@ export function TestDatasetFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'updatedAt': json['updated_at'] == null ? undefined : json['updated_at'],
         'createdBy': json['created_by'] == null ? undefined : UserMinifiedFromJSON(json['created_by']),
         'archived': json['archived'] == null ? undefined : json['archived'],
+        'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
     };
 }
 
@@ -127,7 +134,7 @@ export function TestDatasetToJSON(json: any): TestDataset {
     return TestDatasetToJSONTyped(json, false);
 }
 
-export function TestDatasetToJSONTyped(value?: TestDataset | null, ignoreDiscriminator: boolean = false): any {
+export function TestDatasetToJSONTyped(value?: Omit<TestDataset, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -167,6 +167,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Test dataset deleted |  -  |
 | **403** | Forbidden |  -  |
+| **422** | The dataset was not deleted. TCV-7071: among other reasons, when it is owned by a BDD sync (&#x60;is_bdd_managed&#x60;), which only &#x60;tc sync&#x60; deletes, or when a test case uses it. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
@@ -721,6 +722,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Updated Test dataset |  -  |
 | **403** | Forbidden |  -  |
+| **422** | The request was refused. TCV-7071: among other reasons, when the dataset is owned by a BDD sync (&#x60;is_bdd_managed&#x60;), which only &#x60;tc sync&#x60; changes. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

@@ -15,6 +15,7 @@ Name | Type
 `updatedAt` | string
 `createdBy` | [UserMinified](UserMinified.md)
 `archived` | number
+`isBddManaged` | boolean
 
 ## Example
 
@@ -32,6 +33,7 @@ const example = {
   "updatedAt": 2019-08-21T14:50:55.000Z,
   "createdBy": null,
   "archived": null,
+  "isBddManaged": false,
 } satisfies TestDataset
 
 console.log(example)
