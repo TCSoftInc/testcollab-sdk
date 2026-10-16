@@ -10,6 +10,7 @@ All URIs are relative to *https://api.testcollab.io*
 | [**getDefectCount**](DefectsApi.md#getdefectcount) | **GET** /defects/count | Get count of defects |
 | [**getDefects**](DefectsApi.md#getdefects) | **GET** /defects | Get list of defects |
 | [**linkDefect**](DefectsApi.md#linkdefect) | **POST** /defects/link | link an existing defect with test case while execution |
+| [**unlinkDefect**](DefectsApi.md#unlinkdefect) | **PUT** /defects/{id}/unlink | Unlink a defect from an executed test case |
 | [**updateDefect**](DefectsApi.md#updatedefect) | **PUT** /defects/{id} | Updates a defect |
 
 
@@ -475,6 +476,87 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Created Defect |  -  |
 | **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## unlinkDefect
+
+> object unlinkDefect(unlinkDefectPayload, id)
+
+Unlink a defect from an executed test case
+
+Requires the project\&#39;s existing manageDefect permission. Removes the selected defect record\&#39;s test case, test plan, execution, plan test case, revision, and step associations. The defect remains in the project\&#39;s defects list, and the underlying external or inbuilt issue is preserved. Other defect records and their associations, execution results, and existing history are unchanged. Records the actor, defect, test case, and test plan in a project activity. The executedtestcase must match the selected defect record\&#39;s current link. Requests for an already unlinked defect fail without adding another activity. 
+
+### Example
+
+```ts
+import {
+  Configuration,
+  DefectsApi,
+} from '@testcollab/sdk';
+import type { UnlinkDefectRequest } from '@testcollab/sdk';
+
+async function example() {
+  console.log("🚀 Testing @testcollab/sdk SDK...");
+  const config = new Configuration({ 
+    // To configure API key authorization: ApiKeyAuth
+    apiKey: "YOUR API KEY",
+    // To configure API key authorization: bearerAuth
+    apiKey: "YOUR API KEY",
+  });
+  const api = new DefectsApi(config);
+
+  const body = {
+    // UnlinkDefectPayload
+    unlinkDefectPayload: ...,
+    // number | ID of the TestCollab defect record, not the external issue ID
+    id: 56,
+  } satisfies UnlinkDefectRequest;
+
+  try {
+    const data = await api.unlinkDefect(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **unlinkDefectPayload** | [UnlinkDefectPayload](UnlinkDefectPayload.md) |  | |
+| **id** | `number` | ID of the TestCollab defect record, not the external issue ID | [Defaults to `undefined`] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Defect unlinked and project activity recorded |  -  |
+| **400** | Missing or invalid project, defect, or executed test case ID |  -  |
+| **401** | Authentication required |  -  |
+| **403** | Project access or manageDefect permission denied |  -  |
+| **404** | Defect not found in the requested project |  -  |
+| **409** | Defect is not linked to the specified executed test case |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

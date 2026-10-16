@@ -50,5 +50,6 @@ export * from './TestPlansConfigsApi';
 export * from './TestcasesCommentsApi';
 export * from './TestplanlogsApi';
 export * from './TestplansCommentsApi';
+export * from './TrashApi';
 export * from './UploadsApi';
 export * from './UsersApi';

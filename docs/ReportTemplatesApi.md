@@ -83,7 +83,7 @@ example().catch(console.error);
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Report results |  -  |
-| **400** | Invalid date_from/date_to, or the report matches more records than a single run may aggregate |  -  |
+| **400** | Invalid date_from/date_to, a saved filter that cannot be applied (an unknown field, an operator the field does not offer, or a missing value), or more result rows than a single run may return |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Report not found |  -  |

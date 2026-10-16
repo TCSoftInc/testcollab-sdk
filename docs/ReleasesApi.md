@@ -419,7 +419,7 @@ example().catch(console.error);
 
 Get release readiness dashboard data
 
-Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release. 
+Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release; &#x60;run_history&#x60; adds the same execution counts over every run. 
 
 ### Example
 

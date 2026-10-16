@@ -55,6 +55,13 @@ import {
     ReleaseReadinessCustomFieldCoverageToJSON,
     ReleaseReadinessCustomFieldCoverageToJSONTyped,
 } from './ReleaseReadinessCustomFieldCoverage';
+import type { ReleaseReadinessRunHistory } from './ReleaseReadinessRunHistory';
+import {
+    ReleaseReadinessRunHistoryFromJSON,
+    ReleaseReadinessRunHistoryFromJSONTyped,
+    ReleaseReadinessRunHistoryToJSON,
+    ReleaseReadinessRunHistoryToJSONTyped,
+} from './ReleaseReadinessRunHistory';
 import type { ReleaseReadinessVerdict } from './ReleaseReadinessVerdict';
 import {
     ReleaseReadinessVerdictFromJSON,
@@ -160,6 +167,12 @@ export interface ReleaseReadiness {
      */
     customFieldCoverage?: Array<ReleaseReadinessCustomFieldCoverage>;
     /**
+     * 
+     * @type {ReleaseReadinessRunHistory}
+     * @memberof ReleaseReadiness
+     */
+    runHistory?: ReleaseReadinessRunHistory;
+    /**
      * Coverage breakdown by test plan configuration. Only present when test plans in the release have configurations defined.
      * 
      * @type {Array<ReleaseReadinessConfigurationCoverage>}
@@ -202,6 +215,7 @@ export function ReleaseReadinessFromJSONTyped(json: any, ignoreDiscriminator: bo
         'testPlans': ((json['test_plans'] as Array<any>).map(ReleaseReadinessTestPlanFromJSON)),
         'requirementCoverage': json['requirement_coverage'] == null ? undefined : json['requirement_coverage'],
         'customFieldCoverage': json['custom_field_coverage'] == null ? undefined : ((json['custom_field_coverage'] as Array<any>).map(ReleaseReadinessCustomFieldCoverageFromJSON)),
+        'runHistory': json['run_history'] == null ? undefined : json['run_history'],
         'configurationCoverage': json['configuration_coverage'] == null ? undefined : ((json['configuration_coverage'] as Array<any>).map(ReleaseReadinessConfigurationCoverageFromJSON)),
     };
 }
@@ -227,6 +241,7 @@ export function ReleaseReadinessToJSONTyped(value?: ReleaseReadiness | null, ign
         'test_plans': ((value['testPlans'] as Array<any>).map(ReleaseReadinessTestPlanToJSON)),
         'requirement_coverage': value['requirementCoverage'],
         'custom_field_coverage': value['customFieldCoverage'] == null ? undefined : ((value['customFieldCoverage'] as Array<any>).map(ReleaseReadinessCustomFieldCoverageToJSON)),
+        'run_history': value['runHistory'],
         'configuration_coverage': value['configurationCoverage'] == null ? undefined : ((value['configurationCoverage'] as Array<any>).map(ReleaseReadinessConfigurationCoverageToJSON)),
     };
 }

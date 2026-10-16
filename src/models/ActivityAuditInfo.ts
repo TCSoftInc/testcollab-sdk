@@ -69,6 +69,12 @@ export interface ActivityAuditInfo {
      * @memberof ActivityAuditInfo
      */
     targetTitle?: string;
+    /**
+     * Id of the test plan (for defect unlink activities)
+     * @type {number}
+     * @memberof ActivityAuditInfo
+     */
+    testPlanId?: number;
 }
 
 
@@ -107,6 +113,7 @@ export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'targetType': json['target_type'] == null ? undefined : json['target_type'],
         'targetId': json['target_id'] == null ? undefined : json['target_id'],
         'targetTitle': json['target_title'] == null ? undefined : json['target_title'],
+        'testPlanId': json['test_plan_id'] == null ? undefined : json['test_plan_id'],
     };
 }
 
@@ -128,6 +135,7 @@ export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, i
         'target_type': value['targetType'],
         'target_id': value['targetId'],
         'target_title': value['targetTitle'],
+        'test_plan_id': value['testPlanId'],
     };
 }
 

@@ -185,7 +185,7 @@ example().catch(console.error);
 
 Deletes test cases
 
-Bulk delete of Test Cases
+Moves the selected test cases, including archived cases, to their project\&#39;s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. Cases act as deleted in ordinary reads; their data and linked copies remain available for company Administrator restoration.
 
 ### Example
 
@@ -485,7 +485,7 @@ example().catch(console.error);
 
 Delete test case
 
-Deletes a specific test case
+Moves a specific test case to its project\&#39;s Trash for 60 days (TCV-7051), including an archived case. Existing delete permissions and eligibility checks still apply. The case acts as deleted in active lists, test plans, reports, counts and ordinary API reads, while its data and linked copies are retained for restoration by a company Administrator. Permanent removal occurs after 60 days or when an Administrator empties the project\&#39;s Trash.
 
 ### Example
 

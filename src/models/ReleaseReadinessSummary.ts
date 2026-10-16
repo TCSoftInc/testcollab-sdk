@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * Aggregated execution results across all test plans in the release, using the latest run (regression) of each test plan.
+ * Aggregated execution results across all test plans in the release. In `summary` they come from the latest run (regression) of each test plan; in `run_history.summary` from every run.
  * 
  * @export
  * @interface ReleaseReadinessSummary

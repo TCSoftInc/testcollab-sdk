@@ -20,6 +20,7 @@ import type {
   DefectPayload,
   LinkDefectPayload,
   TCError,
+  UnlinkDefectPayload,
 } from '../models/index';
 import {
     CountFromJSON,
@@ -32,6 +33,8 @@ import {
     LinkDefectPayloadToJSON,
     TCErrorFromJSON,
     TCErrorToJSON,
+    UnlinkDefectPayloadFromJSON,
+    UnlinkDefectPayloadToJSON,
 } from '../models/index';
 
 export interface CreateDefectRequest {
@@ -63,6 +66,11 @@ export interface GetDefectsRequest {
 
 export interface LinkDefectRequest {
     linkDefectPayload?: LinkDefectPayload;
+}
+
+export interface UnlinkDefectRequest {
+    unlinkDefectPayload: UnlinkDefectPayload;
+    id: number;
 }
 
 export interface UpdateDefectRequest {
@@ -181,6 +189,23 @@ export interface DefectsApiInterface {
      * link an existing defect with test case while execution
      */
     linkDefect(requestParameters: LinkDefectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Defect>;
+
+    /**
+     * Requires the project\'s existing manageDefect permission. Removes the selected defect record\'s test case, test plan, execution, plan test case, revision, and step associations. The defect remains in the project\'s defects list, and the underlying external or inbuilt issue is preserved. Other defect records and their associations, execution results, and existing history are unchanged. Records the actor, defect, test case, and test plan in a project activity. The executedtestcase must match the selected defect record\'s current link. Requests for an already unlinked defect fail without adding another activity. 
+     * @summary Unlink a defect from an executed test case
+     * @param {UnlinkDefectPayload} unlinkDefectPayload 
+     * @param {number} id ID of the TestCollab defect record, not the external issue ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefectsApiInterface
+     */
+    unlinkDefectRaw(requestParameters: UnlinkDefectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Requires the project\'s existing manageDefect permission. Removes the selected defect record\'s test case, test plan, execution, plan test case, revision, and step associations. The defect remains in the project\'s defects list, and the underlying external or inbuilt issue is preserved. Other defect records and their associations, execution results, and existing history are unchanged. Records the actor, defect, test case, and test plan in a project activity. The executedtestcase must match the selected defect record\'s current link. Requests for an already unlinked defect fail without adding another activity. 
+     * Unlink a defect from an executed test case
+     */
+    unlinkDefect(requestParameters: UnlinkDefectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
 
     /**
      * Defect to update
@@ -518,6 +543,63 @@ export class DefectsApi extends runtime.BaseAPI implements DefectsApiInterface {
      */
     async linkDefect(requestParameters: LinkDefectRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Defect> {
         const response = await this.linkDefectRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Requires the project\'s existing manageDefect permission. Removes the selected defect record\'s test case, test plan, execution, plan test case, revision, and step associations. The defect remains in the project\'s defects list, and the underlying external or inbuilt issue is preserved. Other defect records and their associations, execution results, and existing history are unchanged. Records the actor, defect, test case, and test plan in a project activity. The executedtestcase must match the selected defect record\'s current link. Requests for an already unlinked defect fail without adding another activity. 
+     * Unlink a defect from an executed test case
+     */
+    async unlinkDefectRaw(requestParameters: UnlinkDefectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters['unlinkDefectPayload'] == null) {
+            throw new runtime.RequiredError(
+                'unlinkDefectPayload',
+                'Required parameter "unlinkDefectPayload" was null or undefined when calling unlinkDefect().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling unlinkDefect().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            queryParameters["token"] = await this.configuration.apiKey("token"); // ApiKeyAuth authentication
+        }
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = await this.configuration.apiKey("Authorization"); // bearerAuth authentication
+        }
+
+
+        let urlPath = `/defects/{id}/unlink`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UnlinkDefectPayloadToJSON(requestParameters['unlinkDefectPayload']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Requires the project\'s existing manageDefect permission. Removes the selected defect record\'s test case, test plan, execution, plan test case, revision, and step associations. The defect remains in the project\'s defects list, and the underlying external or inbuilt issue is preserved. Other defect records and their associations, execution results, and existing history are unchanged. Records the actor, defect, test case, and test plan in a project activity. The executedtestcase must match the selected defect record\'s current link. Requests for an already unlinked defect fail without adding another activity. 
+     * Unlink a defect from an executed test case
+     */
+    async unlinkDefect(requestParameters: UnlinkDefectRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.unlinkDefectRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

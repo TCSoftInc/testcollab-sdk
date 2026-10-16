@@ -102,13 +102,13 @@ export interface Defect {
      * @type {TestCase}
      * @memberof Defect
      */
-    testcase: TestCase;
+    testcase?: TestCase;
     /**
      * 
      * @type {TestPlanMinified}
      * @memberof Defect
      */
-    testplan: TestPlanMinified;
+    testplan?: TestPlanMinified;
     /**
      * 
      * @type {TestCaseRevision}
@@ -191,8 +191,6 @@ export function instanceOfDefect(value: object): value is Defect {
     if (!('project' in value) || value['project'] === undefined) return false;
     if (!('externalId' in value) || value['externalId'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
-    if (!('testcase' in value) || value['testcase'] === undefined) return false;
-    if (!('testplan' in value) || value['testplan'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     return true;
 }
@@ -214,8 +212,8 @@ export function DefectFromJSONTyped(json: any, ignoreDiscriminator: boolean): De
         'userComment': json['user_comment'] == null ? undefined : json['user_comment'],
         'defectUrl': json['defect_url'] == null ? undefined : json['defect_url'],
         'defectStatus': json['defect_status'] == null ? undefined : json['defect_status'],
-        'testcase': TestCaseFromJSON(json['testcase']),
-        'testplan': TestPlanMinifiedFromJSON(json['testplan']),
+        'testcase': json['testcase'] == null ? undefined : TestCaseFromJSON(json['testcase']),
+        'testplan': json['testplan'] == null ? undefined : TestPlanMinifiedFromJSON(json['testplan']),
         'testcaserevision': json['testcaserevision'] == null ? undefined : TestCaseRevisionFromJSON(json['testcaserevision']),
         'createdBy': json['created_by'] == null ? undefined : UserFromJSON(json['created_by']),
         'updatedBy': json['updated_by'] == null ? undefined : UserFromJSON(json['updated_by']),

@@ -231,7 +231,7 @@ export interface TestCasesApiInterface {
     bulkCopyTestCase(requestParameters: BulkCopyTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
 
     /**
-     * Bulk delete of Test Cases
+     * Moves the selected test cases, including archived cases, to their project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. Cases act as deleted in ordinary reads; their data and linked copies remain available for company Administrator restoration.
      * @summary Deletes test cases
      * @param {BulkDeletePayload} [bulkDeletePayload] 
      * @param {*} [options] Override http request option.
@@ -241,7 +241,7 @@ export interface TestCasesApiInterface {
     bulkDeleteTestCaseRaw(requestParameters: BulkDeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>>;
 
     /**
-     * Bulk delete of Test Cases
+     * Moves the selected test cases, including archived cases, to their project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. Cases act as deleted in ordinary reads; their data and linked copies remain available for company Administrator restoration.
      * Deletes test cases
      */
     bulkDeleteTestCase(requestParameters: BulkDeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
@@ -295,7 +295,7 @@ export interface TestCasesApiInterface {
     createTestCase(requestParameters: CreateTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TestCase>;
 
     /**
-     * Deletes a specific test case
+     * Moves a specific test case to its project\'s Trash for 60 days (TCV-7051), including an archived case. Existing delete permissions and eligibility checks still apply. The case acts as deleted in active lists, test plans, reports, counts and ordinary API reads, while its data and linked copies are retained for restoration by a company Administrator. Permanent removal occurs after 60 days or when an Administrator empties the project\'s Trash.
      * @summary Delete test case
      * @param {number} id Test Case ID
      * @param {number} project Project ID
@@ -306,7 +306,7 @@ export interface TestCasesApiInterface {
     deleteTestCaseRaw(requestParameters: DeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
 
     /**
-     * Deletes a specific test case
+     * Moves a specific test case to its project\'s Trash for 60 days (TCV-7051), including an archived case. Existing delete permissions and eligibility checks still apply. The case acts as deleted in active lists, test plans, reports, counts and ordinary API reads, while its data and linked copies are retained for restoration by a company Administrator. Permanent removal occurs after 60 days or when an Administrator empties the project\'s Trash.
      * Delete test case
      */
     deleteTestCase(requestParameters: DeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
@@ -625,7 +625,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Bulk delete of Test Cases
+     * Moves the selected test cases, including archived cases, to their project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. Cases act as deleted in ordinary reads; their data and linked copies remain available for company Administrator restoration.
      * Deletes test cases
      */
     async bulkDeleteTestCaseRaw(requestParameters: BulkDeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>> {
@@ -658,7 +658,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Bulk delete of Test Cases
+     * Moves the selected test cases, including archived cases, to their project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. Cases act as deleted in ordinary reads; their data and linked copies remain available for company Administrator restoration.
      * Deletes test cases
      */
     async bulkDeleteTestCase(requestParameters: BulkDeleteTestCaseRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult> {
@@ -793,7 +793,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Deletes a specific test case
+     * Moves a specific test case to its project\'s Trash for 60 days (TCV-7051), including an archived case. Existing delete permissions and eligibility checks still apply. The case acts as deleted in active lists, test plans, reports, counts and ordinary API reads, while its data and linked copies are retained for restoration by a company Administrator. Permanent removal occurs after 60 days or when an Administrator empties the project\'s Trash.
      * Delete test case
      */
     async deleteTestCaseRaw(requestParameters: DeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
@@ -842,7 +842,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Deletes a specific test case
+     * Moves a specific test case to its project\'s Trash for 60 days (TCV-7051), including an archived case. Existing delete permissions and eligibility checks still apply. The case acts as deleted in active lists, test plans, reports, counts and ordinary API reads, while its data and linked copies are retained for restoration by a company Administrator. Permanent removal occurs after 60 days or when an Administrator empties the project\'s Trash.
      * Delete test case
      */
     async deleteTestCase(requestParameters: DeleteTestCaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {

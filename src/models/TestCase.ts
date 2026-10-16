@@ -209,6 +209,12 @@ export interface TestCase {
      */
     archived?: boolean;
     /**
+     * TCV-7051. ID of the project Trash entry while the test case is in Trash, null otherwise. Ordinary test case reads leave out a case in Trash, so the value is set only where a record keeps its link to the case, for example the `testcase` of a defect (`GET /defects/{id}`).
+     * @type {number}
+     * @memberof TestCase
+     */
+    readonly trashEntry?: number | null;
+    /**
      * True when a BDD sync (`tc sync`) created the test case from a scenario of a `.feature` file in Git. The repository owns the case, so it cannot be edited, archived, restored or deleted by hand. TCV-7034: when its scenario is removed from the repository, the sync archives the case; when the scenario comes back with the same steps, the sync restores it. So a case with both `is_bdd_managed` and `archived` true was removed from the repository.
      * @type {boolean}
      * @memberof TestCase
@@ -341,6 +347,7 @@ export function TestCaseFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'lastRunOn': json['last_run_on'] == null ? undefined : json['last_run_on'],
         'failureRate': json['failure_rate'] == null ? undefined : json['failure_rate'],
         'archived': json['archived'] == null ? undefined : json['archived'],
+        'trashEntry': json['trash_entry'] == null ? undefined : json['trash_entry'],
         'isBddManaged': json['is_bdd_managed'] == null ? undefined : json['is_bdd_managed'],
         'isReference': json['is_reference'] == null ? undefined : json['is_reference'],
         'sourceId': json['source_id'] == null ? undefined : json['source_id'],
@@ -359,7 +366,7 @@ export function TestCaseToJSON(json: any): TestCase {
     return TestCaseToJSONTyped(json, false);
 }
 
-export function TestCaseToJSONTyped(value?: Omit<TestCase, 'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
+export function TestCaseToJSONTyped(value?: Omit<TestCase, 'trash_entry'|'is_bdd_managed'> | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

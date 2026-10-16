@@ -151,7 +151,8 @@ export const TestPlanLogActivityTypeEnum = {
     Publish: 'publish',
     Run: 'run',
     FinishedRun: 'finished_run',
-    Comment: 'comment'
+    Comment: 'comment',
+    Unlink: 'unlink'
 } as const;
 export type TestPlanLogActivityTypeEnum = typeof TestPlanLogActivityTypeEnum[keyof typeof TestPlanLogActivityTypeEnum];
 

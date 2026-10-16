@@ -28,6 +28,7 @@ Name | Type
 `lastRunOn` | string
 `failureRate` | number
 `archived` | boolean
+`trashEntry` | number
 `isBddManaged` | boolean
 `isReference` | boolean
 `sourceId` | number
@@ -69,6 +70,7 @@ const example = {
   "lastRunOn": 2019-10-21T14:50:55.000Z,
   "failureRate": 0,
   "archived": false,
+  "trashEntry": null,
   "isBddManaged": false,
   "isReference": false,
   "sourceId": 1,

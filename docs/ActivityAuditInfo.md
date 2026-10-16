@@ -14,6 +14,7 @@ Name | Type
 `targetType` | string
 `targetId` | number
 `targetTitle` | string
+`testPlanId` | number
 
 ## Example
 
@@ -29,6 +30,7 @@ const example = {
   "targetType": test_case,
   "targetId": 42,
   "targetTitle": Login flow,
+  "testPlanId": 7,
 } satisfies ActivityAuditInfo
 
 console.log(example)

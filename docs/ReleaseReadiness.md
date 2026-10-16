@@ -17,6 +17,7 @@ Name | Type
 `testPlans` | [Array&lt;ReleaseReadinessTestPlan&gt;](ReleaseReadinessTestPlan.md)
 `requirementCoverage` | [ReleaseReadinessRequirementCoverage](.md)
 `customFieldCoverage` | [Array&lt;ReleaseReadinessCustomFieldCoverage&gt;](ReleaseReadinessCustomFieldCoverage.md)
+`runHistory` | [ReleaseReadinessRunHistory](.md)
 `configurationCoverage` | [Array&lt;ReleaseReadinessConfigurationCoverage&gt;](ReleaseReadinessConfigurationCoverage.md)
 
 ## Example
@@ -36,6 +37,7 @@ const example = {
   "testPlans": null,
   "requirementCoverage": null,
   "customFieldCoverage": null,
+  "runHistory": null,
   "configurationCoverage": null,
 } satisfies ReleaseReadiness
 

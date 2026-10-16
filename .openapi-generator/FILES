@@ -105,6 +105,7 @@ docs/DeleteAccountResult.md
 docs/DeleteAccountResultQueue.md
 docs/DeletedCompanyUser.md
 docs/DuplicateTestPlanPayload.md
+docs/EmptyTrashPayload.md
 docs/ExecutedTestCase.md
 docs/ExecutedTestCaseAssignPayload.md
 docs/ExecutedTestCaseBulkAddPayload.md
@@ -290,6 +291,7 @@ docs/ReleaseReadinessEvidence.md
 docs/ReleaseReadinessRequirementCoverage.md
 docs/ReleaseReadinessRequirementItem.md
 docs/ReleaseReadinessRequirementSummary.md
+docs/ReleaseReadinessRunHistory.md
 docs/ReleaseReadinessSummary.md
 docs/ReleaseReadinessTestPlan.md
 docs/ReleaseReadinessTestPlanRun.md
@@ -509,6 +511,11 @@ docs/TrainingSession.md
 docs/TrainingSessionPayload.md
 docs/TrainingSessionToken.md
 docs/TrainingSessionTokenRequest.md
+docs/TrashActionResult.md
+docs/TrashApi.md
+docs/TrashBulkRestorePayload.md
+docs/TrashItem.md
+docs/UnlinkDefectPayload.md
 docs/UpdateAttachmentPayload.md
 docs/UpdateReviewerPayload.md
 docs/UpdateReviewerResult.md
@@ -579,6 +586,7 @@ src/apis/TestPlansConfigsApi.ts
 src/apis/TestcasesCommentsApi.ts
 src/apis/TestplanlogsApi.ts
 src/apis/TestplansCommentsApi.ts
+src/apis/TrashApi.ts
 src/apis/UploadsApi.ts
 src/apis/UsersApi.ts
 src/apis/index.ts
@@ -680,6 +688,7 @@ src/models/DeleteAccountResult.ts
 src/models/DeleteAccountResultQueue.ts
 src/models/DeletedCompanyUser.ts
 src/models/DuplicateTestPlanPayload.ts
+src/models/EmptyTrashPayload.ts
 src/models/ExecutedTestCase.ts
 src/models/ExecutedTestCaseAssignPayload.ts
 src/models/ExecutedTestCaseBulkAddPayload.ts
@@ -849,6 +858,7 @@ src/models/ReleaseReadinessEvidence.ts
 src/models/ReleaseReadinessRequirementCoverage.ts
 src/models/ReleaseReadinessRequirementItem.ts
 src/models/ReleaseReadinessRequirementSummary.ts
+src/models/ReleaseReadinessRunHistory.ts
 src/models/ReleaseReadinessSummary.ts
 src/models/ReleaseReadinessTestPlan.ts
 src/models/ReleaseReadinessTestPlanRun.ts
@@ -1040,6 +1050,10 @@ src/models/TrainingSession.ts
 src/models/TrainingSessionPayload.ts
 src/models/TrainingSessionToken.ts
 src/models/TrainingSessionTokenRequest.ts
+src/models/TrashActionResult.ts
+src/models/TrashBulkRestorePayload.ts
+src/models/TrashItem.ts
+src/models/UnlinkDefectPayload.ts
 src/models/UpdateAttachmentPayload.ts
 src/models/UpdateReviewerPayload.ts
 src/models/UpdateReviewerResult.ts

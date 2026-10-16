@@ -149,7 +149,7 @@ export interface SuitesApiInterface {
     copySuite(requestParameters: CopySuiteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
 
     /**
-     * Deletes a specific suite
+     * Moves a suite and its active sub-suites and cases, including archived cases, to the project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. The subtree acts as deleted in ordinary reads, while its data and linked copies remain available for company Administrator restoration. Items already in Trash retain their own entries and expiry times. Project deletion and BDD sync archival are unchanged.
      * @summary Delete suite
      * @param {number} project Project ID
      * @param {number} id Suite ID
@@ -160,7 +160,7 @@ export interface SuitesApiInterface {
     deleteSuiteRaw(requestParameters: DeleteSuiteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
 
     /**
-     * Deletes a specific suite
+     * Moves a suite and its active sub-suites and cases, including archived cases, to the project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. The subtree acts as deleted in ordinary reads, while its data and linked copies remain available for company Administrator restoration. Items already in Trash retain their own entries and expiry times. Project deletion and BDD sync archival are unchanged.
      * Delete suite
      */
     deleteSuite(requestParameters: DeleteSuiteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
@@ -247,7 +247,7 @@ export interface SuitesApiInterface {
     setSuitesOrder(requestParameters: SetSuitesOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateActionResult>;
 
     /**
-     * Bulk action for suites
+     * Bulk action for suites. The delete action moves selected suites and their sub-suites and cases to the project\'s Trash for 60 days (TCV-7051), preserving linked copies and related data. Previously trashed items retain their own entries and expiry times. Other actions and existing permissions are unchanged.
      * @summary Bulk actions for suites
      * @param {SuitesBulkActionPayload} [suitesBulkActionPayload] Bulk action details
      * @param {*} [options] Override http request option.
@@ -257,7 +257,7 @@ export interface SuitesApiInterface {
     suitesBulkActionRaw(requestParameters: SuitesBulkActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>>;
 
     /**
-     * Bulk action for suites
+     * Bulk action for suites. The delete action moves selected suites and their sub-suites and cases to the project\'s Trash for 60 days (TCV-7051), preserving linked copies and related data. Previously trashed items retain their own entries and expiry times. Other actions and existing permissions are unchanged.
      * Bulk actions for suites
      */
     suitesBulkAction(requestParameters: SuitesBulkActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult>;
@@ -399,7 +399,7 @@ export class SuitesApi extends runtime.BaseAPI implements SuitesApiInterface {
     }
 
     /**
-     * Deletes a specific suite
+     * Moves a suite and its active sub-suites and cases, including archived cases, to the project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. The subtree acts as deleted in ordinary reads, while its data and linked copies remain available for company Administrator restoration. Items already in Trash retain their own entries and expiry times. Project deletion and BDD sync archival are unchanged.
      * Delete suite
      */
     async deleteSuiteRaw(requestParameters: DeleteSuiteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
@@ -448,7 +448,7 @@ export class SuitesApi extends runtime.BaseAPI implements SuitesApiInterface {
     }
 
     /**
-     * Deletes a specific suite
+     * Moves a suite and its active sub-suites and cases, including archived cases, to the project\'s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. The subtree acts as deleted in ordinary reads, while its data and linked copies remain available for company Administrator restoration. Items already in Trash retain their own entries and expiry times. Project deletion and BDD sync archival are unchanged.
      * Delete suite
      */
     async deleteSuite(requestParameters: DeleteSuiteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
@@ -701,7 +701,7 @@ export class SuitesApi extends runtime.BaseAPI implements SuitesApiInterface {
     }
 
     /**
-     * Bulk action for suites
+     * Bulk action for suites. The delete action moves selected suites and their sub-suites and cases to the project\'s Trash for 60 days (TCV-7051), preserving linked copies and related data. Previously trashed items retain their own entries and expiry times. Other actions and existing permissions are unchanged.
      * Bulk actions for suites
      */
     async suitesBulkActionRaw(requestParameters: SuitesBulkActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkActionResult>> {
@@ -734,7 +734,7 @@ export class SuitesApi extends runtime.BaseAPI implements SuitesApiInterface {
     }
 
     /**
-     * Bulk action for suites
+     * Bulk action for suites. The delete action moves selected suites and their sub-suites and cases to the project\'s Trash for 60 days (TCV-7051), preserving linked copies and related data. Previously trashed items retain their own entries and expiry times. Other actions and existing permissions are unchanged.
      * Bulk actions for suites
      */
     async suitesBulkAction(requestParameters: SuitesBulkActionRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkActionResult> {

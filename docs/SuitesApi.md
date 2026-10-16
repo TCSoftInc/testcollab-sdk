@@ -179,7 +179,7 @@ example().catch(console.error);
 
 Delete suite
 
-Deletes a specific suite
+Moves a suite and its active sub-suites and cases, including archived cases, to the project\&#39;s Trash for 60 days (TCV-7051). Existing delete permissions and eligibility checks still apply. The subtree acts as deleted in ordinary reads, while its data and linked copies remain available for company Administrator restoration. Items already in Trash retain their own entries and expiry times. Project deletion and BDD sync archival are unchanged.
 
 ### Example
 
@@ -629,7 +629,7 @@ example().catch(console.error);
 
 Bulk actions for suites
 
-Bulk action for suites
+Bulk action for suites. The delete action moves selected suites and their sub-suites and cases to the project\&#39;s Trash for 60 days (TCV-7051), preserving linked copies and related data. Previously trashed items retain their own entries and expiry times. Other actions and existing permissions are unchanged.
 
 ### Example
 

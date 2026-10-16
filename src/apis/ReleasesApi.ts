@@ -171,7 +171,7 @@ export interface ReleasesApiInterface {
     getRelease(requestParameters: GetReleaseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Release>;
 
     /**
-     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release. 
+     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release; `run_history` adds the same execution counts over every run. 
      * @summary Get release readiness dashboard data
      * @param {number} id Release ID
      * @param {*} [options] Override http request option.
@@ -181,7 +181,7 @@ export interface ReleasesApiInterface {
     getReleaseReadinessRaw(requestParameters: GetReleaseReadinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleaseReadiness>>;
 
     /**
-     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release. 
+     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release; `run_history` adds the same execution counts over every run. 
      * Get release readiness dashboard data
      */
     getReleaseReadiness(requestParameters: GetReleaseReadinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleaseReadiness>;
@@ -482,7 +482,7 @@ export class ReleasesApi extends runtime.BaseAPI implements ReleasesApiInterface
     }
 
     /**
-     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release. 
+     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release; `run_history` adds the same execution counts over every run. 
      * Get release readiness dashboard data
      */
     async getReleaseReadinessRaw(requestParameters: GetReleaseReadinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleaseReadiness>> {
@@ -520,7 +520,7 @@ export class ReleasesApi extends runtime.BaseAPI implements ReleasesApiInterface
     }
 
     /**
-     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release. 
+     * Returns aggregated readiness data for a release including execution summary, open defects, coverage by suite, evidence metrics, comparison to previous release, and a computed Go/No-Go verdict. Uses the latest run (regression) of each test plan in the release; `run_history` adds the same execution counts over every run. 
      * Get release readiness dashboard data
      */
     async getReleaseReadiness(requestParameters: GetReleaseReadinessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleaseReadiness> {
