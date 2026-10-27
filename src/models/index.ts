@@ -97,6 +97,7 @@ export * from './DeleteAccountResult';
 export * from './DeleteAccountResultQueue';
 export * from './DeletedCompanyUser';
 export * from './DuplicateTestPlanPayload';
+export * from './EditUserResponse';
 export * from './EmptyTrashPayload';
 export * from './ExecutedTestCase';
 export * from './ExecutedTestCaseAssignPayload';

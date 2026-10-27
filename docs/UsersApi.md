@@ -323,11 +323,11 @@ example().catch(console.error);
 
 ## editUser
 
-> User editUser(userID, userEditPayload)
+> EditUserResponse editUser(userID, userEditPayload)
 
 Edit user
 
-If user is admin, he can edit any user\&#39;s profile, otherwise he can only edit his own profile 
+If user is admin, he can edit any user\&#39;s profile, otherwise he can only edit his own profile. A successful password change revokes previous browser sessions and returns a replacement jwt for the caller. Profile-only edits do not rotate sessions. 
 
 ### Example
 
@@ -377,7 +377,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**User**](User.md)
+[**EditUserResponse**](EditUserResponse.md)
 
 ### Authorization
 
@@ -1213,7 +1213,7 @@ example().catch(console.error);
 
 Reset Password
 
-This will reset user\&#39;s password
+Reset the password and revoke previous browser sessions. When local sign-in is allowed, the response also includes a replacement jwt. When the company requires SSO, no jwt is issued and the user must sign in through that provider. 
 
 ### Example
 
@@ -1269,7 +1269,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Logged in user with JWT |  -  |
+| **200** | Password reset; sign in through SSO if required by the company |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 

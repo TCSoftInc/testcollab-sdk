@@ -18,6 +18,7 @@ import type {
   ChangeSuperAdminPayload,
   Count,
   DefaultResponseError,
+  EditUserResponse,
   ForbiddenError,
   ForgotPasswordPayload,
   GenericActionResult,
@@ -43,6 +44,8 @@ import {
     CountToJSON,
     DefaultResponseErrorFromJSON,
     DefaultResponseErrorToJSON,
+    EditUserResponseFromJSON,
+    EditUserResponseToJSON,
     ForbiddenErrorFromJSON,
     ForbiddenErrorToJSON,
     ForgotPasswordPayloadFromJSON,
@@ -239,7 +242,7 @@ export interface UsersApiInterface {
     downgradeAdmin(requestParameters: DowngradeAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
 
     /**
-     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile 
+     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile. A successful password change revokes previous browser sessions and returns a replacement jwt for the caller. Profile-only edits do not rotate sessions. 
      * @summary Edit user
      * @param {number} userID User ID
      * @param {UserEditPayload} [userEditPayload] Edited user; Except id all other fields are optional
@@ -247,13 +250,13 @@ export interface UsersApiInterface {
      * @throws {RequiredError}
      * @memberof UsersApiInterface
      */
-    editUserRaw(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>>;
+    editUserRaw(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EditUserResponse>>;
 
     /**
-     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile 
+     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile. A successful password change revokes previous browser sessions and returns a replacement jwt for the caller. Profile-only edits do not rotate sessions. 
      * Edit user
      */
-    editUser(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User>;
+    editUser(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EditUserResponse>;
 
     /**
      * Sends the instructions to reset password via email to id provided with request
@@ -435,7 +438,7 @@ export interface UsersApiInterface {
     resetAllPasswords(requestParameters: ResetAllPasswordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GenericActionResult>;
 
     /**
-     * This will reset user\'s password
+     * Reset the password and revoke previous browser sessions. When local sign-in is allowed, the response also includes a replacement jwt. When the company requires SSO, no jwt is issued and the user must sign in through that provider. 
      * @summary Reset Password
      * @param {ResetPasswordPayload} [resetPasswordPayload] user creds
      * @param {*} [options] Override http request option.
@@ -445,7 +448,7 @@ export interface UsersApiInterface {
     resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegisteredUser>>;
 
     /**
-     * This will reset user\'s password
+     * Reset the password and revoke previous browser sessions. When local sign-in is allowed, the response also includes a replacement jwt. When the company requires SSO, no jwt is issued and the user must sign in through that provider. 
      * Reset Password
      */
     resetPassword(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegisteredUser>;
@@ -730,10 +733,10 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
     }
 
     /**
-     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile 
+     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile. A successful password change revokes previous browser sessions and returns a replacement jwt for the caller. Profile-only edits do not rotate sessions. 
      * Edit user
      */
-    async editUserRaw(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<User>> {
+    async editUserRaw(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EditUserResponse>> {
         if (requestParameters['userID'] == null) {
             throw new runtime.RequiredError(
                 'userID',
@@ -767,14 +770,14 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
             body: UserEditPayloadToJSON(requestParameters['userEditPayload']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UserFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EditUserResponseFromJSON(jsonValue));
     }
 
     /**
-     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile 
+     * If user is admin, he can edit any user\'s profile, otherwise he can only edit his own profile. A successful password change revokes previous browser sessions and returns a replacement jwt for the caller. Profile-only edits do not rotate sessions. 
      * Edit user
      */
-    async editUser(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<User> {
+    async editUser(requestParameters: EditUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EditUserResponse> {
         const response = await this.editUserRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1269,7 +1272,7 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
     }
 
     /**
-     * This will reset user\'s password
+     * Reset the password and revoke previous browser sessions. When local sign-in is allowed, the response also includes a replacement jwt. When the company requires SSO, no jwt is issued and the user must sign in through that provider. 
      * Reset Password
      */
     async resetPasswordRaw(requestParameters: ResetPasswordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegisteredUser>> {
@@ -1294,7 +1297,7 @@ export class UsersApi extends runtime.BaseAPI implements UsersApiInterface {
     }
 
     /**
-     * This will reset user\'s password
+     * Reset the password and revoke previous browser sessions. When local sign-in is allowed, the response also includes a replacement jwt. When the company requires SSO, no jwt is issued and the user must sign in through that provider. 
      * Reset Password
      */
     async resetPassword(requestParameters: ResetPasswordRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegisteredUser> {

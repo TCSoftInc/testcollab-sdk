@@ -28,6 +28,13 @@ import {
  */
 export interface RegisteredUser {
     /**
+     * App session credential when local sign-in is allowed. Password recovery omits this credential when the company requires single sign-on.
+     * 
+     * @type {string}
+     * @memberof RegisteredUser
+     */
+    jwt?: string;
+    /**
      * 
      * @type {RegisteredUserUser}
      * @memberof RegisteredUser
@@ -53,6 +60,7 @@ export function RegisteredUserFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
+        'jwt': json['jwt'] == null ? undefined : json['jwt'],
         'user': RegisteredUserUserFromJSON(json['user']),
     };
 }
@@ -68,6 +76,7 @@ export function RegisteredUserToJSONTyped(value?: RegisteredUser | null, ignoreD
 
     return {
         
+        'jwt': value['jwt'],
         'user': RegisteredUserUserToJSON(value['user']),
     };
 }

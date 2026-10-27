@@ -105,6 +105,7 @@ docs/DeleteAccountResult.md
 docs/DeleteAccountResultQueue.md
 docs/DeletedCompanyUser.md
 docs/DuplicateTestPlanPayload.md
+docs/EditUserResponse.md
 docs/EmptyTrashPayload.md
 docs/ExecutedTestCase.md
 docs/ExecutedTestCaseAssignPayload.md
@@ -688,6 +689,7 @@ src/models/DeleteAccountResult.ts
 src/models/DeleteAccountResultQueue.ts
 src/models/DeletedCompanyUser.ts
 src/models/DuplicateTestPlanPayload.ts
+src/models/EditUserResponse.ts
 src/models/EmptyTrashPayload.ts
 src/models/ExecutedTestCase.ts
 src/models/ExecutedTestCaseAssignPayload.ts

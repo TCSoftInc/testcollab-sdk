@@ -6,6 +6,7 @@
 
 Name | Type
 ------------ | -------------
+`jwt` | string
 `user` | [RegisteredUserUser](RegisteredUserUser.md)
 
 ## Example
@@ -15,6 +16,7 @@ import type { RegisteredUser } from '@testcollab/sdk'
 
 // TODO: Update the object below with actual values
 const example = {
+  "jwt": null,
   "user": null,
 } satisfies RegisteredUser
 
