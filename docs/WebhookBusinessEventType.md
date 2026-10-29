@@ -1,7 +1,7 @@
 
 # WebhookBusinessEventType
 
-The 14 subscribable business events, including run creation. executed_test_case.assigned is removed for now (TCV-2175); assignment is sent as the plan\'s assigned_to in test_plan events.
+The 15 subscribable business events, including run creation and execution assignment (executed_test_case.assigned is back, TCV-7149).
 
 ## Properties
 

@@ -31,6 +31,7 @@ export const WebhookEventType = {
     TestPlanUnarchived: 'test_plan.unarchived',
     TestPlanStatusChanged: 'test_plan.status_changed',
     ExecutedTestCaseStatusChanged: 'executed_test_case.status_changed',
+    ExecutedTestCaseAssigned: 'executed_test_case.assigned',
     TestPlanRunCreated: 'test_plan_run.created',
     WebhookTest: 'webhook.test'
 } as const;
