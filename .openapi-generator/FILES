@@ -325,6 +325,8 @@ docs/ResultSummary.md
 docs/ReusableStep.md
 docs/ReusableStepPayload.md
 docs/ReusableStepsApi.md
+docs/ReviewerGroup.md
+docs/ReviewerGroupPayload.md
 docs/Risk.md
 docs/RiskAssociation.md
 docs/RiskBurndownItem.md
@@ -368,6 +370,8 @@ docs/ShareEntityPayload.md
 docs/ShareEntityResult.md
 docs/SsoToken.md
 docs/SsoTokenPayload.md
+docs/StartTestCaseReviewPayload.md
+docs/StartTestCaseReviewResult.md
 docs/Status.md
 docs/StatusCreatePayload.md
 docs/StatusUpdatePayload.md
@@ -913,6 +917,8 @@ src/models/ResetPasswordPayload.ts
 src/models/ResultSummary.ts
 src/models/ReusableStep.ts
 src/models/ReusableStepPayload.ts
+src/models/ReviewerGroup.ts
+src/models/ReviewerGroupPayload.ts
 src/models/Risk.ts
 src/models/RiskAssociation.ts
 src/models/RiskBurndownItem.ts
@@ -952,6 +958,8 @@ src/models/ShareEntityPayload.ts
 src/models/ShareEntityResult.ts
 src/models/SsoToken.ts
 src/models/SsoTokenPayload.ts
+src/models/StartTestCaseReviewPayload.ts
+src/models/StartTestCaseReviewResult.ts
 src/models/Status.ts
 src/models/StatusCreatePayload.ts
 src/models/StatusUpdatePayload.ts

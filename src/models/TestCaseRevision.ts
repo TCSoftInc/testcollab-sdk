@@ -286,7 +286,13 @@ export interface TestCaseRevision {
      * @type {number}
      * @memberof TestCaseRevision
      */
-    reviewer?: number;
+    reviewer?: number | null;
+    /**
+     * Group selected for this review, or null for an individual-only review. Before Start review, reviewer is null. After starting or Change reviewer, reviewer identifies the assigned person and this group remains for history.
+     * @type {number}
+     * @memberof TestCaseRevision
+     */
+    reviewerGroup?: number | null;
     /**
      * Poster Id (applicable when test case review feature is enabled)
      * @type {number}
@@ -380,6 +386,7 @@ export function TestCaseRevisionFromJSONTyped(json: any, ignoreDiscriminator: bo
         'sourceProject': json['source_project'] == null ? undefined : json['source_project'],
         'reviewComments': json['review_comments'] == null ? undefined : json['review_comments'],
         'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
         'poster': json['poster'] == null ? undefined : json['poster'],
         'reviewStatus': json['review_status'] == null ? undefined : json['review_status'],
         'automationStatus': json['automation_status'] == null ? undefined : json['automation_status'],
@@ -431,6 +438,7 @@ export function TestCaseRevisionToJSONTyped(value?: Omit<TestCaseRevision, 'is_b
         'source_project': value['sourceProject'],
         'review_comments': value['reviewComments'],
         'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
         'poster': value['poster'],
         'review_status': value['reviewStatus'],
         'automation_status': value['automationStatus'],

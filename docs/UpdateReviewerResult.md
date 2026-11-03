@@ -10,6 +10,7 @@ Name | Type
 `status` | boolean
 `message` | string
 `reviewer` | string
+`reviewerGroup` | number
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "status": true,
   "message": Reviewer updated successfully,
   "reviewer": null,
+  "reviewerGroup": null,
 } satisfies UpdateReviewerResult
 
 console.log(example)

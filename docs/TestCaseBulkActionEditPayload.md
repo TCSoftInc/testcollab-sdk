@@ -13,6 +13,8 @@ Name | Type
 `customFields` | [Array&lt;CustomFieldInputPayload&gt;](CustomFieldInputPayload.md)
 `requirements` | Array&lt;number&gt;
 `overwriteRequirements` | boolean
+`reviewer` | number
+`reviewerGroup` | number
 
 ## Example
 
@@ -28,6 +30,8 @@ const example = {
   "customFields": null,
   "requirements": [1,2,4],
   "overwriteRequirements": false,
+  "reviewer": null,
+  "reviewerGroup": null,
 } satisfies TestCaseBulkActionEditPayload
 
 console.log(example)

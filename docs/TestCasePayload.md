@@ -22,6 +22,7 @@ Name | Type
 `requirements` | Array&lt;number&gt;
 `posterComment` | string
 `reviewer` | number
+`reviewerGroup` | number
 `reviewStatus` | number
 `autoInfo` | string
 `defaultAssignee` | number
@@ -49,6 +50,7 @@ const example = {
   "requirements": [1,2,4],
   "posterComment": null,
   "reviewer": null,
+  "reviewerGroup": null,
   "reviewStatus": null,
   "autoInfo": null,
   "defaultAssignee": 1,

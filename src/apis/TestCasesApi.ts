@@ -500,7 +500,7 @@ export interface TestCasesApiInterface {
     updateAttachments(requestParameters: UpdateAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TestCase>;
 
     /**
-     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process.
+     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process. TCV-6658: send reviewer_group instead of reviewer to send the review to another reviewer group; the review then waits for a group member to start it. Sending a reviewer clears the reviewer group.
      * @summary Update test case reviewer
      * @param {number} id Test Case ID
      * @param {UpdateReviewerPayload} [updateReviewerPayload] 
@@ -511,7 +511,7 @@ export interface TestCasesApiInterface {
     updateReviewerRaw(requestParameters: UpdateReviewerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewerResult>>;
 
     /**
-     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process.
+     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process. TCV-6658: send reviewer_group instead of reviewer to send the review to another reviewer group; the review then waits for a group member to start it. Sending a reviewer clears the reviewer group.
      * Update test case reviewer
      */
     updateReviewer(requestParameters: UpdateReviewerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewerResult>;
@@ -1420,7 +1420,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process.
+     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process. TCV-6658: send reviewer_group instead of reviewer to send the review to another reviewer group; the review then waits for a group member to start it. Sending a reviewer clears the reviewer group.
      * Update test case reviewer
      */
     async updateReviewerRaw(requestParameters: UpdateReviewerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewerResult>> {
@@ -1461,7 +1461,7 @@ export class TestCasesApi extends runtime.BaseAPI implements TestCasesApiInterfa
     }
 
     /**
-     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process.
+     * Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process. TCV-6658: send reviewer_group instead of reviewer to send the review to another reviewer group; the review then waits for a group member to start it. Sending a reviewer clears the reviewer group.
      * Update test case reviewer
      */
     async updateReviewer(requestParameters: UpdateReviewerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewerResult> {

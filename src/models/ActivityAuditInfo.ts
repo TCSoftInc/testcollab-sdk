@@ -75,6 +75,36 @@ export interface ActivityAuditInfo {
      * @memberof ActivityAuditInfo
      */
     testPlanId?: number;
+    /**
+     * Group selected for the review that was started.
+     * @type {number}
+     * @memberof ActivityAuditInfo
+     */
+    reviewerGroup?: number;
+    /**
+     * Group name at the time the review started, retained for history.
+     * @type {string}
+     * @memberof ActivityAuditInfo
+     */
+    reviewerGroupName?: string;
+    /**
+     * User who started the review and became its assigned reviewer.
+     * @type {number}
+     * @memberof ActivityAuditInfo
+     */
+    reviewer?: number;
+    /**
+     * User IDs added to the reviewer group by this activity.
+     * @type {Array<number>}
+     * @memberof ActivityAuditInfo
+     */
+    addedReviewers?: Array<number>;
+    /**
+     * User IDs removed from the reviewer group by this activity.
+     * @type {Array<number>}
+     * @memberof ActivityAuditInfo
+     */
+    removedReviewers?: Array<number>;
 }
 
 
@@ -114,6 +144,11 @@ export function ActivityAuditInfoFromJSONTyped(json: any, ignoreDiscriminator: b
         'targetId': json['target_id'] == null ? undefined : json['target_id'],
         'targetTitle': json['target_title'] == null ? undefined : json['target_title'],
         'testPlanId': json['test_plan_id'] == null ? undefined : json['test_plan_id'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
+        'reviewerGroupName': json['reviewer_group_name'] == null ? undefined : json['reviewer_group_name'],
+        'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'addedReviewers': json['added_reviewers'] == null ? undefined : json['added_reviewers'],
+        'removedReviewers': json['removed_reviewers'] == null ? undefined : json['removed_reviewers'],
     };
 }
 
@@ -136,6 +171,11 @@ export function ActivityAuditInfoToJSONTyped(value?: ActivityAuditInfo | null, i
         'target_id': value['targetId'],
         'target_title': value['targetTitle'],
         'test_plan_id': value['testPlanId'],
+        'reviewer_group': value['reviewerGroup'],
+        'reviewer_group_name': value['reviewerGroupName'],
+        'reviewer': value['reviewer'],
+        'added_reviewers': value['addedReviewers'],
+        'removed_reviewers': value['removedReviewers'],
     };
 }
 

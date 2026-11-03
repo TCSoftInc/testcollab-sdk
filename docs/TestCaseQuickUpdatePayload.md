@@ -15,6 +15,8 @@ Name | Type
 `requirements` | Array&lt;number&gt;
 `overwriteRequirements` | boolean
 `defaultAssignee` | number
+`reviewer` | number
+`reviewerGroup` | number
 
 ## Example
 
@@ -32,6 +34,8 @@ const example = {
   "requirements": [1,2,4],
   "overwriteRequirements": false,
   "defaultAssignee": 1,
+  "reviewer": null,
+  "reviewerGroup": null,
 } satisfies TestCaseQuickUpdatePayload
 
 console.log(example)

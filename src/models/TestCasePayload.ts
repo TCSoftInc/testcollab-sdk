@@ -131,6 +131,12 @@ export interface TestCasePayload {
      */
     reviewer?: number;
     /**
+     * Active reviewer group ID in this project when sending the case for review. Mutually exclusive with reviewer. Requires enabled review and at least one eligible non-author member. Members must start review before using review actions. Omit on resubmission to retain the current group and started reviewer; an existing pending assignment cannot be silently replaced.
+     * @type {number}
+     * @memberof TestCasePayload
+     */
+    reviewerGroup?: number;
+    /**
      * Review Status (applicable when test case review feature is enabled)
      * @type {number}
      * @memberof TestCasePayload
@@ -197,6 +203,7 @@ export function TestCasePayloadFromJSONTyped(json: any, ignoreDiscriminator: boo
         'requirements': json['requirements'] == null ? undefined : json['requirements'],
         'posterComment': json['poster_comment'] == null ? undefined : json['poster_comment'],
         'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
         'reviewStatus': json['review_status'] == null ? undefined : json['review_status'],
         'autoInfo': json['auto_info'] == null ? undefined : json['auto_info'],
         'defaultAssignee': json['default_assignee'] == null ? undefined : json['default_assignee'],
@@ -230,6 +237,7 @@ export function TestCasePayloadToJSONTyped(value?: TestCasePayload | null, ignor
         'requirements': value['requirements'],
         'poster_comment': value['posterComment'],
         'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
         'review_status': value['reviewStatus'],
         'auto_info': value['autoInfo'],
         'default_assignee': value['defaultAssignee'],

@@ -40,6 +40,7 @@ Name | Type
 `sourceProject` | number
 `reviewComments` | string
 `reviewer` | number
+`reviewerGroup` | number
 `poster` | number
 `reviewStatus` | number
 `automationStatus` | number
@@ -86,6 +87,7 @@ const example = {
   "sourceProject": 1,
   "reviewComments": null,
   "reviewer": null,
+  "reviewerGroup": null,
   "poster": null,
   "reviewStatus": null,
   "automationStatus": null,

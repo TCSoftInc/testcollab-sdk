@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `reviewer` | string
+`reviewerGroup` | number
 `project` | number
 
 ## Example
@@ -17,6 +18,7 @@ import type { UpdateReviewerPayload } from '@testcollab/sdk'
 // TODO: Update the object below with actual values
 const example = {
   "reviewer": null,
+  "reviewerGroup": null,
   "project": null,
 } satisfies UpdateReviewerPayload
 

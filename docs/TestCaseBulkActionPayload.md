@@ -13,6 +13,7 @@ Name | Type
 `resumeFrom` | number
 `editParams` | [TestCaseBulkActionEditPayload](TestCaseBulkActionEditPayload.md)
 `reviewers` | Array&lt;number&gt;
+`reviewerGroup` | number
 
 ## Example
 
@@ -28,6 +29,7 @@ const example = {
   "resumeFrom": null,
   "editParams": null,
   "reviewers": null,
+  "reviewerGroup": null,
 } satisfies TestCaseBulkActionPayload
 
 console.log(example)

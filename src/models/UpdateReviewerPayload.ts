@@ -20,11 +20,17 @@ import { mapValues } from '../runtime';
  */
 export interface UpdateReviewerPayload {
     /**
-     * ID of the user to set as the new reviewer
+     * ID of the user to set as the new reviewer. Clears the reviewer group of the pending review. Send either reviewer or reviewer_group.
      * @type {string}
      * @memberof UpdateReviewerPayload
      */
-    reviewer: string;
+    reviewer?: string;
+    /**
+     * ID of the active reviewer group to send the pending review to. Clears the started reviewer, so a group member must start the review again. Requires review groups to be enabled.
+     * @type {number}
+     * @memberof UpdateReviewerPayload
+     */
+    reviewerGroup?: number;
     /**
      * Project ID to validate permissions
      * @type {number}
@@ -37,7 +43,6 @@ export interface UpdateReviewerPayload {
  * Check if a given object implements the UpdateReviewerPayload interface.
  */
 export function instanceOfUpdateReviewerPayload(value: object): value is UpdateReviewerPayload {
-    if (!('reviewer' in value) || value['reviewer'] === undefined) return false;
     if (!('project' in value) || value['project'] === undefined) return false;
     return true;
 }
@@ -52,7 +57,8 @@ export function UpdateReviewerPayloadFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'reviewer': json['reviewer'],
+        'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
         'project': json['project'],
     };
 }
@@ -69,6 +75,7 @@ export function UpdateReviewerPayloadToJSONTyped(value?: UpdateReviewerPayload |
     return {
         
         'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
         'project': value['project'],
     };
 }

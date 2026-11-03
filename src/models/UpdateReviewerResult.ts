@@ -43,6 +43,12 @@ export interface UpdateReviewerResult {
      * @memberof UpdateReviewerResult
      */
     reviewer?: string;
+    /**
+     * TCV-6658. The reviewer group of the pending review, or null.
+     * @type {number}
+     * @memberof UpdateReviewerResult
+     */
+    reviewerGroup?: number | null;
 }
 
 /**
@@ -66,6 +72,7 @@ export function UpdateReviewerResultFromJSONTyped(json: any, ignoreDiscriminator
         'status': json['status'] == null ? undefined : json['status'],
         'message': json['message'] == null ? undefined : json['message'],
         'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
     };
 }
 
@@ -84,6 +91,7 @@ export function UpdateReviewerResultToJSONTyped(value?: UpdateReviewerResult | n
         'status': value['status'],
         'message': value['message'],
         'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
     };
 }
 

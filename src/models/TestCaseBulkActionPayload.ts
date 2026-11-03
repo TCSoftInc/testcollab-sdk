@@ -64,11 +64,17 @@ export interface TestCaseBulkActionPayload {
      */
     editParams?: TestCaseBulkActionEditPayload;
     /**
-     * List of user ids (as reviewers)
+     * Existing primary and secondary reviewer user IDs for actionType review. Secondary is the author-conflict fallback, not a reviewer group. Mutually exclusive with reviewer_group.
      * @type {Array<number>}
      * @memberof TestCaseBulkActionPayload
      */
     reviewers?: Array<number>;
+    /**
+     * Active project reviewer group ID for actionType review. Mutually exclusive with reviewers. Requires an eligible non-author member for each case and the existing authority to change assignments of cases already under review.
+     * @type {number}
+     * @memberof TestCaseBulkActionPayload
+     */
+    reviewerGroup?: number;
 }
 
 /**
@@ -98,6 +104,7 @@ export function TestCaseBulkActionPayloadFromJSONTyped(json: any, ignoreDiscrimi
         'resumeFrom': json['resumeFrom'] == null ? undefined : json['resumeFrom'],
         'editParams': json['editParams'] == null ? undefined : TestCaseBulkActionEditPayloadFromJSON(json['editParams']),
         'reviewers': json['reviewers'] == null ? undefined : json['reviewers'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
     };
 }
 
@@ -119,6 +126,7 @@ export function TestCaseBulkActionPayloadToJSONTyped(value?: TestCaseBulkActionP
         'resumeFrom': value['resumeFrom'],
         'editParams': TestCaseBulkActionEditPayloadToJSON(value['editParams']),
         'reviewers': value['reviewers'],
+        'reviewer_group': value['reviewerGroup'],
     };
 }
 

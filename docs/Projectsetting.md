@@ -1,6 +1,7 @@
 
 # Projectsetting
 
+For setting_type review, review_groups_enabled is \"1\" to enable saved reviewer groups or \"0\" to disable them (the default). It is configurable only while review is enabled. default_reviewer_group stores an active reviewer group ID from this project as a string; an empty value clears it. It is configurable when review is enabled. With mandatory review, the UI pre-fills this group on add/edit/bulk edit when there is no explicit selection or existing assignment. Individual default settings retain their existing meaning.
 
 ## Properties
 

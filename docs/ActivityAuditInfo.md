@@ -15,6 +15,11 @@ Name | Type
 `targetId` | number
 `targetTitle` | string
 `testPlanId` | number
+`reviewerGroup` | number
+`reviewerGroupName` | string
+`reviewer` | number
+`addedReviewers` | Array&lt;number&gt;
+`removedReviewers` | Array&lt;number&gt;
 
 ## Example
 
@@ -31,6 +36,11 @@ const example = {
   "targetId": 42,
   "targetTitle": Login flow,
   "testPlanId": 7,
+  "reviewerGroup": 1,
+  "reviewerGroupName": L1 reviewers,
+  "reviewer": 11,
+  "addedReviewers": null,
+  "removedReviewers": null,
 } satisfies ActivityAuditInfo
 
 console.log(example)

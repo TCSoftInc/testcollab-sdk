@@ -81,6 +81,18 @@ export interface TestCaseQuickUpdatePayload {
      * @memberof TestCaseQuickUpdatePayload
      */
     defaultAssignee?: number | null;
+    /**
+     * Reviewer for the new review revisions created by this bulk edit. Mutually exclusive with reviewer_group. Existing eligibility and author checks apply.
+     * @type {number}
+     * @memberof TestCaseQuickUpdatePayload
+     */
+    reviewer?: number;
+    /**
+     * Active group in this project for the new review revisions. Mutually exclusive with reviewer. Every affected case needs an eligible non-author member. Existing restrictions on editing pending reviews still apply. Omitting both fields retains the existing automatic reviewer fallback.
+     * @type {number}
+     * @memberof TestCaseQuickUpdatePayload
+     */
+    reviewerGroup?: number;
 }
 
 
@@ -122,6 +134,8 @@ export function TestCaseQuickUpdatePayloadFromJSONTyped(json: any, ignoreDiscrim
         'requirements': json['requirements'] == null ? undefined : json['requirements'],
         'overwriteRequirements': json['overwrite_requirements'] == null ? undefined : json['overwrite_requirements'],
         'defaultAssignee': json['default_assignee'] == null ? undefined : json['default_assignee'],
+        'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
     };
 }
 
@@ -145,6 +159,8 @@ export function TestCaseQuickUpdatePayloadToJSONTyped(value?: TestCaseQuickUpdat
         'requirements': value['requirements'],
         'overwrite_requirements': value['overwriteRequirements'],
         'default_assignee': value['defaultAssignee'],
+        'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
     };
 }
 

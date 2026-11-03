@@ -69,6 +69,18 @@ export interface TestCaseBulkActionEditPayload {
      * @memberof TestCaseBulkActionEditPayload
      */
     overwriteRequirements?: boolean;
+    /**
+     * Reviewer user ID. Mutually exclusive with reviewer_group.
+     * @type {number}
+     * @memberof TestCaseBulkActionEditPayload
+     */
+    reviewer?: number;
+    /**
+     * Active project reviewer group ID. Requires enabled review and an eligible non-author member for each case. Mutually exclusive with reviewer.
+     * @type {number}
+     * @memberof TestCaseBulkActionEditPayload
+     */
+    reviewerGroup?: number;
 }
 
 
@@ -107,6 +119,8 @@ export function TestCaseBulkActionEditPayloadFromJSONTyped(json: any, ignoreDisc
         'customFields': json['custom_fields'] == null ? undefined : ((json['custom_fields'] as Array<any>).map(CustomFieldInputPayloadFromJSON)),
         'requirements': json['requirements'] == null ? undefined : json['requirements'],
         'overwriteRequirements': json['overwrite_requirements'] == null ? undefined : json['overwrite_requirements'],
+        'reviewer': json['reviewer'] == null ? undefined : json['reviewer'],
+        'reviewerGroup': json['reviewer_group'] == null ? undefined : json['reviewer_group'],
     };
 }
 
@@ -128,6 +142,8 @@ export function TestCaseBulkActionEditPayloadToJSONTyped(value?: TestCaseBulkAct
         'custom_fields': value['customFields'] == null ? undefined : ((value['customFields'] as Array<any>).map(CustomFieldInputPayloadToJSON)),
         'requirements': value['requirements'],
         'overwrite_requirements': value['overwriteRequirements'],
+        'reviewer': value['reviewer'],
+        'reviewer_group': value['reviewerGroup'],
     };
 }
 

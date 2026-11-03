@@ -1426,7 +1426,7 @@ example().catch(console.error);
 
 Update test case reviewer
 
-Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process.
+Updates the reviewer of a test case that is currently under review. This service allows changing the reviewer even when a test case is already in the review process. TCV-6658: send reviewer_group instead of reviewer to send the review to another reviewer group; the review then waits for a group member to start it. Sending a reviewer clears the reviewer group.
 
 ### Example
 
@@ -1493,6 +1493,7 @@ example().catch(console.error);
 |-------------|-------------|------------------|
 | **200** | Reviewer updated successfully |  -  |
 | **400** | Bad Request - Missing or invalid input |  -  |
+| **403** | Forbidden - The caller cannot change the reviewer, or review groups are not enabled |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **500** | Internal Server Error |  -  |
 
