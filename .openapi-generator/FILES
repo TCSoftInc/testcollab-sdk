@@ -540,6 +540,7 @@ docs/UserProject.md
 docs/UsersApi.md
 docs/ValidatePublicTokenResult.md
 docs/VerifyEmailPayload.md
+docs/VideoPlayback.md
 docs/Webhook.md
 docs/WebhookBusinessEventType.md
 docs/WebhookCopyItem.md
@@ -1107,6 +1108,7 @@ src/models/UserPreference.ts
 src/models/UserProject.ts
 src/models/ValidatePublicTokenResult.ts
 src/models/VerifyEmailPayload.ts
+src/models/VideoPlayback.ts
 src/models/Webhook.ts
 src/models/WebhookBusinessEventType.ts
 src/models/WebhookCopyItem.ts

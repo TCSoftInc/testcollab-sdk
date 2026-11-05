@@ -485,6 +485,7 @@ export * from './UserPreference';
 export * from './UserProject';
 export * from './ValidatePublicTokenResult';
 export * from './VerifyEmailPayload';
+export * from './VideoPlayback';
 export * from './Webhook';
 export * from './WebhookBusinessEventType';
 export * from './WebhookCopyItem';
