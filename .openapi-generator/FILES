@@ -56,6 +56,10 @@ docs/CSVImportSettings.md
 docs/CancelSubscriptionPayload.md
 docs/CasesPassed.md
 docs/ChangeSuperAdminPayload.md
+docs/Changelog.md
+docs/ChangelogEntry.md
+docs/ChangelogReadPayload.md
+docs/ChangelogReadState.md
 docs/ClearAllNotificationPayload.md
 docs/CompaniesApi.md
 docs/Company.md
@@ -675,6 +679,10 @@ src/models/CSVImportSettings.ts
 src/models/CancelSubscriptionPayload.ts
 src/models/CasesPassed.ts
 src/models/ChangeSuperAdminPayload.ts
+src/models/Changelog.ts
+src/models/ChangelogEntry.ts
+src/models/ChangelogReadPayload.ts
+src/models/ChangelogReadState.ts
 src/models/ClearAllNotificationPayload.ts
 src/models/Company.ts
 src/models/CompanyCreatePayload.ts
