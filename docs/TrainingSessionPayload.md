@@ -15,6 +15,7 @@ Name | Type
 `tokensConsumed` | number
 `result` | string
 `status` | string
+`failureReason` | string
 `videoUrl` | string
 `created` | Date
 `project` | number
@@ -37,6 +38,7 @@ const example = {
   "tokensConsumed": null,
   "result": null,
   "status": null,
+  "failureReason": null,
   "videoUrl": null,
   "created": null,
   "project": null,

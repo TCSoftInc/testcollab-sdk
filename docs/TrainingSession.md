@@ -16,6 +16,7 @@ Name | Type
 `tokensConsumed` | number
 `result` | string
 `status` | string
+`failureReason` | string
 `videoUrl` | string
 `project` | number
 `company` | number
@@ -39,6 +40,8 @@ const example = {
   "tokensConsumed": 1245,
   "result": passed,
   "status": inprogress,
+  "failureReason": Training stopped before step 1. The browser couldn't open app.example.com because the site's certificate was outside its validity period. Check the certificate dates and retry.
+Browser error: net::ERR_CERT_DATE_INVALID,
   "videoUrl": https://example.com/training_session_3201.mp4,
   "project": 11,
   "company": 3,

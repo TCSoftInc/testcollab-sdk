@@ -88,6 +88,12 @@ export interface TrainingSession {
      */
     status: TrainingSessionStatusEnum;
     /**
+     * Plain-language reason why this training attempt failed or stopped, as recorded by QA Copilot. Null while the session runs, after it passes, and for sessions recorded before this field existed.
+     * @type {string}
+     * @memberof TrainingSession
+     */
+    failureReason?: string | null;
+    /**
      * Optional training video recorded for this session
      * @type {string}
      * @memberof TrainingSession
@@ -173,6 +179,7 @@ export function TrainingSessionFromJSONTyped(json: any, ignoreDiscriminator: boo
         'tokensConsumed': json['tokens_consumed'] == null ? undefined : json['tokens_consumed'],
         'result': json['result'] == null ? undefined : json['result'],
         'status': json['status'],
+        'failureReason': json['failure_reason'] == null ? undefined : json['failure_reason'],
         'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
         'project': json['project'] == null ? undefined : json['project'],
         'company': json['company'] == null ? undefined : json['company'],
@@ -202,6 +209,7 @@ export function TrainingSessionToJSONTyped(value?: TrainingSession | null, ignor
         'tokens_consumed': value['tokensConsumed'],
         'result': value['result'],
         'status': value['status'],
+        'failure_reason': value['failureReason'],
         'video_url': value['videoUrl'],
         'project': value['project'],
         'company': value['company'],

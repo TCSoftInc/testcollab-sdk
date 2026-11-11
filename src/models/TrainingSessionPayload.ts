@@ -82,6 +82,12 @@ export interface TrainingSessionPayload {
      */
     status?: TrainingSessionPayloadStatusEnum;
     /**
+     * Plain-language reason why the session failed or stopped. Send it with status failed or stopped. The API keeps at most 2,000 characters.
+     * @type {string}
+     * @memberof TrainingSessionPayload
+     */
+    failureReason?: string | null;
+    /**
      * Optional training video URL
      * @type {string}
      * @memberof TrainingSessionPayload
@@ -162,6 +168,7 @@ export function TrainingSessionPayloadFromJSONTyped(json: any, ignoreDiscriminat
         'tokensConsumed': json['tokens_consumed'] == null ? undefined : json['tokens_consumed'],
         'result': json['result'] == null ? undefined : json['result'],
         'status': json['status'] == null ? undefined : json['status'],
+        'failureReason': json['failure_reason'] == null ? undefined : json['failure_reason'],
         'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
         'created': json['created'] == null ? undefined : (new Date(json['created'])),
         'project': json['project'] == null ? undefined : json['project'],
@@ -190,6 +197,7 @@ export function TrainingSessionPayloadToJSONTyped(value?: Omit<TrainingSessionPa
         'tokens_consumed': value['tokensConsumed'],
         'result': value['result'],
         'status': value['status'],
+        'failure_reason': value['failureReason'],
         'video_url': value['videoUrl'],
         'created': value['created'] == null ? value['created'] : value['created'].toISOString(),
     };
