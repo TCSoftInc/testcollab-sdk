@@ -37,6 +37,13 @@ export interface SendVerificationPayload {
      * @memberof SendVerificationPayload
      */
     utmCampaign?: string;
+    /**
+     * Cloudflare Turnstile token from the signup form. The server checks it when TURNSTILE_SECRET_KEY is set. The marketing site sends the same value in the cf-turnstile-response form field.
+     * 
+     * @type {string}
+     * @memberof SendVerificationPayload
+     */
+    turnstileToken?: string;
 }
 
 /**
@@ -60,6 +67,7 @@ export function SendVerificationPayloadFromJSONTyped(json: any, ignoreDiscrimina
         'email': json['email'],
         'entry': json['entry'] == null ? undefined : json['entry'],
         'utmCampaign': json['utm_campaign'] == null ? undefined : json['utm_campaign'],
+        'turnstileToken': json['turnstile_token'] == null ? undefined : json['turnstile_token'],
     };
 }
 
@@ -77,6 +85,7 @@ export function SendVerificationPayloadToJSONTyped(value?: SendVerificationPaylo
         'email': value['email'],
         'entry': value['entry'],
         'utm_campaign': value['utmCampaign'],
+        'turnstile_token': value['turnstileToken'],
     };
 }
 

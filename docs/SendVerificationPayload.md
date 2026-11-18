@@ -9,6 +9,7 @@ Name | Type
 `email` | string
 `entry` | string
 `utmCampaign` | string
+`turnstileToken` | string
 
 ## Example
 
@@ -20,6 +21,7 @@ const example = {
   "email": dnyanesh@gigapromoters.com,
   "entry": ai-test-case-generation,
   "utmCampaign": spring-ppc,
+  "turnstileToken": 0.zrSnRHO7h0HwSjSCU8oyzbjEtD8p.d62306d4ee00c77dda697f959ebbd7bd97,
 } satisfies SendVerificationPayload
 
 console.log(example)
